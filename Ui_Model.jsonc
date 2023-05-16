@@ -1,0 +1,49 @@
+{   "model_id": "",
+    "model_name": "",
+    "elements":
+    [{
+        "element_id": "", 
+        "element_name": "",
+        "element_interaction":{
+            "dom": {
+                "text":"",
+                "attributes":[{
+                    "name":"",
+                    "value":""
+                }],
+                "tag":"",
+                "path":""
+            },
+            "surface":{
+                "point":{
+                    "absolute_coordinates": {
+                        "x": "",
+                        "y": ""
+                    },
+                    "relative_coordinates": {
+                        "x": "",
+                        "y": ""
+                    }
+                },
+                "region":{
+                    "absolute_coordinates": {
+                        "left": "",
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                    },
+                    "relative_coordinates": {
+                        "left": "",
+                        "top": "",
+                        "right": "",
+                        "bottom": "",
+                    },
+                },
+                "image": ""
+            },
+            "other": {
+                "keyboard_shortcut":""
+            }
+        }     
+    }]
+}
