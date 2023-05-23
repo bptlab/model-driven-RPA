@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.11.3 on darwin)" generated="20230519 03:52:14.536" rpa="true" schemaversion="3">
+<suite id="s1" name="My-Rsb-Robot" source="/Users/alihussainkazmi/desktop/my-rsb-robot">
+<suite id="s1-s1" name="Tasks" source="/Users/alihussainkazmi/desktop/my-rsb-robot/tasks.robot">
+<test id="s1-s1-t1" name="Get Data from JSON and use that in robot" line="12">
+<kw name="Open the website">
+<kw name="Get File" library="OperatingSystem">
+<var>${json_data}</var>
+<arg>test.json</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20230519 03:52:14.882" level="INFO" html="true">Getting file '&lt;a href="file:///Users/alihussainkazmi/Desktop/my-rsb-robot/test.json"&gt;/Users/alihussainkazmi/Desktop/my-rsb-robot/test.json&lt;/a&gt;'.</msg>
+<msg timestamp="20230519 03:52:14.882" level="INFO">${json_data} = {
+    "Link": "http://localhost:3000",
+    "Button_ID":"register",
+    "Field_1":"",
+    "Field_2":"",
+    "Field_3":"",
+    "Field_4":"",
+    "Field_5":""
+  }</msg>
+<status status="PASS" starttime="20230519 03:52:14.882" endtime="20230519 03:52:14.882"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${json_dict}</var>
+<arg>json.loads('''${json_data}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230519 03:52:14.882" level="INFO">${json_dict} = {'Link': 'http://localhost:3000', 'Button_ID': 'register', 'Field_1': '', 'Field_2': '', 'Field_3': '', 'Field_4': '', 'Field_5': ''}</msg>
+<status status="PASS" starttime="20230519 03:52:14.882" endtime="20230519 03:52:14.882"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${link}</var>
+<arg>${json_dict["Link"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230519 03:52:14.883" level="INFO">${link} = http://localhost:3000</msg>
+<status status="PASS" starttime="20230519 03:52:14.882" endtime="20230519 03:52:14.883"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${link}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230519 03:52:14.883" endtime="20230519 03:52:14.883"/>
+</kw>
+<kw name="Open Available Browser" library="RPA.Browser.Selenium">
+<arg>${link}</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<msg timestamp="20230519 03:52:14.883" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230519 03:52:14.883" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<msg timestamp="20230519 03:52:18.665" level="INFO">Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg timestamp="20230519 03:52:18.665" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg timestamp="20230519 03:52:18.665" level="INFO">Opening url 'http://localhost:3000'</msg>
+<status status="PASS" starttime="20230519 03:52:14.883" endtime="20230519 03:52:19.177"/>
+</kw>
+<status status="PASS" starttime="20230519 03:52:14.882" endtime="20230519 03:52:19.178"/>
+</kw>
+<kw name="Perform Actions Test">
+<kw name="Get File" library="OperatingSystem">
+<var>${json_data}</var>
+<arg>test.json</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20230519 03:52:19.179" level="INFO" html="true">Getting file '&lt;a href="file:///Users/alihussainkazmi/Desktop/my-rsb-robot/test.json"&gt;/Users/alihussainkazmi/Desktop/my-rsb-robot/test.json&lt;/a&gt;'.</msg>
+<msg timestamp="20230519 03:52:19.179" level="INFO">${json_data} = {
+    "Link": "http://localhost:3000",
+    "Button_ID":"register",
+    "Field_1":"",
+    "Field_2":"",
+    "Field_3":"",
+    "Field_4":"",
+    "Field_5":""
+  }</msg>
+<status status="PASS" starttime="20230519 03:52:19.178" endtime="20230519 03:52:19.179"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${json_dict}</var>
+<arg>json.loads('''${json_data}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230519 03:52:19.179" level="INFO">${json_dict} = {'Link': 'http://localhost:3000', 'Button_ID': 'register', 'Field_1': '', 'Field_2': '', 'Field_3': '', 'Field_4': '', 'Field_5': ''}</msg>
+<status status="PASS" starttime="20230519 03:52:19.179" endtime="20230519 03:52:19.179"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${button_id}</var>
+<arg>${json_dict["Button_ID"]}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230519 03:52:19.179" level="INFO">${button_id} = register</msg>
+<status status="PASS" starttime="20230519 03:52:19.179" endtime="20230519 03:52:19.179"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
+<arg>id=${button_id}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20230519 03:52:19.179" endtime="20230519 03:52:19.186"/>
+</kw>
+<kw name="Click Element" library="RPA.Browser.Selenium">
+<arg>${button_id}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230519 03:52:19.186" level="INFO">Clicking element 'register'.</msg>
+<status status="PASS" starttime="20230519 03:52:19.186" endtime="20230519 03:52:19.235"/>
+</kw>
+<status status="PASS" starttime="20230519 03:52:19.178" endtime="20230519 03:52:19.235"/>
+</kw>
+<status status="PASS" starttime="20230519 03:52:14.881" endtime="20230519 03:52:19.235"/>
+</test>
+<doc>Get Data from JSON and use that in robot.</doc>
+<status status="PASS" starttime="20230519 03:52:14.543" endtime="20230519 03:52:19.235"/>
+</suite>
+<status status="PASS" starttime="20230519 03:52:14.536" endtime="20230519 03:52:19.236"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="My-Rsb-Robot">My-Rsb-Robot</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Tasks">My-Rsb-Robot.Tasks</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

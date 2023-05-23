@@ -1,0 +1,44 @@
+/* Theme Color */
+.header .nav li a::before,.header .nav li .sub-menu li:hover a,.header .nav li .sub-menu li .sub-menu li a:hover,.cart-items span,.sidebar-popup .social li a:hover,.sidebar-popup .social li.active a,.header.style2 .bizwheel-btn,.single-news .more,.comment-reply-link,.pagination-main .pagination-list li.active a,.pagination-main .pagination-list li:hover a,.blog-sidebar .subscribe form button,.widget_tag_cloud .tagcloud a:hover,.widget_tag_cloud .tagcloud a:hover,.search-form input[type="submit"],.search-form input[type="submit"]:hover,#calendar_wrap #wp-calendar caption,#calendar_wrap #wp-calendar tbody tr a,.footer-about .button .bizwheel-btn,.hero-agency .video-head .video,.blog-single .blog-detail blockquote cite,.blog-comments-form .form .bizwheel-btn.single-feature.active .icon-head i,.blog-sidebar .tagcloud a:hover,.single-feature:hover .icon-head i,.single-feature.active .bizwheel-btn i,.single-feature:hover .bizwheel-btn  i,blog-single .blog-detail blockquote cite,.single-service:hover .icon-bg,.call-action.overlay:before,.comment-form button.btn,.pf-details .single-content h1:before,.blog-latest .single-news .bizwheel-btn:hover,.single-skill .progress .progress-bar,.single-pricing.active .icon-head,.single-pricing:hover .icon-head,.single-pricing .p-best,.posts_nav a:hover,.single-contact-box:hover i,.img-feature .video-play:hover a,.img-feature .experience,.modern-img-feature:before,.slicknav_menu .slicknav_icon-bar,.side.overlay:before,.pagination-plugin span.current,.pagination-plugin a:hover,#scrollUp i:hover,.overlay.primary:before,.bizwheel-btn {
+	background-color: #1ABC9C;
+}
+
+.header .nav li.active a,.header .nav li:hover a,.sidebar-popup .links li a:hover,.bizwheel_widget_search button,.header.style2 .bizwheel-btn:hover,.single-news .news-meta .author span,.single-news .news-title:hover a,.blog-single .share-inner ul li a:hover,.comment-form .form-group label span,.comment-form .comment-message label span,.elena-options .icon,.breadcrumbs.style2 ul li a:hover,.pagination-main .pagination-list li a,.pagination-main .pagination-list li.next:hover a,.hero-agency .video-head .video:hover,.widget_nav_menu ul li a:hover:before,.widget_categories ul li a:hover:before,.widget_nav_menu ul li a:hover,.widget_categories ul li a:hover,.widget_categories ul li a span,.widget_rss .rss-date,.slicknav_nav li a:hover,.slicknav_nav li .dropdown li a:hover,#calendar_wrap #wp-calendar tfoot tr a:hover,.footer-about .button .bizwheel-btn:hover,.footer .address-widget-list li span,.single-service .icon-bg,.single-portfolio .portfolio-content .zoom,.single-portfolio .portfolio-content h4:hover a,.testimonial-inner .star-list li i,.single-counter .icon i,.single-team .t-content .name a:hover,.blog-latest .single-news .bizwheel-btn,.single-pricing .button p i,.comment-form .form-group i,.comment-form .comment-message i,.wpb-js-composer div.vc_tta.vc_general.vc_tta-accordion .vc_tta-icon,.img-feature .video-play a,.img-feature .small-icon,.posts_nav a,.img-feature .experience:hover .small-icon,#scrollUp i{
+	color:  #1ABC9C;
+}
+.comment-list .bottom-title h2.comments-heading a,.bizwheel_widget_search button:hover,.single-f-news .title:hover a,.single-f-news .post-meta i{
+	color:  #1ABC9C !important;
+}
+.comment-form .form-group input:hover,.comment-form .comment-message textarea:hover,.preloader-spinner,.testimonial-inner .single-slider:hover .t-info img,.single-client:hover img{
+	border-color:  #1ABC9C;
+}
+blockquote,.single-portfolio .portfolio-content{
+	border-left-color:  #1ABC9C;
+}
+.hero-agency .a-feature,.single-feature:hover,.single-feature.active,.pf-details .portfolio-meta,.contact-form-area{
+	border-top-color:  #1ABC9C;
+}
+			
+/* Theme Secondary Color */
+.right-bar:after,.search-top .search-form button:hover,.breadcrumbs .bread-menu:before,.sidebar-popup .cross .btn:hover,.header.style2 .nav li a::before,.widget .widget-title::before,.footer .widget_nav_menu ul li:hover:before,.hero-slider .hero-text h1::before,.hero-slider .owl-carousel .owl-nav div,.breadcrumb.blog-single span::before,.single-feature .icon-head i::after,.features-main .single-list-feature i:after,.header.style2 .nav li .sub-menu li .sub-menu li:hover a,.call-action .bizwheel-btn,.call-action .call-text i,.single-portfolio .more,.pf-details .pf-details-slider .owl-nav div,.testimonial-slider .owl-controls .owl-dot:hover span,.testimonial-slider .owl-controls .owl-dot.active span,.single-counter:hover .icon:before,.single-counter:hover .icon i,.single-team .team-arrow a:hover,.header.style2 .nav li .sub-menu li:hover a,.single-team .t-content .designation::before,.team-slider .owl-controls .owl-dot:hover span,.team-slider .owl-controls .owl-dot.active span,.footer .f-link ul li:hover:before,.news-slider.owl-carousel .owl-nav div,.mc4wp-form .mc4wp-form-fields input[type="submit"],.blog-latest.owl-carousel .owl-nav div,.single-skill .progress .progress-bar span,.modern-img-feature .video-play:hover a,.blog-single ul li::before,.small-list-feature ul li:hover i,.section-title h1 span,.bizwheel-btn.theme-2{
+	background-color: #FC6761;
+}
+
+.topbar .single-contact i,.topbar-right .button .bizwheel-btn,.breadcrumbs .bread-menu span:hover,.topbar .social-icons li a:hover,.right-bar .right-nav li a:hover,.footer .copyright-content a:hover,.header.style2 .topbar .social-icons li:hover a,.single-news .news-meta li i,.error .error-inner h2 span,.footer .single-f-news .title a:hover,.footer .widget_nav_menu ul li a:hover,.footer .single-f-news .post-meta i,.footer .address-widget-list li:hover i,.right-bar .right-nav li a:hover,.right-bar .right-nav li a:hover,.hero-agency .a-feature i,.blog-detail .news-meta li i,.single-feature .icon-head i,.features-main .single-list-feature i,.features-main .bizwheel-btn:hover,.single-service h4:hover a,.single-service:hover .btn,.call-action .bizwheel-btn:hover,.error-inner h4,#portfolio-nav li.active,#portfolio-nav li:hover,.single-portfolio .more:hover,.widget ul li a:hover,.footer .f-link ul li a:hover,.pf-details .portfolio-meta ul li i,.header.style2 .nav li:hover a,.testimonial-inner .t-right .quote,.single-counter h3 span,.single-team .team-social li a:hover,.single-pricing .icon-head,.single-pricing .price span,.contact-form-area .form-group .icon,.contact-form-area.faq-form .form-group.button .bizwheel-btn:hover,.modern-img-feature .video-play a,.small-list-feature ul li i{
+	color: #FC6761;
+}
+.partner-slider.owl-carousel .owl-nav div{
+	color: #FC6761; !important;
+}
+.hero-agency .a-feature:hover,.single-skill .progress .progress-bar span::before,.section-title h1 span:before{
+	border-top-color: #FC6761;
+}
+.sidebar-popup,.sidebar-popup{
+	border-left-color: #FC6761;
+}
+.hero-slider.style4 .button .techopz-btn:hover,.comment-list .bottom-title h2.comments-heading a,.single-f-news .title:hover a,.single-f-news .post-meta i,.widget ul li a:hover,.hero-agency .hero-text h1 span{
+	color: #FC6761; !important;
+}	
+.preloader-spinner,.testimonial-slider .owl-controls .owl-dot span,.team-slider .owl-controls .owl-dot span{
+	border-color: #FC6761;
+}
