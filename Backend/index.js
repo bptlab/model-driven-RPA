@@ -21,7 +21,7 @@ app.post('/run-robot', (req, res) => {
 
 
     const robotCommand = '/usr/local/bin/robot';
-    const robotFilePath = '/Users/alihussainkazmi/Desktop/my-rsb-robot';
+    const robotFilePath = '/Users/alihussainkazmi/Desktop/Model_Driven_RPA/my-rsb-robot';
 
     exec(`robot ${robotFilePath}`, (error, stdout, stderr) => {
       if (error) {

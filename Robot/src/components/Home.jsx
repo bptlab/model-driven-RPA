@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom'
 import axios from 'axios';
-
+import Screenshot from '../images/screenshot_1.png'
 function Home() {
   const [link, setLink] = useState("");
   const [from, setFrom] = useState("");
@@ -11,35 +11,27 @@ function Home() {
   const handleRobot = () => {
     const object_JSON = {
       Link: link,
-      elements:[
-        {
-          homePageRegister:'homePageRegister'
-        },
-        {
-          firstNameSignup:'firstNameSignup',
-          lastNameSignup:'lastNameSignup',
-          passwordSignup:'passwordSignup',
-          confirmPasswordSignup:'confirmPasswordSignup',
-          maleSignup:'maleSignup',
-          emailSignup:'emailSignup',
-          contactSignup:'contactSignup',
-          typeSignup:'typeSignup',
-          propertySignup:'propertySignup',
-          submitSignup:'submitSignup',
-
-        },
-        {
-          signInRadioLawyer:'signInRadioLawyer',
-          signInRadioStudent:'signInRadioStudent',
-          usernameLogin:'usernameLogin',
-          passwordLogin:'passwordLogin',
-          rememberLogin:'rememberLogin',
-          loginButton:'loginButton',
-      
-        },
+      pages:{
+         Home:{
+          elements:[
+              {
+                name:"Button",
+                id:"register123",
+                // path:'//*[@id="register"]/a',
+                // image:Screenshot,
+                path:'register',
+                image:'register23',
+                pixel:{
+                  x:195,
+                  y:0
+                },
+                currentMode:'ID'
+              }
+          ]
+         }
         
-
-      ]
+      }
+     
     };
 
     axios.post('http://localhost:8000/run-robot',object_JSON)

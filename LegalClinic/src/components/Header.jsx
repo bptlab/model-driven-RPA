@@ -30,8 +30,8 @@ const Header = () => {
                   <div className="button">
                     <Link id='signIn' to="/SignIn" className="bizwheel-btn">Sign In</Link>
                   </div>
-                  <div id='homePageRegister' className="button">
-                    <Link id='homePageRegister'  to="/Register" className="bizwheel-btn">Register</Link>
+                  <div id='register'  className="button">
+                    <Link  to="/Register" className="bizwheel-btn">Register</Link>
                   </div>
                 </div>
               </div>

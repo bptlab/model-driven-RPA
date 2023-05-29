@@ -18,8 +18,9 @@ artifactsDir: output
 
 PATH:
   - .
+
 PYTHONPATH:
-  - .
+  - ${CURDIR}/../bin
 
 ignoreFiles:
   - .gitignore

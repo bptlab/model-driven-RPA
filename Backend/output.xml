@@ -1,536 +1,262 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.11.3 on darwin)" generated="20230523 11:08:58.325" rpa="true" schemaversion="3">
-<suite id="s1" name="My-Rsb-Robot" source="/Users/alihussainkazmi/Desktop/my-rsb-robot">
-<suite id="s1-s1" name="Tasks" source="/Users/alihussainkazmi/Desktop/my-rsb-robot/tasks.robot">
-<test id="s1-s1-t1" name="Get Data from JSON and use that in robot" line="12">
-<kw name="Open the website">
+<robot generator="Robot 5.0.1 (Python 3.11.3 on darwin)" generated="20230528 02:07:23.668" rpa="true" schemaversion="3">
+<suite id="s1" name="My-Rsb-Robot" source="/Users/alihussainkazmi/Desktop/Model_Driven_RPA/my-rsb-robot">
+<suite id="s1-s1" name="Tasks" source="/Users/alihussainkazmi/Desktop/Model_Driven_RPA/my-rsb-robot/tasks.robot">
+<test id="s1-s1-t1" name="Get Data from JSON and use that in robot" line="16">
+<kw name="Log" library="BuiltIn">
+<arg>Robot is running</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230528 02:07:24.133" level="INFO">Robot is running</msg>
+<status status="PASS" starttime="20230528 02:07:24.133" endtime="20230528 02:07:24.133"/>
+</kw>
+<kw name="Load JSON Data">
 <kw name="Get File" library="OperatingSystem">
 <var>${json_data}</var>
 <arg>test.json</arg>
 <doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20230523 11:08:58.672" level="INFO" html="true">Getting file '&lt;a href="file:///Users/alihussainkazmi/Desktop/Backend/test.json"&gt;/Users/alihussainkazmi/Desktop/Backend/test.json&lt;/a&gt;'.</msg>
-<msg timestamp="20230523 11:08:58.672" level="INFO">${json_data} = {"Link":"http://localhost:3000/","elements":[{"homePageRegister":"homePageRegister"},{"firstNameSignup":"firstNameSignup","lastNameSignup":"lastNameSignup","passwordSignup":"passwordSignup","confirmPa...</msg>
-<status status="PASS" starttime="20230523 11:08:58.672" endtime="20230523 11:08:58.672"/>
+<msg timestamp="20230528 02:07:24.133" level="INFO" html="true">Getting file '&lt;a href="file:///Users/alihussainkazmi/Desktop/Model_Driven_RPA/Backend/test.json"&gt;/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Backend/test.json&lt;/a&gt;'.</msg>
+<msg timestamp="20230528 02:07:24.133" level="INFO">${json_data} = {"Link":"http://localhost:3001/","pages":{"Home":{"elements":[{"name":"Button","id":"register123","path":"register","image":"register23","pixel":{"x":195,"y":0},"currentMode":"ID"}]}}}</msg>
+<status status="PASS" starttime="20230528 02:07:24.133" endtime="20230528 02:07:24.133"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${json_dict}</var>
 <arg>json.loads('''${json_data}''')</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20230523 11:08:58.673" level="INFO">${json_dict} = {'Link': 'http://localhost:3000/', 'elements': [{'homePageRegister': 'homePageRegister'}, {'firstNameSignup': 'firstNameSignup', 'lastNameSignup': 'lastNameSignup', 'passwordSignup': 'passwordSignup',...</msg>
-<status status="PASS" starttime="20230523 11:08:58.673" endtime="20230523 11:08:58.673"/>
+<msg timestamp="20230528 02:07:24.133" level="INFO">${json_dict} = {'Link': 'http://localhost:3001/', 'pages': {'Home': {'elements': [{'name': 'Button', 'id': 'register123', 'path': 'register', 'image': 'register23', 'pixel': {'x': 195, 'y': 0}, 'currentMode': 'ID'}]...</msg>
+<status status="PASS" starttime="20230528 02:07:24.133" endtime="20230528 02:07:24.133"/>
 </kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${json_dict}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230528 02:07:24.133" level="INFO">${json_dict} = {'Link': 'http://localhost:3001/', 'pages': {'Home': {'elements': [{'name': 'Button', 'id': 'register123', 'path': 'register', 'image': 'register23', 'pixel': {'x': 195, 'y': 0}, 'currentMode': 'ID'}]...</msg>
+<status status="PASS" starttime="20230528 02:07:24.133" endtime="20230528 02:07:24.133"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${json_dict}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230528 02:07:24.133" level="INFO">{'Link': 'http://localhost:3001/', 'pages': {'Home': {'elements': [{'name': 'Button', 'id': 'register123', 'path': 'register', 'image': 'register23', 'pixel': {'x': 195, 'y': 0}, 'currentMode': 'ID'}]}}}</msg>
+<status status="PASS" starttime="20230528 02:07:24.133" endtime="20230528 02:07:24.133"/>
+</kw>
+<status status="PASS" starttime="20230528 02:07:24.133" endtime="20230528 02:07:24.133"/>
+</kw>
+<kw name="Open the website">
 <kw name="Set Variable" library="BuiltIn">
 <var>${link}</var>
 <arg>${json_dict["Link"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:08:58.673" level="INFO">${link} = http://localhost:3000/</msg>
-<status status="PASS" starttime="20230523 11:08:58.673" endtime="20230523 11:08:58.673"/>
+<msg timestamp="20230528 02:07:24.134" level="INFO">${link} = http://localhost:3001/</msg>
+<status status="PASS" starttime="20230528 02:07:24.134" endtime="20230528 02:07:24.134"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${link}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230523 11:08:58.673" endtime="20230523 11:08:58.673"/>
+<status status="PASS" starttime="20230528 02:07:24.134" endtime="20230528 02:07:24.134"/>
 </kw>
 <kw name="Open Available Browser" library="RPA.Browser.Selenium">
 <arg>${link}</arg>
 <doc>Attempts to open a browser on the user's device from a set of
 supported browsers. Automatically downloads a corresponding webdriver
 if none is already installed.</doc>
-<msg timestamp="20230523 11:08:58.673" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<msg timestamp="20230523 11:08:58.674" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
-<msg timestamp="20230523 11:09:00.115" level="INFO">Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
-<msg timestamp="20230523 11:09:00.115" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
-<msg timestamp="20230523 11:09:00.115" level="INFO">Opening url 'http://localhost:3000/'</msg>
-<status status="PASS" starttime="20230523 11:08:58.673" endtime="20230523 11:09:00.615"/>
+<msg timestamp="20230528 02:07:24.134" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230528 02:07:24.134" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<msg timestamp="20230528 02:07:25.475" level="INFO">Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg timestamp="20230528 02:07:25.475" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg timestamp="20230528 02:07:25.475" level="INFO">Opening url 'http://localhost:3001/'</msg>
+<status status="PASS" starttime="20230528 02:07:24.134" endtime="20230528 02:07:25.970"/>
 </kw>
-<status status="PASS" starttime="20230523 11:08:58.672" endtime="20230523 11:09:00.615"/>
+<status status="PASS" starttime="20230528 02:07:24.133" endtime="20230528 02:07:25.970"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>5 seconds</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:05.617" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:00.616" endtime="20230523 11:09:05.617"/>
+<msg timestamp="20230528 02:07:30.972" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230528 02:07:25.970" endtime="20230528 02:07:30.972"/>
 </kw>
-<kw name="Go to Register Page">
-<kw name="Get File" library="OperatingSystem">
-<var>${json_data}</var>
-<arg>test.json</arg>
-<doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20230523 11:09:05.618" level="INFO" html="true">Getting file '&lt;a href="file:///Users/alihussainkazmi/Desktop/Backend/test.json"&gt;/Users/alihussainkazmi/Desktop/Backend/test.json&lt;/a&gt;'.</msg>
-<msg timestamp="20230523 11:09:05.619" level="INFO">${json_data} = {"Link":"http://localhost:3000/","elements":[{"homePageRegister":"homePageRegister"},{"firstNameSignup":"firstNameSignup","lastNameSignup":"lastNameSignup","passwordSignup":"passwordSignup","confirmPa...</msg>
-<status status="PASS" starttime="20230523 11:09:05.618" endtime="20230523 11:09:05.619"/>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<var>${json_dict}</var>
-<arg>json.loads('''${json_data}''')</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20230523 11:09:05.619" level="INFO">${json_dict} = {'Link': 'http://localhost:3000/', 'elements': [{'homePageRegister': 'homePageRegister'}, {'firstNameSignup': 'firstNameSignup', 'lastNameSignup': 'lastNameSignup', 'passwordSignup': 'passwordSignup',...</msg>
-<status status="PASS" starttime="20230523 11:09:05.619" endtime="20230523 11:09:05.619"/>
-</kw>
+<kw name="Click Button Model">
 <kw name="Set Variable" library="BuiltIn">
-<var>${register_button}</var>
-<arg>${json_dict["elements"][0]["homePageRegister"]}</arg>
+<var>${element}</var>
+<arg>${json_dict["pages"]["Home"]["elements"][0]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:09:05.620" level="INFO">${register_button} = homePageRegister</msg>
-<status status="PASS" starttime="20230523 11:09:05.619" endtime="20230523 11:09:05.620"/>
+<msg timestamp="20230528 02:07:30.973" level="INFO">${element} = {'name': 'Button', 'id': 'register123', 'path': 'register', 'image': 'register23', 'pixel': {'x': 195, 'y': 0}, 'currentMode': 'ID'}</msg>
+<status status="PASS" starttime="20230528 02:07:30.973" endtime="20230528 02:07:30.973"/>
 </kw>
-<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
-<arg>id=${register_button}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230523 11:09:05.620" endtime="20230523 11:09:05.636"/>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${id}</arg>
+<arg>${element["id"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230528 02:07:30.974" level="INFO">${id} = register123</msg>
+<status status="PASS" starttime="20230528 02:07:30.973" endtime="20230528 02:07:30.974"/>
 </kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${path}</arg>
+<arg>${element["path"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230528 02:07:30.975" level="INFO">${path} = register</msg>
+<status status="PASS" starttime="20230528 02:07:30.974" endtime="20230528 02:07:30.975"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${image}</arg>
+<arg>${element["image"]}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230528 02:07:30.975" level="INFO">${image} = register23</msg>
+<status status="PASS" starttime="20230528 02:07:30.975" endtime="20230528 02:07:30.975"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${id_status}</arg>
+<arg>${True}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230528 02:07:30.976" level="INFO">${id_status} = True</msg>
+<status status="PASS" starttime="20230528 02:07:30.975" endtime="20230528 02:07:30.976"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>The Status Coming from ID is ${id_status}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230528 02:07:30.976" level="INFO">The Status Coming from ID is True</msg>
+<status status="PASS" starttime="20230528 02:07:30.976" endtime="20230528 02:07:30.976"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${id_status}' == 'True'</arg>
+<arg>Click Button By ID</arg>
+<arg>${id}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Click Button By ID">
+<arg>${id}</arg>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${element_exists}</var>
+<arg>Element Should Be Visible</arg>
+<arg>id=${id}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="RPA.Browser.Selenium">
+<arg>id=${id}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230528 02:07:31.529" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-42.png"&gt;&lt;img src="selenium-screenshot-42.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230528 02:07:31.529" level="FAIL">Element with locator 'id=register123' not found.</msg>
+<status status="FAIL" starttime="20230528 02:07:30.978" endtime="20230528 02:07:31.530"/>
+</kw>
+<msg timestamp="20230528 02:07:31.530" level="INFO">${element_exists} = False</msg>
+<status status="PASS" starttime="20230528 02:07:30.976" endtime="20230528 02:07:31.530"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${element_exists}' == 'True'</arg>
+<arg>Click Element</arg>
+<arg>id=${id}</arg>
+<arg>ELSE</arg>
+<arg>Set Suite Variable</arg>
+<arg>${id_status}</arg>
+<arg>${False}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${id_status}</arg>
+<arg>${False}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230528 02:07:31.530" level="INFO">${id_status} = False</msg>
+<status status="PASS" starttime="20230528 02:07:31.530" endtime="20230528 02:07:31.530"/>
+</kw>
+<status status="PASS" starttime="20230528 02:07:31.530" endtime="20230528 02:07:31.530"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${element_exists}' == 'True'</arg>
+<arg>Set Suite Variable</arg>
+<arg>${id_status}</arg>
+<arg>${True}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20230528 02:07:31.530" endtime="20230528 02:07:31.530"/>
+</kw>
+<status status="PASS" starttime="20230528 02:07:30.976" endtime="20230528 02:07:31.530"/>
+</kw>
+<status status="PASS" starttime="20230528 02:07:30.976" endtime="20230528 02:07:31.530"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${id_status}' == 'False'</arg>
+<arg>Click Button By Path</arg>
+<arg>${path}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Click Button By Path">
+<arg>${path}</arg>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${element_exists}</var>
+<arg>Element Should Be Visible</arg>
+<arg>id=${id}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Element Should Be Visible" library="RPA.Browser.Selenium">
+<arg>id=${id}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20230528 02:07:31.545" level="INFO">Element 'id=register' is displayed.</msg>
+<status status="PASS" starttime="20230528 02:07:31.531" endtime="20230528 02:07:31.545"/>
+</kw>
+<msg timestamp="20230528 02:07:31.545" level="INFO">${element_exists} = True</msg>
+<status status="PASS" starttime="20230528 02:07:31.531" endtime="20230528 02:07:31.545"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${element_exists}' == 'True'</arg>
+<arg>Click Element</arg>
+<arg>id=${id}</arg>
+<arg>ELSE</arg>
+<arg>Set Suite Variable</arg>
+<arg>${id_status}</arg>
+<arg>${False}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <kw name="Click Element" library="RPA.Browser.Selenium">
-<arg>${register_button}</arg>
+<arg>id=${id}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230523 11:09:05.637" level="INFO">Clicking element 'homePageRegister'.</msg>
-<status status="PASS" starttime="20230523 11:09:05.637" endtime="20230523 11:09:05.692"/>
+<msg timestamp="20230528 02:07:31.546" level="INFO">Clicking element 'id=register'.</msg>
+<status status="PASS" starttime="20230528 02:07:31.546" endtime="20230528 02:07:31.585"/>
 </kw>
-<status status="PASS" starttime="20230523 11:09:05.618" endtime="20230523 11:09:05.692"/>
+<status status="PASS" starttime="20230528 02:07:31.546" endtime="20230528 02:07:31.585"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:07.693" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:05.692" endtime="20230523 11:09:07.693"/>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${element_exists}' == 'True'</arg>
+<arg>Set Suite Variable</arg>
+<arg>${id_status}</arg>
+<arg>${True}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${id_status}</arg>
+<arg>${True}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230528 02:07:31.585" level="INFO">${id_status} = True</msg>
+<status status="PASS" starttime="20230528 02:07:31.585" endtime="20230528 02:07:31.585"/>
 </kw>
-<kw name="Input Data for Register Page and Submit">
-<kw name="Get File" library="OperatingSystem">
-<var>${json_data}</var>
-<arg>test.json</arg>
-<doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20230523 11:09:07.694" level="INFO" html="true">Getting file '&lt;a href="file:///Users/alihussainkazmi/Desktop/Backend/test.json"&gt;/Users/alihussainkazmi/Desktop/Backend/test.json&lt;/a&gt;'.</msg>
-<msg timestamp="20230523 11:09:07.695" level="INFO">${json_data} = {"Link":"http://localhost:3000/","elements":[{"homePageRegister":"homePageRegister"},{"firstNameSignup":"firstNameSignup","lastNameSignup":"lastNameSignup","passwordSignup":"passwordSignup","confirmPa...</msg>
-<status status="PASS" starttime="20230523 11:09:07.694" endtime="20230523 11:09:07.695"/>
+<status status="PASS" starttime="20230528 02:07:31.585" endtime="20230528 02:07:31.585"/>
 </kw>
-<kw name="Evaluate" library="BuiltIn">
-<var>${json_dict}</var>
-<arg>json.loads('''${json_data}''')</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20230523 11:09:07.695" level="INFO">${json_dict} = {'Link': 'http://localhost:3000/', 'elements': [{'homePageRegister': 'homePageRegister'}, {'firstNameSignup': 'firstNameSignup', 'lastNameSignup': 'lastNameSignup', 'passwordSignup': 'passwordSignup',...</msg>
-<status status="PASS" starttime="20230523 11:09:07.695" endtime="20230523 11:09:07.695"/>
+<status status="PASS" starttime="20230528 02:07:31.531" endtime="20230528 02:07:31.585"/>
 </kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${first_name}</var>
-<arg>${json_dict["elements"][1]["firstNameSignup"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:09:07.695" level="INFO">${first_name} = firstNameSignup</msg>
-<status status="PASS" starttime="20230523 11:09:07.695" endtime="20230523 11:09:07.695"/>
+<status status="PASS" starttime="20230528 02:07:31.530" endtime="20230528 02:07:31.585"/>
 </kw>
-<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
-<arg>id=${first_name}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230523 11:09:07.695" endtime="20230523 11:09:07.704"/>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${id_status}' == 'False'</arg>
+<arg>Click Button By OCR</arg>
+<arg>${image}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20230528 02:07:31.586" endtime="20230528 02:07:31.586"/>
 </kw>
-<kw name="Input Text" library="RPA.Browser.Selenium">
-<arg>${first_name}</arg>
-<arg>ali</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230523 11:09:07.704" level="INFO">Typing text 'ali' into text field 'firstNameSignup'.</msg>
-<status status="PASS" starttime="20230523 11:09:07.704" endtime="20230523 11:09:07.784"/>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${id_status}' == 'True'</arg>
+<arg>Log</arg>
+<arg>Button clicked successfully using ID</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Log" library="BuiltIn">
+<arg>Button clicked successfully using ID</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230528 02:07:31.586" level="INFO">Button clicked successfully using ID</msg>
+<status status="PASS" starttime="20230528 02:07:31.586" endtime="20230528 02:07:31.586"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:09.785" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:07.784" endtime="20230523 11:09:09.786"/>
+<status status="PASS" starttime="20230528 02:07:31.586" endtime="20230528 02:07:31.586"/>
 </kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${last_name}</var>
-<arg>${json_dict["elements"][1]["lastNameSignup"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:09:09.788" level="INFO">${last_name} = lastNameSignup</msg>
-<status status="PASS" starttime="20230523 11:09:09.786" endtime="20230523 11:09:09.788"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
-<arg>id=${last_name}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230523 11:09:09.788" endtime="20230523 11:09:09.798"/>
-</kw>
-<kw name="Input Text" library="RPA.Browser.Selenium">
-<arg>${last_name}</arg>
-<arg>kazmi</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230523 11:09:09.798" level="INFO">Typing text 'kazmi' into text field 'lastNameSignup'.</msg>
-<status status="PASS" starttime="20230523 11:09:09.798" endtime="20230523 11:09:09.848"/>
+<status status="PASS" starttime="20230528 02:07:30.972" endtime="20230528 02:07:31.586"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2 seconds</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:11.854" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:09.848" endtime="20230523 11:09:11.855"/>
+<msg timestamp="20230528 02:07:33.588" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230528 02:07:31.586" endtime="20230528 02:07:33.588"/>
 </kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${password}</var>
-<arg>${json_dict["elements"][1]["passwordSignup"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:09:11.857" level="INFO">${password} = passwordSignup</msg>
-<status status="PASS" starttime="20230523 11:09:11.855" endtime="20230523 11:09:11.857"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
-<arg>id=${password}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230523 11:09:11.857" endtime="20230523 11:09:11.870"/>
-</kw>
-<kw name="Input Password" library="RPA.Browser.Selenium">
-<arg>${password}</arg>
-<arg>123456789</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<msg timestamp="20230523 11:09:11.870" level="INFO">Typing password into text field 'passwordSignup'.</msg>
-<msg timestamp="20230523 11:09:11.890" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20230523 11:09:11.923" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20230523 11:09:11.870" endtime="20230523 11:09:11.923"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:13.928" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:11.923" endtime="20230523 11:09:13.929"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${confirm_password}</var>
-<arg>${json_dict["elements"][1]["confirmPasswordSignup"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:09:13.929" level="INFO">${confirm_password} = confirmPasswordSignup</msg>
-<status status="PASS" starttime="20230523 11:09:13.929" endtime="20230523 11:09:13.929"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
-<arg>id=${confirm_password}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230523 11:09:13.929" endtime="20230523 11:09:13.943"/>
-</kw>
-<kw name="Input Password" library="RPA.Browser.Selenium">
-<arg>${confirm_password}</arg>
-<arg>123456789</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<msg timestamp="20230523 11:09:13.944" level="INFO">Typing password into text field 'confirmPasswordSignup'.</msg>
-<msg timestamp="20230523 11:09:13.963" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20230523 11:09:13.991" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20230523 11:09:13.943" endtime="20230523 11:09:13.991"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:15.992" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:13.991" endtime="20230523 11:09:15.992"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${male_signup}</var>
-<arg>${json_dict["elements"][1]["maleSignup"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:09:15.995" level="INFO">${male_signup} = maleSignup</msg>
-<status status="PASS" starttime="20230523 11:09:15.993" endtime="20230523 11:09:15.996"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
-<arg>id=${male_signup}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230523 11:09:15.996" endtime="20230523 11:09:16.010"/>
-</kw>
-<kw name="Click Element" library="RPA.Browser.Selenium">
-<arg>${male_signup}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230523 11:09:16.010" level="INFO">Clicking element 'maleSignup'.</msg>
-<status status="PASS" starttime="20230523 11:09:16.010" endtime="20230523 11:09:16.042"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:18.043" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:16.042" endtime="20230523 11:09:18.043"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${email}</var>
-<arg>${json_dict["elements"][1]["emailSignup"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:09:18.046" level="INFO">${email} = emailSignup</msg>
-<status status="PASS" starttime="20230523 11:09:18.044" endtime="20230523 11:09:18.046"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
-<arg>id=${email}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230523 11:09:18.046" endtime="20230523 11:09:18.059"/>
-</kw>
-<kw name="Input Text" library="RPA.Browser.Selenium">
-<arg>${email}</arg>
-<arg>alikazmi187248@gmail.com</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230523 11:09:18.059" level="INFO">Typing text 'alikazmi187248@gmail.com' into text field 'emailSignup'.</msg>
-<status status="PASS" starttime="20230523 11:09:18.059" endtime="20230523 11:09:18.124"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:20.137" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:18.124" endtime="20230523 11:09:20.144"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${contact}</var>
-<arg>${json_dict["elements"][1]["contactSignup"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:09:20.149" level="INFO">${contact} = contactSignup</msg>
-<status status="PASS" starttime="20230523 11:09:20.148" endtime="20230523 11:09:20.149"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
-<arg>id=${contact}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230523 11:09:20.149" endtime="20230523 11:09:20.193"/>
-</kw>
-<kw name="Input Text" library="RPA.Browser.Selenium">
-<arg>${contact}</arg>
-<arg>+4900000000000000</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230523 11:09:20.193" level="INFO">Typing text '+4900000000000000' into text field 'contactSignup'.</msg>
-<status status="PASS" starttime="20230523 11:09:20.193" endtime="20230523 11:09:20.325"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:22.327" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:20.325" endtime="20230523 11:09:22.327"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${type_signup}</var>
-<arg>${json_dict["elements"][1]["typeSignup"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:09:22.329" level="INFO">${type_signup} = typeSignup</msg>
-<status status="PASS" starttime="20230523 11:09:22.328" endtime="20230523 11:09:22.329"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
-<arg>id=${type_signup}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230523 11:09:22.329" endtime="20230523 11:09:22.337"/>
-</kw>
-<kw name="Click Element" library="RPA.Browser.Selenium">
-<arg>${type_signup}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230523 11:09:22.337" level="INFO">Clicking element 'typeSignup'.</msg>
-<status status="PASS" starttime="20230523 11:09:22.337" endtime="20230523 11:09:22.380"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:24.383" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:22.380" endtime="20230523 11:09:24.384"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${property_signup}</var>
-<arg>${json_dict["elements"][1]["propertySignup"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:09:24.386" level="INFO">${property_signup} = propertySignup</msg>
-<status status="PASS" starttime="20230523 11:09:24.384" endtime="20230523 11:09:24.386"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
-<arg>id=${property_signup}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230523 11:09:24.386" endtime="20230523 11:09:24.399"/>
-</kw>
-<kw name="Click Element" library="RPA.Browser.Selenium">
-<arg>${property_signup}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230523 11:09:24.399" level="INFO">Clicking element 'propertySignup'.</msg>
-<status status="PASS" starttime="20230523 11:09:24.399" endtime="20230523 11:09:24.684"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:26.687" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:24.684" endtime="20230523 11:09:26.688"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${submit}</var>
-<arg>${json_dict["elements"][1]["submitSignup"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:09:26.691" level="INFO">${submit} = submitSignup</msg>
-<status status="PASS" starttime="20230523 11:09:26.689" endtime="20230523 11:09:26.691"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
-<arg>id=${submit}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230523 11:09:26.691" endtime="20230523 11:09:26.703"/>
-</kw>
-<kw name="Click Element" library="RPA.Browser.Selenium">
-<arg>${submit}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230523 11:09:26.704" level="INFO">Clicking element 'submitSignup'.</msg>
-<status status="PASS" starttime="20230523 11:09:26.704" endtime="20230523 11:09:26.988"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:28.991" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:26.989" endtime="20230523 11:09:28.991"/>
-</kw>
-<status status="PASS" starttime="20230523 11:09:07.694" endtime="20230523 11:09:28.992"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:30.995" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:28.992" endtime="20230523 11:09:30.995"/>
-</kw>
-<kw name="Input Data for Login Page and Submit">
-<kw name="Get File" library="OperatingSystem">
-<var>${json_data}</var>
-<arg>test.json</arg>
-<doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20230523 11:09:30.998" level="INFO" html="true">Getting file '&lt;a href="file:///Users/alihussainkazmi/Desktop/Backend/test.json"&gt;/Users/alihussainkazmi/Desktop/Backend/test.json&lt;/a&gt;'.</msg>
-<msg timestamp="20230523 11:09:31.000" level="INFO">${json_data} = {"Link":"http://localhost:3000/","elements":[{"homePageRegister":"homePageRegister"},{"firstNameSignup":"firstNameSignup","lastNameSignup":"lastNameSignup","passwordSignup":"passwordSignup","confirmPa...</msg>
-<status status="PASS" starttime="20230523 11:09:30.997" endtime="20230523 11:09:31.000"/>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<var>${json_dict}</var>
-<arg>json.loads('''${json_data}''')</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20230523 11:09:31.001" level="INFO">${json_dict} = {'Link': 'http://localhost:3000/', 'elements': [{'homePageRegister': 'homePageRegister'}, {'firstNameSignup': 'firstNameSignup', 'lastNameSignup': 'lastNameSignup', 'passwordSignup': 'passwordSignup',...</msg>
-<status status="PASS" starttime="20230523 11:09:31.000" endtime="20230523 11:09:31.001"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${username}</var>
-<arg>${json_dict["elements"][2]["usernameLogin"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:09:31.003" level="INFO">${username} = usernameLogin</msg>
-<status status="PASS" starttime="20230523 11:09:31.001" endtime="20230523 11:09:31.003"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
-<arg>id=${username}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230523 11:09:31.003" endtime="20230523 11:09:31.017"/>
-</kw>
-<kw name="Input Text" library="RPA.Browser.Selenium">
-<arg>${username}</arg>
-<arg>alikazmi</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230523 11:09:31.017" level="INFO">Typing text 'alikazmi' into text field 'usernameLogin'.</msg>
-<status status="PASS" starttime="20230523 11:09:31.017" endtime="20230523 11:09:31.073"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:33.074" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:31.074" endtime="20230523 11:09:33.075"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${password}</var>
-<arg>${json_dict["elements"][2]["passwordLogin"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:09:33.077" level="INFO">${password} = passwordLogin</msg>
-<status status="PASS" starttime="20230523 11:09:33.075" endtime="20230523 11:09:33.077"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
-<arg>id=${password}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230523 11:09:33.078" endtime="20230523 11:09:33.089"/>
-</kw>
-<kw name="Input Password" library="RPA.Browser.Selenium">
-<arg>${password}</arg>
-<arg>123456789</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<msg timestamp="20230523 11:09:33.089" level="INFO">Typing password into text field 'passwordLogin'.</msg>
-<msg timestamp="20230523 11:09:33.112" level="INFO">Temporally setting log level to: NONE</msg>
-<msg timestamp="20230523 11:09:33.146" level="INFO">Log level changed from NONE to INFO.</msg>
-<status status="PASS" starttime="20230523 11:09:33.089" endtime="20230523 11:09:33.146"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:35.148" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:33.146" endtime="20230523 11:09:35.149"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${radio}</var>
-<arg>${json_dict["elements"][2]["signInRadioStudent"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:09:35.151" level="INFO">${radio} = signInRadioStudent</msg>
-<status status="PASS" starttime="20230523 11:09:35.149" endtime="20230523 11:09:35.151"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
-<arg>id=${radio}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230523 11:09:35.151" endtime="20230523 11:09:35.167"/>
-</kw>
-<kw name="Click Element" library="RPA.Browser.Selenium">
-<arg>${radio}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230523 11:09:35.167" level="INFO">Clicking element 'signInRadioStudent'.</msg>
-<status status="PASS" starttime="20230523 11:09:35.167" endtime="20230523 11:09:35.201"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:37.201" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:35.201" endtime="20230523 11:09:37.202"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${remember}</var>
-<arg>${json_dict["elements"][2]["rememberLogin"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:09:37.202" level="INFO">${remember} = rememberLogin</msg>
-<status status="PASS" starttime="20230523 11:09:37.202" endtime="20230523 11:09:37.202"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
-<arg>id=${remember}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230523 11:09:37.202" endtime="20230523 11:09:37.455"/>
-</kw>
-<kw name="Click Element" library="RPA.Browser.Selenium">
-<arg>${remember}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230523 11:09:37.455" level="INFO">Clicking element 'rememberLogin'.</msg>
-<status status="PASS" starttime="20230523 11:09:37.455" endtime="20230523 11:09:37.525"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:39.527" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:37.525" endtime="20230523 11:09:39.527"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${submit}</var>
-<arg>${json_dict["elements"][2]["loginButton"]}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230523 11:09:39.530" level="INFO">${submit} = loginButton</msg>
-<status status="PASS" starttime="20230523 11:09:39.528" endtime="20230523 11:09:39.530"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="RPA.Browser.Selenium">
-<arg>id=${submit}</arg>
-<arg>timeout=10s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230523 11:09:39.530" endtime="20230523 11:09:39.548"/>
-</kw>
-<kw name="Click Element" library="RPA.Browser.Selenium">
-<arg>${submit}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230523 11:09:39.548" level="INFO">Clicking element 'loginButton'.</msg>
-<status status="PASS" starttime="20230523 11:09:39.548" endtime="20230523 11:09:39.600"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230523 11:09:41.601" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230523 11:09:39.600" endtime="20230523 11:09:41.602"/>
-</kw>
-<status status="PASS" starttime="20230523 11:09:30.996" endtime="20230523 11:09:41.602"/>
-</kw>
-<status status="PASS" starttime="20230523 11:08:58.672" endtime="20230523 11:09:41.603"/>
+<status status="PASS" starttime="20230528 02:07:24.132" endtime="20230528 02:07:33.589"/>
 </test>
 <doc>Get Data from JSON and use that in robot.</doc>
-<status status="PASS" starttime="20230523 11:08:58.333" endtime="20230523 11:09:41.604"/>
+<status status="PASS" starttime="20230528 02:07:23.675" endtime="20230528 02:07:33.590"/>
 </suite>
-<status status="PASS" starttime="20230523 11:08:58.326" endtime="20230523 11:09:41.606"/>
+<status status="PASS" starttime="20230528 02:07:23.669" endtime="20230528 02:07:33.590"/>
 </suite>
 <statistics>
 <total>
