@@ -17,9 +17,9 @@ function Home() {
               {
                 name:"Button",
                 id:"register123",
-                // path:'//*[@id="register"]/a',
+                path:'//*[@id="register"]/a',
                 // image:Screenshot,
-                path:'register',
+                // path:'register',
                 image:'register23',
                 pixel:{
                   x:195,

@@ -1,121 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.11.3 on darwin)" generated="20230528 02:07:23.668" rpa="true" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.11.3 on darwin)" generated="20230529 23:20:45.159" rpa="true" schemaversion="3">
 <suite id="s1" name="My-Rsb-Robot" source="/Users/alihussainkazmi/Desktop/Model_Driven_RPA/my-rsb-robot">
 <suite id="s1-s1" name="Tasks" source="/Users/alihussainkazmi/Desktop/Model_Driven_RPA/my-rsb-robot/tasks.robot">
 <test id="s1-s1-t1" name="Get Data from JSON and use that in robot" line="16">
 <kw name="Log" library="BuiltIn">
 <arg>Robot is running</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230528 02:07:24.133" level="INFO">Robot is running</msg>
-<status status="PASS" starttime="20230528 02:07:24.133" endtime="20230528 02:07:24.133"/>
+<msg timestamp="20230529 23:20:45.799" level="INFO">Robot is running</msg>
+<status status="PASS" starttime="20230529 23:20:45.799" endtime="20230529 23:20:45.799"/>
 </kw>
 <kw name="Load JSON Data">
 <kw name="Get File" library="OperatingSystem">
 <var>${json_data}</var>
 <arg>test.json</arg>
 <doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20230528 02:07:24.133" level="INFO" html="true">Getting file '&lt;a href="file:///Users/alihussainkazmi/Desktop/Model_Driven_RPA/Backend/test.json"&gt;/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Backend/test.json&lt;/a&gt;'.</msg>
-<msg timestamp="20230528 02:07:24.133" level="INFO">${json_data} = {"Link":"http://localhost:3001/","pages":{"Home":{"elements":[{"name":"Button","id":"register123","path":"register","image":"register23","pixel":{"x":195,"y":0},"currentMode":"ID"}]}}}</msg>
-<status status="PASS" starttime="20230528 02:07:24.133" endtime="20230528 02:07:24.133"/>
+<msg timestamp="20230529 23:20:45.800" level="INFO" html="true">Getting file '&lt;a href="file:///Users/alihussainkazmi/Desktop/Model_Driven_RPA/Backend/test.json"&gt;/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Backend/test.json&lt;/a&gt;'.</msg>
+<msg timestamp="20230529 23:20:45.800" level="INFO">${json_data} = {"Link":"http://localhost:3001","pages":{"Home":{"elements":[{"name":"Button","id":"register123","path":"//*[@id=\"register\"]/a","image":"register23","pixel":{"x":195,"y":0},"currentMode":"ID"}]}}}</msg>
+<status status="PASS" starttime="20230529 23:20:45.799" endtime="20230529 23:20:45.800"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${json_dict}</var>
-<arg>json.loads('''${json_data}''')</arg>
+<arg>${json_data}</arg>
+<arg>json</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20230528 02:07:24.133" level="INFO">${json_dict} = {'Link': 'http://localhost:3001/', 'pages': {'Home': {'elements': [{'name': 'Button', 'id': 'register123', 'path': 'register', 'image': 'register23', 'pixel': {'x': 195, 'y': 0}, 'currentMode': 'ID'}]...</msg>
-<status status="PASS" starttime="20230528 02:07:24.133" endtime="20230528 02:07:24.133"/>
+<msg timestamp="20230529 23:20:45.800" level="INFO">${json_dict} = {'Link': 'http://localhost:3001', 'pages': {'Home': {'elements': [{'name': 'Button', 'id': 'register123', 'path': '//*[@id="register"]/a', 'image': 'register23', 'pixel': {'x': 195, 'y': 0}, 'currentM...</msg>
+<status status="PASS" starttime="20230529 23:20:45.800" endtime="20230529 23:20:45.800"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${json_dict}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230528 02:07:24.133" level="INFO">${json_dict} = {'Link': 'http://localhost:3001/', 'pages': {'Home': {'elements': [{'name': 'Button', 'id': 'register123', 'path': 'register', 'image': 'register23', 'pixel': {'x': 195, 'y': 0}, 'currentMode': 'ID'}]...</msg>
-<status status="PASS" starttime="20230528 02:07:24.133" endtime="20230528 02:07:24.133"/>
+<msg timestamp="20230529 23:20:45.800" level="INFO">${json_dict} = {'Link': 'http://localhost:3001', 'pages': {'Home': {'elements': [{'name': 'Button', 'id': 'register123', 'path': '//*[@id="register"]/a', 'image': 'register23', 'pixel': {'x': 195, 'y': 0}, 'currentM...</msg>
+<status status="PASS" starttime="20230529 23:20:45.800" endtime="20230529 23:20:45.800"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${json_dict}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230528 02:07:24.133" level="INFO">{'Link': 'http://localhost:3001/', 'pages': {'Home': {'elements': [{'name': 'Button', 'id': 'register123', 'path': 'register', 'image': 'register23', 'pixel': {'x': 195, 'y': 0}, 'currentMode': 'ID'}]}}}</msg>
-<status status="PASS" starttime="20230528 02:07:24.133" endtime="20230528 02:07:24.133"/>
+<msg timestamp="20230529 23:20:45.800" level="INFO">{'Link': 'http://localhost:3001', 'pages': {'Home': {'elements': [{'name': 'Button', 'id': 'register123', 'path': '//*[@id="register"]/a', 'image': 'register23', 'pixel': {'x': 195, 'y': 0}, 'currentMode': 'ID'}]}}}</msg>
+<status status="PASS" starttime="20230529 23:20:45.800" endtime="20230529 23:20:45.800"/>
 </kw>
-<status status="PASS" starttime="20230528 02:07:24.133" endtime="20230528 02:07:24.133"/>
+<status status="PASS" starttime="20230529 23:20:45.799" endtime="20230529 23:20:45.800"/>
 </kw>
 <kw name="Open the website">
 <kw name="Set Variable" library="BuiltIn">
 <var>${link}</var>
 <arg>${json_dict["Link"]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230528 02:07:24.134" level="INFO">${link} = http://localhost:3001/</msg>
-<status status="PASS" starttime="20230528 02:07:24.134" endtime="20230528 02:07:24.134"/>
+<msg timestamp="20230529 23:20:45.800" level="INFO">${link} = http://localhost:3001</msg>
+<status status="PASS" starttime="20230529 23:20:45.800" endtime="20230529 23:20:45.800"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${link}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230528 02:07:24.134" endtime="20230528 02:07:24.134"/>
+<status status="PASS" starttime="20230529 23:20:45.800" endtime="20230529 23:20:45.801"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${link}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20230529 23:20:45.801" level="INFO">http://localhost:3001</msg>
+<status status="PASS" starttime="20230529 23:20:45.801" endtime="20230529 23:20:45.801"/>
 </kw>
 <kw name="Open Available Browser" library="RPA.Browser.Selenium">
 <arg>${link}</arg>
 <doc>Attempts to open a browser on the user's device from a set of
 supported browsers. Automatically downloads a corresponding webdriver
 if none is already installed.</doc>
-<msg timestamp="20230528 02:07:24.134" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<msg timestamp="20230528 02:07:24.134" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
-<msg timestamp="20230528 02:07:25.475" level="INFO">Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
-<msg timestamp="20230528 02:07:25.475" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
-<msg timestamp="20230528 02:07:25.475" level="INFO">Opening url 'http://localhost:3001/'</msg>
-<status status="PASS" starttime="20230528 02:07:24.134" endtime="20230528 02:07:25.970"/>
+<msg timestamp="20230529 23:20:45.801" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230529 23:20:45.801" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<msg timestamp="20230529 23:20:47.290" level="INFO">Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg timestamp="20230529 23:20:47.290" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg timestamp="20230529 23:20:47.290" level="INFO">Opening url 'http://localhost:3001'</msg>
+<status status="PASS" starttime="20230529 23:20:45.801" endtime="20230529 23:20:47.794"/>
 </kw>
-<status status="PASS" starttime="20230528 02:07:24.133" endtime="20230528 02:07:25.970"/>
+<status status="PASS" starttime="20230529 23:20:45.800" endtime="20230529 23:20:47.794"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>5 seconds</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230528 02:07:30.972" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20230528 02:07:25.970" endtime="20230528 02:07:30.972"/>
+<msg timestamp="20230529 23:20:52.796" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230529 23:20:47.795" endtime="20230529 23:20:52.796"/>
 </kw>
 <kw name="Click Button Model">
 <kw name="Set Variable" library="BuiltIn">
 <var>${element}</var>
 <arg>${json_dict["pages"]["Home"]["elements"][0]}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230528 02:07:30.973" level="INFO">${element} = {'name': 'Button', 'id': 'register123', 'path': 'register', 'image': 'register23', 'pixel': {'x': 195, 'y': 0}, 'currentMode': 'ID'}</msg>
-<status status="PASS" starttime="20230528 02:07:30.973" endtime="20230528 02:07:30.973"/>
+<msg timestamp="20230529 23:20:52.797" level="INFO">${element} = {'name': 'Button', 'id': 'register123', 'path': '//*[@id="register"]/a', 'image': 'register23', 'pixel': {'x': 195, 'y': 0}, 'currentMode': 'ID'}</msg>
+<status status="PASS" starttime="20230529 23:20:52.796" endtime="20230529 23:20:52.797"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${id}</arg>
 <arg>${element["id"]}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230528 02:07:30.974" level="INFO">${id} = register123</msg>
-<status status="PASS" starttime="20230528 02:07:30.973" endtime="20230528 02:07:30.974"/>
+<msg timestamp="20230529 23:20:52.797" level="INFO">${id} = register123</msg>
+<status status="PASS" starttime="20230529 23:20:52.797" endtime="20230529 23:20:52.797"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${path}</arg>
 <arg>${element["path"]}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230528 02:07:30.975" level="INFO">${path} = register</msg>
-<status status="PASS" starttime="20230528 02:07:30.974" endtime="20230528 02:07:30.975"/>
+<msg timestamp="20230529 23:20:52.798" level="INFO">${path} = //*[@id="register"]/a</msg>
+<status status="PASS" starttime="20230529 23:20:52.798" endtime="20230529 23:20:52.798"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
 <arg>${image}</arg>
 <arg>${element["image"]}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230528 02:07:30.975" level="INFO">${image} = register23</msg>
-<status status="PASS" starttime="20230528 02:07:30.975" endtime="20230528 02:07:30.975"/>
+<msg timestamp="20230529 23:20:52.799" level="INFO">${image} = register23</msg>
+<status status="PASS" starttime="20230529 23:20:52.798" endtime="20230529 23:20:52.799"/>
 </kw>
 <kw name="Set Suite Variable" library="BuiltIn">
-<arg>${id_status}</arg>
+<arg>${status}</arg>
 <arg>${True}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230528 02:07:30.976" level="INFO">${id_status} = True</msg>
-<status status="PASS" starttime="20230528 02:07:30.975" endtime="20230528 02:07:30.976"/>
+<msg timestamp="20230529 23:20:52.799" level="INFO">${status} = True</msg>
+<status status="PASS" starttime="20230529 23:20:52.799" endtime="20230529 23:20:52.799"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>The Status Coming from ID is ${id_status}</arg>
+<arg>The Status Coming from ID is ${status}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230528 02:07:30.976" level="INFO">The Status Coming from ID is True</msg>
-<status status="PASS" starttime="20230528 02:07:30.976" endtime="20230528 02:07:30.976"/>
+<msg timestamp="20230529 23:20:52.799" level="INFO">The Status Coming from ID is True</msg>
+<status status="PASS" starttime="20230529 23:20:52.799" endtime="20230529 23:20:52.799"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
-<arg>'${id_status}' == 'True'</arg>
+<arg>'${status}' == 'True'</arg>
 <arg>Click Button By ID</arg>
 <arg>${id}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
@@ -129,12 +136,12 @@ if none is already installed.</doc>
 <kw name="Element Should Be Visible" library="RPA.Browser.Selenium">
 <arg>id=${id}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20230528 02:07:31.529" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-42.png"&gt;&lt;img src="selenium-screenshot-42.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20230528 02:07:31.529" level="FAIL">Element with locator 'id=register123' not found.</msg>
-<status status="FAIL" starttime="20230528 02:07:30.978" endtime="20230528 02:07:31.530"/>
+<msg timestamp="20230529 23:20:53.360" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-49.png"&gt;&lt;img src="selenium-screenshot-49.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230529 23:20:53.361" level="FAIL">Element with locator 'id=register123' not found.</msg>
+<status status="FAIL" starttime="20230529 23:20:52.800" endtime="20230529 23:20:53.363"/>
 </kw>
-<msg timestamp="20230528 02:07:31.530" level="INFO">${element_exists} = False</msg>
-<status status="PASS" starttime="20230528 02:07:30.976" endtime="20230528 02:07:31.530"/>
+<msg timestamp="20230529 23:20:53.364" level="INFO">${element_exists} = False</msg>
+<status status="PASS" starttime="20230529 23:20:52.800" endtime="20230529 23:20:53.364"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${element_exists}' == 'True'</arg>
@@ -142,32 +149,32 @@ if none is already installed.</doc>
 <arg>id=${id}</arg>
 <arg>ELSE</arg>
 <arg>Set Suite Variable</arg>
-<arg>${id_status}</arg>
+<arg>${status}</arg>
 <arg>${False}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <kw name="Set Suite Variable" library="BuiltIn">
-<arg>${id_status}</arg>
+<arg>${status}</arg>
 <arg>${False}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230528 02:07:31.530" level="INFO">${id_status} = False</msg>
-<status status="PASS" starttime="20230528 02:07:31.530" endtime="20230528 02:07:31.530"/>
+<msg timestamp="20230529 23:20:53.364" level="INFO">${status} = False</msg>
+<status status="PASS" starttime="20230529 23:20:53.364" endtime="20230529 23:20:53.364"/>
 </kw>
-<status status="PASS" starttime="20230528 02:07:31.530" endtime="20230528 02:07:31.530"/>
+<status status="PASS" starttime="20230529 23:20:53.364" endtime="20230529 23:20:53.364"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${element_exists}' == 'True'</arg>
 <arg>Set Suite Variable</arg>
-<arg>${id_status}</arg>
+<arg>${status}</arg>
 <arg>${True}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20230528 02:07:31.530" endtime="20230528 02:07:31.530"/>
+<status status="PASS" starttime="20230529 23:20:53.364" endtime="20230529 23:20:53.364"/>
 </kw>
-<status status="PASS" starttime="20230528 02:07:30.976" endtime="20230528 02:07:31.530"/>
+<status status="PASS" starttime="20230529 23:20:52.800" endtime="20230529 23:20:53.364"/>
 </kw>
-<status status="PASS" starttime="20230528 02:07:30.976" endtime="20230528 02:07:31.530"/>
+<status status="PASS" starttime="20230529 23:20:52.800" endtime="20230529 23:20:53.364"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
-<arg>'${id_status}' == 'False'</arg>
+<arg>'${status}' == 'False'</arg>
 <arg>Click Button By Path</arg>
 <arg>${path}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
@@ -176,87 +183,87 @@ if none is already installed.</doc>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
 <var>${element_exists}</var>
 <arg>Element Should Be Visible</arg>
-<arg>id=${id}</arg>
+<arg>xpath=${path}</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
 <kw name="Element Should Be Visible" library="RPA.Browser.Selenium">
-<arg>id=${id}</arg>
+<arg>xpath=${path}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20230528 02:07:31.545" level="INFO">Element 'id=register' is displayed.</msg>
-<status status="PASS" starttime="20230528 02:07:31.531" endtime="20230528 02:07:31.545"/>
+<msg timestamp="20230529 23:20:53.380" level="INFO">Element 'xpath=//*[@id="register"]/a' is displayed.</msg>
+<status status="PASS" starttime="20230529 23:20:53.364" endtime="20230529 23:20:53.380"/>
 </kw>
-<msg timestamp="20230528 02:07:31.545" level="INFO">${element_exists} = True</msg>
-<status status="PASS" starttime="20230528 02:07:31.531" endtime="20230528 02:07:31.545"/>
+<msg timestamp="20230529 23:20:53.380" level="INFO">${element_exists} = True</msg>
+<status status="PASS" starttime="20230529 23:20:53.364" endtime="20230529 23:20:53.380"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${element_exists}' == 'True'</arg>
 <arg>Click Element</arg>
-<arg>id=${id}</arg>
+<arg>xpath=${path}</arg>
 <arg>ELSE</arg>
 <arg>Set Suite Variable</arg>
-<arg>${id_status}</arg>
+<arg>${status}</arg>
 <arg>${False}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <kw name="Click Element" library="RPA.Browser.Selenium">
-<arg>id=${id}</arg>
+<arg>xpath=${path}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230528 02:07:31.546" level="INFO">Clicking element 'id=register'.</msg>
-<status status="PASS" starttime="20230528 02:07:31.546" endtime="20230528 02:07:31.585"/>
+<msg timestamp="20230529 23:20:53.380" level="INFO">Clicking element 'xpath=//*[@id="register"]/a'.</msg>
+<status status="PASS" starttime="20230529 23:20:53.380" endtime="20230529 23:20:53.418"/>
 </kw>
-<status status="PASS" starttime="20230528 02:07:31.546" endtime="20230528 02:07:31.585"/>
+<status status="PASS" starttime="20230529 23:20:53.380" endtime="20230529 23:20:53.418"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>'${element_exists}' == 'True'</arg>
 <arg>Set Suite Variable</arg>
-<arg>${id_status}</arg>
+<arg>${status}</arg>
 <arg>${True}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <kw name="Set Suite Variable" library="BuiltIn">
-<arg>${id_status}</arg>
+<arg>${status}</arg>
 <arg>${True}</arg>
 <doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230528 02:07:31.585" level="INFO">${id_status} = True</msg>
-<status status="PASS" starttime="20230528 02:07:31.585" endtime="20230528 02:07:31.585"/>
+<msg timestamp="20230529 23:20:53.419" level="INFO">${status} = True</msg>
+<status status="PASS" starttime="20230529 23:20:53.418" endtime="20230529 23:20:53.419"/>
 </kw>
-<status status="PASS" starttime="20230528 02:07:31.585" endtime="20230528 02:07:31.585"/>
+<status status="PASS" starttime="20230529 23:20:53.418" endtime="20230529 23:20:53.419"/>
 </kw>
-<status status="PASS" starttime="20230528 02:07:31.531" endtime="20230528 02:07:31.585"/>
+<status status="PASS" starttime="20230529 23:20:53.364" endtime="20230529 23:20:53.419"/>
 </kw>
-<status status="PASS" starttime="20230528 02:07:31.530" endtime="20230528 02:07:31.585"/>
+<status status="PASS" starttime="20230529 23:20:53.364" endtime="20230529 23:20:53.419"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
-<arg>'${id_status}' == 'False'</arg>
+<arg>'${status}' == 'False'</arg>
 <arg>Click Button By OCR</arg>
 <arg>${image}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20230528 02:07:31.586" endtime="20230528 02:07:31.586"/>
+<status status="PASS" starttime="20230529 23:20:53.419" endtime="20230529 23:20:53.419"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
-<arg>'${id_status}' == 'True'</arg>
+<arg>'${status}' == 'True'</arg>
 <arg>Log</arg>
 <arg>Button clicked successfully using ID</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <kw name="Log" library="BuiltIn">
 <arg>Button clicked successfully using ID</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20230528 02:07:31.586" level="INFO">Button clicked successfully using ID</msg>
-<status status="PASS" starttime="20230528 02:07:31.586" endtime="20230528 02:07:31.586"/>
+<msg timestamp="20230529 23:20:53.419" level="INFO">Button clicked successfully using ID</msg>
+<status status="PASS" starttime="20230529 23:20:53.419" endtime="20230529 23:20:53.419"/>
 </kw>
-<status status="PASS" starttime="20230528 02:07:31.586" endtime="20230528 02:07:31.586"/>
+<status status="PASS" starttime="20230529 23:20:53.419" endtime="20230529 23:20:53.419"/>
 </kw>
-<status status="PASS" starttime="20230528 02:07:30.972" endtime="20230528 02:07:31.586"/>
+<status status="PASS" starttime="20230529 23:20:52.796" endtime="20230529 23:20:53.419"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2 seconds</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230528 02:07:33.588" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20230528 02:07:31.586" endtime="20230528 02:07:33.588"/>
+<msg timestamp="20230529 23:20:55.421" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230529 23:20:53.419" endtime="20230529 23:20:55.422"/>
 </kw>
-<status status="PASS" starttime="20230528 02:07:24.132" endtime="20230528 02:07:33.589"/>
+<status status="PASS" starttime="20230529 23:20:45.799" endtime="20230529 23:20:55.424"/>
 </test>
 <doc>Get Data from JSON and use that in robot.</doc>
-<status status="PASS" starttime="20230528 02:07:23.675" endtime="20230528 02:07:33.590"/>
+<status status="PASS" starttime="20230529 23:20:45.166" endtime="20230529 23:20:55.426"/>
 </suite>
-<status status="PASS" starttime="20230528 02:07:23.669" endtime="20230528 02:07:33.590"/>
+<status status="PASS" starttime="20230529 23:20:45.159" endtime="20230529 23:20:55.427"/>
 </suite>
 <statistics>
 <total>
