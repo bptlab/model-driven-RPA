@@ -18,7 +18,7 @@ Get Data from JSON and use that in robot
     Load JSON Data
     Open the website
     Sleep    5 seconds
-    Click Button Model
+    Click Button Model    ${json_dict["pages"]["Home"]["elements"][0]}
     Sleep    2 seconds
 
 *** Keywords ***
@@ -34,7 +34,7 @@ Open the website
     Open Available Browser    ${link}  
  
 Click Button Model
-    ${element}    Set Variable    ${json_dict["pages"]["Home"]["elements"][0]}
+    [Arguments]    ${element}
     Set Suite Variable    ${id}  ${element["id"]}
     Set Suite Variable    ${path}  ${element["path"]}
     Set Suite Variable    ${image}  ${element["image"]}
