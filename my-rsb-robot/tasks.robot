@@ -35,33 +35,31 @@ Open the website
  
 Click Button Model
     [Arguments]    ${element}
-    Set Suite Variable    ${id}  ${element["id"]}
-    Set Suite Variable    ${path}  ${element["path"]}
-    Set Suite Variable    ${image}  ${element["image"]}
-    Set Suite Variable  ${status}  ${True} 
-    log    The Status Coming from ID is ${status}
-    Run Keyword If    '${status}' == 'True'   Click Button By ID    ${id}   
-    Run Keyword If    '${status}' == 'False'  Click Button By Path    ${path}
-    Run Keyword If    '${status}' == 'False'  Click Button By OCR    ${image}
-    Run Keyword If    '${status}' == 'True'  Log    Button clicked successfully using ID
-        
-  
 
+    Set Suite Variable  ${interaction_status}   ${EMPTY} 
+    Click Button By ID    ${element["id"]}   
+    Run Keyword If    '${interaction_status}' == 'Fail'  Click Button By Path    ${element["path"]}
+    
 Click Button By ID
     [Arguments]    ${id}
     ${element_exists}    Run Keyword And Return Status    Element Should Be Visible    id=${id}
-    Run Keyword If    '${element_exists}' == 'True'  Click Element    id=${id}  
-    ...  ELSE   Set Suite Variable    ${status}   ${False}
-    Run Keyword If    '${element_exists}' == 'True'  Set Suite Variable    ${status}  ${True}
+    Run Keyword If    '${element_exists}' == 'True'  Run Keywords    Set Status Pass  AND  Click Element    id=${id}
+    ...  ELSE   Set Status Fail
+    
 
 
 Click Button By Path
     [Arguments]     ${path}
     ${element_exists}    Run Keyword And Return Status    Element Should Be Visible    xpath=${path}
     Run Keyword If    '${element_exists}' == 'True'  Click Element    xpath=${path}
-    ...  ELSE   Set Suite Variable    ${status}  ${False}
+    ...  ELSE   Set Status Fail
     Run Keyword If    '${element_exists}' == 'True'  Set Suite Variable    ${status}  ${True}
      
+Set Status Pass
+   Set Suite Variable    ${interaction_status}  Pass
+
+Set Status Fail
+   Set Suite Variable    ${interaction_status}  Fail
 
 Click Button By OCR
     [Arguments]    ${image}
