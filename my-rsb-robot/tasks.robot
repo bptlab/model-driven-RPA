@@ -7,7 +7,7 @@ Library    BuiltIn
 Library    RPA.JSON
 Library    RPA.Desktop
 Resource   CustomFunctions/customFunctions.robot
-Library    OCR
+
 
 
 *** Variables ***
