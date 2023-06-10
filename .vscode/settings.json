@@ -1,0 +1,16 @@
+{
+    "robot.completions.keywords.prefixImportNameIgnore": [
+       
+    ],
+    
+    "robot.pythonpath": [
+
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+        "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages",
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/pytesseract"
+    ],
+
+  
+    "robot.language-server.python": "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+    "robot.python.executable": "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3"
+}

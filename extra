@@ -1,0 +1,50 @@
+*** Settings ***
+Documentation     Get Data from JSON and use that in robot.
+Library    RPA.Browser.Selenium  auto_close=${FALSE}
+Library    RPA.HTTP
+Library    OperatingSystem
+Library    BuiltIn
+Library    RPA.JSON
+Library    RPA.Desktop
+Library    ocr.py
+
+
+
+
+
+*** Keywords ***
+
+Click Button Model
+    [Arguments]    ${element}
+
+    Set Suite Variable  ${interaction_status}   ${EMPTY} 
+    Click Button By ID    ${element["id"]}   
+    Run Keyword If    '${interaction_status}' == 'Fail'  Click Button By Path    ${element["path"]}
+    Run Keyword If    '${interaction_status}' == 'Fail'  Click Button By Label    ${element["text"]}     ${element["path"]}
+    
+Click Button By ID
+    [Arguments]    ${id}
+    ${element_exists}    Run Keyword And Return Status    Element Should Be Visible    id=${id}
+    Run Keyword If    '${element_exists}' == 'True'  Run Keywords    Set Status Pass ID  AND  Click Element    id=${id}
+    ...  ELSE   Set Status Fail ID
+    
+
+Click Button By Path
+    [Arguments]     ${path}
+    ${element_exists}    Run Keyword And Return Status    Element Should Be Visible    xpath=${path}
+    Run Keyword If    '${element_exists}' == 'True'  Run Keywords    Set Status Pass ID  AND  Click Element    xpath=${path}
+    ...  ELSE   Set Status Fail ID
+
+Click Button By Label
+    [Arguments]     ${text}    ${path}
+    ${element_exists}    Run Keyword And Return Status    Element Should Be Visible    xpath=//a[text()='${text}']
+    Run Keyword If    '${element_exists}' == 'True'  Run Keywords    Set Status Pass ID  AND  Click Element   xpath=//a[text()='${text}']
+    ...  ELSE   Set Status Fail ID
+
+Set Status Pass ID
+   Set Suite Variable    ${interaction_status}  Pass
+
+Set Status Fail ID
+   Set Suite Variable    ${interaction_status}  Fail
+
+

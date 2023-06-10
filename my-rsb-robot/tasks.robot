@@ -6,7 +6,8 @@ Library    OperatingSystem
 Library    BuiltIn
 Library    RPA.JSON
 Library    RPA.Desktop
-
+Resource   CustomFunctions/customFunctions.robot
+Library    OCR
 
 
 *** Variables ***
@@ -33,35 +34,3 @@ Open the website
     Log   ${link} 
     Open Available Browser    ${link}  
  
-Click Button Model
-    [Arguments]    ${element}
-
-    Set Suite Variable  ${interaction_status}   ${EMPTY} 
-    Click Button By ID    ${element["id"]}   
-    Run Keyword If    '${interaction_status}' == 'Fail'  Click Button By Path    ${element["path"]}
-    
-Click Button By ID
-    [Arguments]    ${id}
-    ${element_exists}    Run Keyword And Return Status    Element Should Be Visible    id=${id}
-    Run Keyword If    '${element_exists}' == 'True'  Run Keywords    Set Status Pass  AND  Click Element    id=${id}
-    ...  ELSE   Set Status Fail
-    
-
-
-Click Button By Path
-    [Arguments]     ${path}
-    ${element_exists}    Run Keyword And Return Status    Element Should Be Visible    xpath=${path}
-    Run Keyword If    '${element_exists}' == 'True'  Click Element    xpath=${path}
-    ...  ELSE   Set Status Fail
-    Run Keyword If    '${element_exists}' == 'True'  Set Suite Variable    ${status}  ${True}
-     
-Set Status Pass
-   Set Suite Variable    ${interaction_status}  Pass
-
-Set Status Fail
-   Set Suite Variable    ${interaction_status}  Fail
-
-Click Button By OCR
-    [Arguments]    ${image}
-    #Run Keyword And Return Status    Perform OCR    ${image}
-    #...    AND    Click Button By OCR    ${element} 

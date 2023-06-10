@@ -16,8 +16,9 @@ function Home() {
           elements:[
               {
                 name:"Button",
-                id:"register123",
+                id:"register",
                 path:'//*[@id="register"]/a',
+                text:'Register',
                 // image:Screenshot,
                 // path:'register',
                 image:'register23',
@@ -25,7 +26,7 @@ function Home() {
                   x:195,
                   y:0
                 },
-                currentMode:'ID'
+                current_mode:'LABEL'
               }
           ]
          }
