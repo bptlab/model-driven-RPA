@@ -21,6 +21,7 @@ PATH:
 
 PYTHONPATH:
   - ${CURDIR}/../bin
+  
 
 ignoreFiles:
   - .gitignore

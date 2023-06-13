@@ -26,7 +26,7 @@ function Home() {
                   x:195,
                   y:0
                 },
-                current_mode:'LABEL'
+                current_mode:'OCR'
               }
           ]
          }

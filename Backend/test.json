@@ -1,1 +1,1 @@
-{"Link":"http://localhost:3001/","pages":{"Home":{"elements":[{"name":"Button","id":"register123","path":"//*[@id=\"register\"]/a","text":"Register123","image":"register23","pixel":{"x":195,"y":0},"current_mode":"LABEL"}]}}}
+{"Link":"http://localhost:3001/","pages":{"Home":{"elements":[{"name":"Button","id":"register","path":"//*[@id=\"register\"]/a","text":"Register","image":"register23","pixel":{"x":195,"y":0},"current_mode":"OCR"}]}}}
