@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import axios from 'axios';
-import UiModelSidebar from "./UiModelSidebar";
-import UiModelElement from "./UiModelElement";
-import Popup from "./Popup";
+import UiModelSidebar from "../uiModeler/UiModelSidebar";
+import UiModelElement from "../uiModeler//UiModelElement";
+import Popup from "../uiModeler/Popup";
 import { getAllUiModels } from "../../api/uiModels.js"
 
-function UiModeler() {
+function RobotCockpit() {
   const [currentUiModelElement, setCurrentUiModelElement] = useState("default");
   const [uiModelList, setUiModelList] = useState([]);
   const [currentApplication, setCurrentApplication] = useState("");
@@ -232,4 +232,4 @@ const updateUiModelElement = (uiModelListWithUpdatedElement) => {
     </div>
   )
 }
-export default UiModeler;
+export default RobotCockpit;

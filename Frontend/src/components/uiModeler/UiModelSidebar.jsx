@@ -19,9 +19,9 @@ function UiModelSidebar({handleModelInterfaceChange, uiModelList, addToUiModel, 
                 }
                 }}
             >
-                <MenuItem >
+                {/* <MenuItem >
                         <p style={{fontSize: '30px', textAlign: 'center', fontFamily: 'helvetica', margin: '0', fontWeight:'bold'}}>MdRPA</p>
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem onClick={() => {addToUiModel("model")}}>
                         <h5 className={styles.addButton}>+ Add Model</h5>
                 </MenuItem>
