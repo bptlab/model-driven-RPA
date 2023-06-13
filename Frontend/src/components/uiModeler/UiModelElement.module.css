@@ -1,0 +1,54 @@
+.inputWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-weight: bold;
+}
+
+.input {
+    width: 100%;
+    min-width: 100px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #f5f7f7;
+}
+
+.internalInputWrapper {
+    padding-left: 5%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-weight: bold;
+}
+
+.attributeWrapper {
+    padding-left: 5%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-weight: bold;
+}
+
+.form {
+    width: 100%;
+    padding: 5vh;
+    overflow: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+}
+
+.defaultScreen {
+    width: 100%;
+    padding: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+}
+
