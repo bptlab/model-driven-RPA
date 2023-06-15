@@ -206,7 +206,7 @@ const updateUiModelElement = (uiModelListWithUpdatedElement) => {
   };
 
   return (
-    <div className="uiModelerWrapper">
+    <div className="coreWrapper">
       <UiModelSidebar handleModelInterfaceChange={handleModelInterfaceChange} uiModelList={uiModelList} addToUiModel={addToUiModel} setCurrentUiModel={setCurrentUiModel} setCurrentUiModelPage={setCurrentUiModelPage} />
       <UiModelElement 
         currentUiModelElement={currentUiModelElement}

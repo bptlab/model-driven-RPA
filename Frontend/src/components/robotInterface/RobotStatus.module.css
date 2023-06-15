@@ -1,0 +1,28 @@
+.defaultScreen {
+    width: 50vw;
+    padding: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+}
+
+.errorScreen {
+    width: 50vw;
+    padding: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    overflow: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+}
+
+.errorReport {
+    width: 100%;
+}
+

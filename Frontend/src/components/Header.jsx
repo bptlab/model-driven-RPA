@@ -19,10 +19,10 @@ function Header() {
                   <p style={{color: "white", fontSize: '30px', textAlign: 'center', fontFamily: 'helvetica', margin: '0', fontWeight:'bold', marginRight: "50px"}}>MdRPA</p>
                   <ul className="nav navbar-nav mr-auto">
                     <li className="nav-item" ><a className="nav-link" href="/">UI Modeler</a></li>
-                    <li className="nav-item" ><a className="nav-link" href="/">Robot Interface</a></li>
+                    <li className="nav-item" ><a className="nav-link" href="/robot">Robot Interface</a></li>
                   </ul>
                 </div>
-                <button onClick={() => {saveCurrentUiModels()}} style={{backgroundColor: "#8231ff", borderRadius: "5px", borderColor:"white", borderStyle: "solid", color: "white"}}>SAVE UI MODELS</button>
+                {/* <button onClick={() => {saveCurrentUiModels()}} style={{backgroundColor: "#8231ff", borderRadius: "5px", borderColor:"white", borderStyle: "solid", color: "white"}}>SAVE UI MODELS</button> */}
               </nav>
             </div>
             {/*/ Col end */}

@@ -1,0 +1,15 @@
+.sidebar {
+    height: 100%;
+}
+
+.addButton {
+    margin: 0;
+    color:#8230ff
+}
+
+.robotWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+}

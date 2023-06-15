@@ -80,7 +80,15 @@ h5 {
   min-width: 250px;
   background-color: white;
 }
-.uiModelerWrapper {
+
+.robotOverviewWrapper {
+  height: 100%;
+  width: 50vw;
+  min-width: 250px;
+  background-color: white;
+}
+
+.coreWrapper {
   height: 100vh;
   display: flex;
   flex-direction: row;

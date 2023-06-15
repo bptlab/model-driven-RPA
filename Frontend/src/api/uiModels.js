@@ -1,12 +1,12 @@
 const getAllUiModels = async () => {
-    // const requestString = `/get-models}`;
+    // const requestString = `http://localhost:8000/get-models}`;
     // const response = await fetch(requestString);
     const uiModelList = []
     return uiModelList;
 };
 
 const saveCurrentUiModels = async (currentUiModelList) => {
-    const requestStringSsot = `/receive-ui-model`;
+    const requestStringSsot = `http://localhost:8000/receive-ui-model`;
     const response = await fetch(requestStringSsot, {
         body: currentUiModelList,
         method: 'PUT',
