@@ -22,6 +22,9 @@ function UiModelSidebar({handleModelInterfaceChange, uiModelList, addToUiModel, 
                 {/* <MenuItem >
                         <p style={{fontSize: '30px', textAlign: 'center', fontFamily: 'helvetica', margin: '0', fontWeight:'bold'}}>MdRPA</p>
                 </MenuItem> */}
+                {/* <div style={{margin: "20px"}}>
+                    <button style={{backgroundColor: "#8231ff", borderRadius: "5px", borderColor:"white", borderStyle: "solid", color: "white", width: "100%"}}>SAVE UI MODELS</button>
+                </div> */}
                 <MenuItem onClick={() => {addToUiModel("model")}}>
                         <h5 className={styles.addButton}>+ Add Model</h5>
                 </MenuItem>

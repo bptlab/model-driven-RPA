@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom'
+import { saveCurrentUiModels } from '../api/uiModels'
 
 function Header() {
    return(
@@ -7,7 +8,7 @@ function Header() {
     {/* Header start */}
     <header id="header" className="header-one">
       <div className="site-navigation">
-        <div className="container" style={{marginLeft: "20px"}}>
+        <div className="container" style={{paddingLeft: "35px", paddingRight: "35px", minWidth: "100vw", margin: "0"}}>
           <div className="row">
             <div className="col-lg-12" style={{padding: "0"}}>
               <nav className="navbar navbar-expand-lg navbar-dark p-0">
@@ -21,6 +22,7 @@ function Header() {
                     <li className="nav-item" ><a className="nav-link" href="/">Robot Interface</a></li>
                   </ul>
                 </div>
+                <button onClick={() => {saveCurrentUiModels()}} style={{backgroundColor: "#8231ff", borderRadius: "5px", borderColor:"white", borderStyle: "solid", color: "white"}}>SAVE UI MODELS</button>
               </nav>
             </div>
             {/*/ Col end */}
