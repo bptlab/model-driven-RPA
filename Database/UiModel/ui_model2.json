@@ -1,0 +1,88 @@
+{
+    "application_id": "Payroll",
+    "application_name": "Payroll",
+    "pages": [
+        {
+            "page_id": "Login",
+            "page_name": "Login",
+            "ui_elements": [
+                {
+                    "element_id": "Submit",
+                    "element_name": "Submit",
+                    "current_mode": "Submit",
+                    "element_locators": {
+                        "dom": {
+                            "text": "",
+                            "attributes": [
+                                {
+                                    "name": "id",
+                                    "value": "dawd212"
+                                },
+                                {
+                                    "name": "class",
+                                    "value": "subb1"
+                                }
+                            ],
+                            "tag": "",
+                            "path": "//*[@id='root']/div/div/div[1]"
+                        },
+                        "surface": {
+                            "point": {
+                                "absolute_coordinates": {
+                                    "x": "",
+                                    "y": ""
+                                },
+                                "relative_coordinates": {
+                                    "x": "",
+                                    "y": ""
+                                }
+                            },
+                            "region": {
+                                "absolute_coordinates": {
+                                    "one": {
+                                        "x": "",
+                                        "y": ""
+                                    },
+                                    "two": {
+                                        "x": "",
+                                        "y": ""
+                                    },
+                                    "three": {
+                                        "x": "",
+                                        "y": ""
+                                    },
+                                    "four": {
+                                        "x": "",
+                                        "y": ""
+                                    }
+                                },
+                                "relative_coordinates": {
+                                    "one": {
+                                        "x": "",
+                                        "y": ""
+                                    },
+                                    "two": {
+                                        "x": "",
+                                        "y": ""
+                                    },
+                                    "three": {
+                                        "x": "",
+                                        "y": ""
+                                    },
+                                    "four": {
+                                        "x": "",
+                                        "y": ""
+                                    }
+                                }
+                            },
+                            "image": ""
+                        },
+                        "other": {
+                            "keyboard_shortcut": ""
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
