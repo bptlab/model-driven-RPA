@@ -16,6 +16,7 @@ function List({ employees, handleEdit, handleDelete }) {
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
+            <th>Month</th>
             <th>Salary</th>
             <th>Date</th>
             <th colSpan={2} className="text-center">
@@ -31,6 +32,7 @@ function List({ employees, handleEdit, handleDelete }) {
                 <td>{employee.firstName}</td>
                 <td>{employee.lastName}</td>
                 <td>{employee.email}</td>
+                <td>{employee.month}</td>
                 <td>{formatter.format(employee.salary)}</td>
                 <td>{employee.date} </td>
                 <td className="text-right">
