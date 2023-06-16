@@ -1,8 +1,8 @@
+import axios from 'axios';
+
 const getAllUiModels = async () => {
-    // const requestString = `http://localhost:8000/get-models}`;
-    // const response = await fetch(requestString);
-    const uiModelList = []
-    return uiModelList;
+    const response = axios.get("http://localhost:8000/get-models")
+    return response;
 };
 
 const saveCurrentUiModels = async (currentUiModelList) => {
