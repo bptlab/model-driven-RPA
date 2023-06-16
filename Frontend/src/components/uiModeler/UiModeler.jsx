@@ -4,7 +4,7 @@ import axios from 'axios';
 import UiModelSidebar from "./UiModelSidebar";
 import UiModelElement from "./UiModelElement";
 import Popup from "./Popup";
-import { getAllUiModels } from "../../api/uiModels.js"
+import { getAllUiModels, setAllUiModels } from "../../api/uiModels.js"
 
 function UiModeler() {
   const [currentUiModelElement, setCurrentUiModelElement] = useState("default");
@@ -194,6 +194,10 @@ function UiModeler() {
     setCurrentPage(pageName)
   }
 
+  const saveCurrentUiModels = () => {
+    setAllUiModels(uiModelList)
+  }
+
   const updateUiModelElement = (uiModelListWithUpdatedElement) => {
     setUiModelList(uiModelListWithUpdatedElement)
   }
@@ -211,7 +215,14 @@ function UiModeler() {
 
   return (
     <div className="coreWrapper">
-      <UiModelSidebar handleModelInterfaceChange={handleModelInterfaceChange} uiModelList={uiModelList} addToUiModel={addToUiModel} setCurrentUiModel={setCurrentUiModel} setCurrentUiModelPage={setCurrentUiModelPage} />
+      <UiModelSidebar 
+        handleModelInterfaceChange={handleModelInterfaceChange} 
+        uiModelList={uiModelList} 
+        addToUiModel={addToUiModel} 
+        setCurrentUiModel={setCurrentUiModel} 
+        setCurrentUiModelPage={setCurrentUiModelPage}
+        saveCurrentUiModels={saveCurrentUiModels}
+      />
       <UiModelElement
         currentUiModelElement={currentUiModelElement}
         uiModelList={uiModelList}

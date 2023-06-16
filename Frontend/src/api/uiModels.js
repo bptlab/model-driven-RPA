@@ -5,19 +5,16 @@ const getAllUiModels = async () => {
     return response;
 };
 
-const saveCurrentUiModels = async (currentUiModelList) => {
-    const requestStringSsot = `http://localhost:8000/receive-ui-model`;
-    const response = await fetch(requestStringSsot, {
-        body: currentUiModelList,
-        method: 'PUT',
+const setAllUiModels = async (currentUiModelList) => {
+    const response = axios.post("http://localhost:8000/set-all-models", JSON.stringify(currentUiModelList), {
         headers: {
-        'Content-Type': 'application/json;charset=utf-8',
+          'Content-Type': 'application/json',
         },
-    });
-    return response
+      })
+    return response;
 };
 
 export {
     getAllUiModels,
-    saveCurrentUiModels
+    setAllUiModels
 };

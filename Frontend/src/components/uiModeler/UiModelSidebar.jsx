@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import styles from './UiModelSidebar.module.css';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-import { saveCurrentUiModels } from '../../api/uiModels'
 
-function UiModelSidebar({handleModelInterfaceChange, uiModelList, addToUiModel, setCurrentUiModel, setCurrentUiModelPage}) {
+
+function UiModelSidebar({handleModelInterfaceChange, uiModelList, addToUiModel, setCurrentUiModel, setCurrentUiModelPage, saveCurrentUiModels}) {
 
   return (
     <div className="sidebarWrapper">
