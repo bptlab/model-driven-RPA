@@ -6,7 +6,8 @@ import fs from 'fs'
 
 export const errorHandling = (req, res) => {
     const jsonStr = JSON.stringify(req.body);
-    const filePath = path.join(__dirname, '../../Database/Error/error.json');
+    const filePath = path.join(new URL('../../../Database/Error/error.json', import.meta.url).pathname);
+
 
     fs.writeFile(filePath, jsonStr, (err) => {
         if (err) {
