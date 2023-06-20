@@ -16,6 +16,7 @@ function Add({ employees, setEmployees, setIsAdding }) {
   }, []);
 
   const handleAdd = (e) => {
+    console.log("Dateeeee=========>>>>>", date);
     e.preventDefault();
     if (!firstName || !lastName || !email || !month || !salary || !date) {
       return Swal.fire({
