@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import RobotOverview from "./RobotOverview";
 import RobotStatus from "./RobotStatus";
-import { runRobot } from "../../api/robots"
+import { runRobot, getAllRobots } from "../../api/robots"
 
 function RobotCockpit() {
   const [robotList, setRobotList] = useState([]);
@@ -11,9 +11,20 @@ function RobotCockpit() {
 
   useEffect(() => {
     // get robots api call
-    setRobotList([
-      {name: "Payroll"}
-    ])
+    console.log("get robots useEffect")
+    getAllRobots()
+      .then((res) => {
+        let robots = []
+        res.data.forEach(
+          robot => {
+            robots.push(JSON.parse(robot))
+          }
+        )
+        setRobotList(robots)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }, [])
 
   const executeRobot = (robotName) => {

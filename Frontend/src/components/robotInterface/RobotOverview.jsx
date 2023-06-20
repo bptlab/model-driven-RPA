@@ -21,13 +21,14 @@ function RobotOverview({ robotList, executeRobot}) {
             >
                 <h4 style={{ padding: "5vh", width: "50vw", textAlign: "center"}}>Your Robots</h4>
                 <>
-                    {robotList.map((robot) => {                    
+                    {robotList.map((robot) => {  
+                    console.log(robot)                  
                     return (
                         <div style={{margin: "20px", alignContent: "center"}}>
                             <MenuItem  style={{borderRadius: "5px", borderColor:"#8231ff", borderWidth: "1px", borderStyle: "solid", width: "100%"}}>
                                 <div className={styles.robotWrapper}>
-                                    <p style={{margin: "0"}}>{robot.name}</p>
-                                    <button onClick={() => {executeRobot(robot.name)}} style={{color: "white", backgroundColor: '#8231ff', borderColor: '#8231ff', borderRadius: "5px"}}>Start</button>
+                                    <p style={{margin: "0"}}>{robot.robotName}</p>
+                                    <button onClick={() => {executeRobot(robot.robotName)}} style={{color: "white", backgroundColor: '#8231ff', borderColor: '#8231ff', borderRadius: "5px"}}>Start</button>
                                 </div>
                             </MenuItem>
                         </div>

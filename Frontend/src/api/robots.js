@@ -5,6 +5,12 @@ const runRobot = async () => {
     return response;
 };
 
+const getAllRobots = async () => {
+    const response = axios.get("http://localhost:8000/get-all-robots")
+    return response;
+};
+
 export {
-    runRobot
+    runRobot,
+    getAllRobots
 };
