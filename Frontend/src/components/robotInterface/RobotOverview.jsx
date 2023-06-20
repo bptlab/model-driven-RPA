@@ -21,8 +21,7 @@ function RobotOverview({ robotList, executeRobot}) {
             >
                 <h4 style={{ padding: "5vh", width: "50vw", textAlign: "center"}}>Your Robots</h4>
                 <>
-                    {robotList.map((robot) => {  
-                    console.log(robot)                  
+                    {robotList.map((robot) => {                  
                     return (
                         <div style={{margin: "20px", alignContent: "center"}}>
                             <MenuItem  style={{borderRadius: "5px", borderColor:"#8231ff", borderWidth: "1px", borderStyle: "solid", width: "100%"}}>

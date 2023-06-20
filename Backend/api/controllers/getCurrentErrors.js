@@ -1,24 +1,25 @@
 import path from 'path';
 import fs from 'fs';
-let folderPath = '../Database/UiModel';
+let folderPath = '../Database/Error';
 
-export const getModels = async (req, res) => {
+export const getCurrentErrors = async (req, res) => {
     try {  
-        let jsonFiles = [];
+        console.log("I am executing the error api function")
+        let currentErrors;
         fs.readdirSync(folderPath).forEach((file) => {
             let filePath = path.join(folderPath, "/", file);
             let fileExtension = path.extname(filePath);
             if (fileExtension === '.json') {
                 try {
-                    let jsonData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-                    jsonFiles.push(jsonData);
+                    let errors = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+                    currentErrors = errors;
                 } catch (error) {
                     console.error(`Error parsing JSON file: ${file}`);
                     console.error(error);
                 }
             }
         });
-        res.send(jsonFiles);
+        res.send(currentErrors);
     } catch (error) {
         console.error(`Error: ${error.message}`)
         return res.status(500).json({ error: 'Error' });
