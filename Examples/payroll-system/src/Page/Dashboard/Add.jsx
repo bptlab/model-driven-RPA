@@ -7,8 +7,6 @@ function Add({ employees, setEmployees, setIsAdding }) {
   const [email, setEmail] = useState("");
   const [month, setMonth] = useState("");
   const [salary, setSalary] = useState("");
-  const [date, setDate] = useState("");
-
   const textInput = useRef(null);
 
   useEffect(() => {
@@ -16,7 +14,6 @@ function Add({ employees, setEmployees, setIsAdding }) {
   }, []);
 
   const handleAdd = (e) => {
-    console.log("Dateeeee=========>>>>>", date);
     e.preventDefault();
     if (!firstName || !lastName || !email || !month || !salary) {
       return Swal.fire({
@@ -35,7 +32,6 @@ function Add({ employees, setEmployees, setIsAdding }) {
       email,
       month,
       salary,
-      date,
     };
     employees.push(newEmployee);
     setEmployees(employees);
@@ -107,14 +103,6 @@ function Add({ employees, setEmployees, setIsAdding }) {
           name="salary"
           value={salary}
           onChange={(e) => setSalary(e.target.value)}
-        />
-        <label htmlFor="date">Date</label>
-        <input
-          id="date"
-          type="date"
-          name="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
         />
         <label htmlFor="terms">
           <input id="terms" type="checkbox" name="terms" required /> I agree to
