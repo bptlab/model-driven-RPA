@@ -7,13 +7,14 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
   const [firstName, setFirstName] = useState(selectedEmployee.firstName);
   const [lastName, setLastName] = useState(selectedEmployee.lastName);
   const [email, setEmail] = useState(selectedEmployee.email);
+  const [month, setMonth] = useState(selectedEmployee.month);
   const [salary, setSalary] = useState(selectedEmployee.salary);
   const [date, setDate] = useState(selectedEmployee.date);
 
   const handleUpdate = (e) => {
     e.preventDefault();
 
-    if (!firstName || !lastName || !email || !salary || !date) {
+    if (!firstName || !lastName || !email || !month || !salary || !date) {
       return Swal.fire({
         icon: "error",
         title: "Error!",
@@ -27,6 +28,7 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
       firstName,
       lastName,
       email,
+      month,
       salary,
       date,
     };
@@ -80,6 +82,27 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        <label htmlFor="month">Payroll month</label>
+        <select
+          id="month"
+          name="month"
+          value={month}
+          onChange={(e) => setMonth(e.target.value)}
+        >
+          <option value="">Choose the month:</option>
+          <option value="January">January</option>
+          <option value="February">February</option>
+          <option value="March">March</option>
+          <option value="April">April</option>
+          <option value="May">May</option>
+          <option value="June">June</option>
+          <option value="July">July</option>
+          <option value="August">August</option>
+          <option value="September">September</option>
+          <option value="October">October</option>
+          <option value="November">November</option>
+          <option value="December">December</option>
+        </select>
         <label htmlFor="salary">Salary ($)</label>
         <input
           id="salary"

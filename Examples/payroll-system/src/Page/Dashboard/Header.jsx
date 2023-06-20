@@ -7,6 +7,7 @@ function Header({ setIsAdding }) {
       <div style={{ marginTop: "30px", marginBottom: "18px" }}>
         <button
           id="addButton"
+          name="addButton"
           onClick={() => setIsAdding(true)}
           className="round-button"
         >
@@ -15,6 +16,7 @@ function Header({ setIsAdding }) {
       </div>
       <button
         id="downloadButton"
+        name="downloadButton"
         onClick={() => window.print()}
         className="round-button"
       >

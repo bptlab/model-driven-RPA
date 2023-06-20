@@ -5,6 +5,7 @@ function Add({ employees, setEmployees, setIsAdding }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [month, setMonth] = useState("");
   const [salary, setSalary] = useState("");
   const [date, setDate] = useState("");
 
@@ -15,8 +16,9 @@ function Add({ employees, setEmployees, setIsAdding }) {
   }, []);
 
   const handleAdd = (e) => {
+    console.log("Dateeeee=========>>>>>", date);
     e.preventDefault();
-    if (!firstName || !lastName || !email || !salary || !date) {
+    if (!firstName || !lastName || !email || !month || !salary || !date) {
       return Swal.fire({
         icon: "error",
         title: "Error!",
@@ -31,6 +33,7 @@ function Add({ employees, setEmployees, setIsAdding }) {
       firstName,
       lastName,
       email,
+      month,
       salary,
       date,
     };
@@ -76,6 +79,27 @@ function Add({ employees, setEmployees, setIsAdding }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        <label htmlFor="month">Payroll month</label>
+        <select
+          id="month"
+          name="month"
+          value={month}
+          onChange={(e) => setMonth(e.target.value)}
+        >
+          <option value="">Choose the month:</option>
+          <option value="January">January</option>
+          <option value="February">February</option>
+          <option value="March">March</option>
+          <option value="April">April</option>
+          <option value="May">May</option>
+          <option value="June">June</option>
+          <option value="July">July</option>
+          <option value="August">August</option>
+          <option value="September">September</option>
+          <option value="October">October</option>
+          <option value="November">November</option>
+          <option value="December">December</option>
+        </select>
         <label htmlFor="salary">Salary ($)</label>
         <input
           id="salary"
