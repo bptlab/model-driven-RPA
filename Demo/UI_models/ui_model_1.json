@@ -1,849 +1,408 @@
 {
-          application_id: "1",
-          application_name: "payrollSystem",
-          pages: [{
-            page_id: "1",
-            page_name: "payroll_homepage",
-            ui_elements:  [{
-              element_id: "addButton", 
-              element_name: "addButton",
-              current_mode: "id",
-              element_locators:{
-                  dom: {
-                      text:"Add payroll entry",
-                      attributes:[{
-                          name:"id",
-                          value:"addButton"},
-                          {
-                            name:"name",
-                            value:"addButton"
-                        },
-                        {
-                            name:"css-selector",
-                            value:"#addButton"
-                        },
-                        {
-                            name:"class",
-                            value:"round-button"
-                        }],
-                      tag:"button",
-                      path:"//*[@id="addButton"]"
-                  },
-                  surface:{
-                      point:{
-                          absolute_coordinates: {
-                              x: "282",
-                              y: "138"
-                          },
-                          relative_coordinates: {
-                              x: "",
-                              y: ""
-                          }
-                      },
-                      region:{
-                          absolute_coordinates: {
-                              one: {
-                                x: "275",
-                                y: "121"
-                            },
-                              two: {
-                                x: "275",
-                                y: "147"
-                            },
-                              three: {
-                                x: "444",
-                                y: "154"
-                            },
-                              four: {
-                                x: "444",
-                                y: "124"
-                            },
-                          },
-                          relative_coordinates:{
-                              one: {
-                                x: "",
-                                y: ""
-                            },
-                              two: {
-                                x: "",
-                                y: ""
-                            },
-                              three: {
-                                x: "",
-                                y: ""
-                            },
-                              four: {
-                                x: "",
-                                y: ""
-                            },
-                          }
-                      },
-                      image: ""
-                  },
-                  other: {
-                      keyboard_shortcut:""
-                  }
-              }
+  "application_id": "1",
+  "application_name": "payrollSystem",
+  "pages": [
+    {
+      "page_id": "1",
+      "page_name": "payroll_homepage",
+      "ui_elements": [
+        {
+          "element_id": "addButton",
+          "element_name": "addButton",
+          "current_mode": "id",
+          "element_locators": {
+            "dom": {
+              "text": "Add payroll entry",
+              "attributes": [
+                {
+                  "name": "id",
+                  "value": "addButton"
+                },
+                {
+                  "name": "name",
+                  "value": "addButton"
+                },
+                {
+                  "name": "css-selector",
+                  "value": "#addButton"
+                },
+                {
+                  "name": "class",
+                  "value": "round-button"
+                }
+              ],
+              "tag": "button",
+              "path": "//*[@id=\"addButton\"]"
             },
-            {
-              element_id: "downloadButton", 
-              element_name: "downloadButton",
-              current_mode: "id",
-              element_locators:{
-                  dom: {
-                      text:"Download the employee's payroll list",
-                      attributes:[{
-                          name:"id",
-                          value:"downloadButton"},
-                          {
-                            name:"name",
-                            value:"downloadButton"
-                        },
-                        {
-                            name:"css-selector",
-                            value:"#downloadButton"
-                        },
-                        {
-                            name:"class",
-                            value:"round-button"
-                        }],
-                      tag:"button",
-                      path:"//*[@id="downloadButton"]"
+            "surface": {
+              "point": {
+                "absolute_coordinates": {
+                  "x": "282",
+                  "y": "138"
+                },
+                "relative_coordinates": {
+                  "x": "",
+                  "y": ""
+                }
+              },
+              "region": {
+                "absolute_coordinates": {
+                  "one": {
+                    "x": "275",
+                    "y": "121"
                   },
-                  surface:{
-                      point:{
-                          absolute_coordinates: {
-                              x: "463",
-                              y: "215"
-                          },
-                          relative_coordinates: {
-                              x: "",
-                              y: ""
-                          }
-                      },
-                      region:{
-                          absolute_coordinates: {
-                              one: {
-                                x: "275",
-                                y: "203"
-                            },
-                              two: {
-                                x: "275",
-                                y: "232"
-                            },
-                              three: {
-                                x: "626",
-                                y: "202"
-                            },
-                              four: {
-                                x: "626",
-                                y: "237"
-                            },
-                          },
-                          relative_coordinates:{
-                              one: {
-                                x: "",
-                                y: ""
-                            },
-                              two: {
-                                x: "",
-                                y: ""
-                            },
-                              three: {
-                                x: "",
-                                y: ""
-                            },
-                              four: {
-                                x: "",
-                                y: ""
-                            },
-                          }
-                      },
-                      image: ""
+                  "two": {
+                    "x": "275",
+                    "y": "147"
                   },
-                  other: {
-                      keyboard_shortcut:""
+                  "three": {
+                    "x": "444",
+                    "y": "154"
+                  },
+                  "four": {
+                    "x": "444",
+                    "y": "124"
                   }
+                },
+                "relative_coordinates": {
+                  "one": {
+                    "x": "",
+                    "y": ""
+                  },
+                  "two": {
+                    "x": "",
+                    "y": ""
+                  },
+                  "three": {
+                    "x": "",
+                    "y": ""
+                  },
+                  "four": {
+                    "x": "",
+                    "y": ""
+                  }
+                }
+              },
+              "image": ""
+            },
+            "other": {
+              "keyboard_shortcut": ""
+            }
+          }
+        },
+        {
+          "element_id": "downloadButton",
+          "element_name": "downloadButton",
+          "current_mode": "id",
+          "element_locators": {
+            "dom": {
+              "text": "Download the employee's payroll list",
+              "attributes": [
+                {
+                  "name": "id",
+                  "value": "downloadButton"
+                },
+                {
+                  "name": "name",
+                  "value": "downloadButton"
+                },
+                {
+                  "name": "css-selector",
+                  "value": "#downloadButton"
+                },
+                {
+                  "name": "class",
+                  "value": "round-button"
+                }
+              ],
+              "tag": "button",
+              "path": "//*[@id=\"downloadButton\"]"
+            },
+            "surface": {
+              "point": {
+                "absolute_coordinates": {
+                  "x": "463",
+                  "y": "215"
+                },
+                "relative_coordinates": {
+                  "x": "",
+                  "y": ""
+                }
+              },
+              "region": {
+                "absolute_coordinates": {
+                  "one": {
+                    "x": "275",
+                    "y": "203"
+                  },
+                  "two": {
+                    "x": "275",
+                    "y": "232"
+                  },
+                  "three": {
+                    "x": "626",
+                    "y": "202"
+                  },
+                  "four": {
+                    "x": "626",
+                    "y": "232"
+                  }
+                },
+                "image": ""
+              },
+              "other": {
+                "keyboard_shortcut": ""
+              }
+            }
+          }
+        }
+        ]
+      },
+      {
+        "page_id": "2",
+        "page_name": "employee_list",
+        "ui_elements": [
+          {
+            "element_id": "employeeTable",
+            "element_name": "employeeTable",
+            "current_mode": "id",
+            "element_locators": {
+              "dom": {
+                "text": "",
+                "attributes": [
+                  {
+                    "name": "id",
+                    "value": "employeeTable"
+                  },
+                  {
+                    "name": "name",
+                    "value": "employeeTable"
+                  },
+                  {
+                    "name": "css-selector",
+                    "value": "#employeeTable"
+                  },
+                  {
+                    "name": "class",
+                    "value": "table"
+                  }
+                ],
+                "tag": "table",
+                "path": "//*[@id=\"employeeTable\"]"
+              },
+              "surface": {
+                "point": {
+                  "absolute_coordinates": {
+                    "x": "90",
+                    "y": "180"
+                  },
+                  "relative_coordinates": {
+                    "x": "",
+                    "y": ""
+                  }
+                },
+                "region": {
+                  "absolute_coordinates": {
+                    "one": {
+                      "x": "90",
+                      "y": "180"
+                    },
+                    "two": {
+                      "x": "718",
+                      "y": "180"
+                    },
+                    "three": {
+                      "x": "718",
+                      "y": "400"
+                    },
+                    "four": {
+                      "x": "90",
+                      "y": "400"
+                    }
+                  },
+                  "relative_coordinates": {
+                    "one": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "two": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "three": {
+                      "x": "",
+                      "y": ""
+                    },
+                    "four": {
+                      "x": "",
+                      "y": ""
+                    }
+                  }
+                },
+                "image": ""
+              },
+              "other": {
+                "keyboard_shortcut": ""
+              }
+            }
+          },
+          {
+            "element_id": "editButton",
+            "element_name": "editButton",
+            "current_mode": "id",
+            "element_locators": {
+              "dom": {
+                "text": "Edit employee",
+                "attributes": [
+                  {
+                    "name": "id",
+                    "value": "editButton"
+                  },
+                  {
+                    "name": "name",
+                    "value": "editButton"
+                  },
+                  {
+                    "name": "css-selector",
+                    "value": "#editButton"
+                  },
+                  {
+                    "name": "class",
+                    "value": "round-button"
+                  }
+                ],
+                "tag": "button",
+                "path": "//*[@id=\"editButton\"]"
+              },
+              "surface": {
+                "point": {
+                  "absolute_coordinates": {
+                    "x": "250",
+                    "y": "500"
+                  },
+                  "relative_coordinates": {
+                    "x": "",
+                    "y": ""
+                  }
+                },
+                "region": {
+                  "absolute_coordinates": {
+                    "one": {
+                      "x": "250",
+                      "y": "500"
+                    },
+                    "two": {
+                      "x": "380",
+                      "y": "500"
+                    },
+                    "three": {
+                      "x": "380",
+                      "y": "535"
+                    },
+                    "four": {
+                      "x": "250",
+                      "y": "535"
+                    }
+                  },
+                  "image": ""
+                },
+                "other": {
+                  "keyboard_shortcut": ""
+                }
+              },
+              "other": {
+                "keyboard_shortcut": ""
+              }
+            }
+          },
+            {
+              "element_id": "deleteButton",
+              "element_name": "deleteButton",
+              "current_mode": "id",
+              "element_locators": {
+                "dom": {
+                  "text": "Delete employee",
+                  "attributes": [
+                    {
+                      "name": "id",
+                      "value": "deleteButton"
+                    },
+                    {
+                      "name": "name",
+                      "value": "deleteButton"
+                    },
+                    {
+                      "name": "css-selector",
+                      "value": "#deleteButton"
+                    },
+                    {
+                      "name": "class",
+                      "value": "round-button"
+                    }
+                  ],
+                  "tag": "button",
+                  "path": "//*[@id=\"deleteButton\"]"
+                },
+                "surface": {
+                  "point": {
+                    "absolute_coordinates": {
+                      "x": "400",
+                      "y": "500"
+                    },
+                    "relative_coordinates": {
+                      "x": "",
+                      "y": ""
+                    }
+                  },
+                  "region": {
+                    "absolute_coordinates": {
+                      "one": {
+                        "x": "400",
+                        "y": "500"
+                      },
+                      "two": {
+                        "x": "530",
+                        "y": "500"
+                      },
+                      "three": {
+                        "x": "530",
+                        "y": "535"
+                      },
+                      "four": {
+                        "x": "400",
+                        "y": "535"
+                      }
+                    },
+                    "relative_coordinates": {
+                      "one": {
+                        "x": "",
+                        "y": ""
+                      },
+                      "two": {
+                        "x": "",
+                        "y": ""
+                      },
+                      "three": {
+                        "x": "",
+                        "y": ""
+                      },
+                      "four": {
+                        "x": "",
+                        "y": ""
+                      }
+                    }
+                  },
+                  "image": ""
+                },
+                "other": {
+                  "keyboard_shortcut": ""
+                }
               }
             }
           ]
-          }]
-        },
-        {
-          page_id: "2",
-          page_name: "add_payroll",
-          ui_elements:  [{
-            element_id: "firstName", 
-            element_name: "firstName",
-            current_mode: "id",
-            element_locators:{
-                dom: {
-                    text:"",
-                    attributes:[{
-                        name:"id",
-                        value:""},
-                        {
-                          name:"name",
-                          value:"firstName"
-                      },
-                      {
-                          name:"css-selector",
-                          value:"#firstName"
-                      },
-                     ],
-                    tag:"input",
-                    path:"//*[@id="firstName"]"
-                },
-                surface:{
-                    point:{
-                        absolute_coordinates: {
-                            x: "900",
-                            y: "181"
-                        },
-                        relative_coordinates: {
-                            x: "",
-                            y: ""
-                        }
-                    },
-                    region:{
-                        absolute_coordinates: {
-                            one: {
-                              x: "",
-                              y: ""
-                          },
-                            two: {
-                              x: "",
-                              y: ""
-                          },
-                            three: {
-                              x: "",
-                              y: ""
-                          },
-                            four: {
-                              x: "",
-                              y: ""
-                          },
-                        },
-                        relative_coordinates:{
-                            one: {
-                              x: "",
-                              y: ""
-                          },
-                            two: {
-                              x: "",
-                              y: ""
-                          },
-                            three: {
-                              x: "",
-                              y: ""
-                          },
-                            four: {
-                              x: "",
-                              y: ""
-                          },
-                        }
-                    },
-                    image: ""
-                },
-                other: {
-                    keyboard_shortcut:""
-                }
-            }
-          },
-          {
-            element_id: "lastName", 
-            element_name: "lastName",
-            current_mode: "id",
-            element_locators:{
-                dom: {
-                    text:"",
-                    attributes:[{
-                        name:"id",
-                        value:""},
-                        {
-                          name:"name",
-                          value:"lastName"
-                      },
-                      {
-                          name:"css-selector",
-                          value:"#lastName"
-                      },
-                      ],
-                    tag:"input",
-                    path:"//*[@id="lastName"]"
-                },
-                surface:{
-                    point:{
-                        absolute_coordinates: {
-                            x: "900",
-                            y: "300"
-                        },
-                        relative_coordinates: {
-                            x: "",
-                            y: ""
-                        }
-                    },
-                    region:{
-                        absolute_coordinates: {
-                            one: {
-                              x: "",
-                              y: ""
-                          },
-                            two: {
-                              x: "",
-                              y: ""
-                          },
-                            three: {
-                              x: "",
-                              y: ""
-                          },
-                            four: {
-                              x: "",
-                              y: ""
-                          },
-                        },
-                        relative_coordinates:{
-                            one: {
-                              x: "",
-                              y: ""
-                          },
-                            two: {
-                              x: "",
-                              y: ""
-                          },
-                            three: {
-                              x: "",
-                              y: ""
-                          },
-                            four: {
-                              x: "",
-                              y: ""
-                          },
-                        }
-                    },
-                    image: ""
-                },
-                other: {
-                    keyboard_shortcut:""
-                }
-            }
-          },
-          {
-            element_id: "email", 
-            element_name: "email",
-            current_mode: "id",
-            element_locators:{
-                dom: {
-                    text:"",
-                    attributes:[{
-                        name:"id",
-                        value:""},
-                        {
-                          name:"name",
-                          value:"email"
-                      },
-                      {
-                          name:"css-selector",
-                          value:"#email"
-                      },
-                      ],
-                    tag:"input",
-                    path:"//*[@id="email"]"
-                },
-                surface:{
-                    point:{
-                        absolute_coordinates: {
-                            x: "900",
-                            y: "424"
-                        },
-                        relative_coordinates: {
-                            x: "",
-                            y: ""
-                        }
-                    },
-                    region:{
-                        absolute_coordinates: {
-                            one: {
-                              x: "",
-                              y: ""
-                          },
-                            two: {
-                              x: "",
-                              y: ""
-                          },
-                            three: {
-                              x: "",
-                              y: ""
-                          },
-                            four: {
-                              x: "",
-                              y: ""
-                          },
-                        },
-                        relative_coordinates:{
-                            one: {
-                              x: "",
-                              y: ""
-                          },
-                            two: {
-                              x: "",
-                              y: ""
-                          },
-                            three: {
-                              x: "",
-                              y: ""
-                          },
-                            four: {
-                              x: "",
-                              y: ""
-                          },
-                        }
-                    },
-                    image: ""
-                },
-                other: {
-                    keyboard_shortcut:""
-                }
-            }
-          },
-          {
-            element_id: "month", 
-            element_name: "month",
-            current_mode: "id",
-            element_locators:{
-                dom: {
-                    text:"",
-                    attributes:[{
-                        name:"id",
-                        value:""},
-                        {
-                          name:"name",
-                          value:"month"
-                      },
-                      {
-                          name:"css-selector",
-                          value:"#month"
-                      },
-                      {
-                        name:"January",
-                        value:"January"
-                      },
-                      {
-                        name:"February",
-                        value:"February"
-                      },
-                      {
-                        name:"March",
-                        value:"March"
-                      },
-                      {
-                        name:"April",
-                        value:"April"
-                      },
-                      {
-                        name:"May",
-                        value:"May"
-                      },
-                      {
-                        name:"June",
-                        value:"June"
-                      },
-                      {
-                        name:"July",
-                        value:"July"
-                      },
-                      {
-                        name:"August",
-                        value:"August"
-                      },
-                      {
-                        name:"September",
-                        value:"September"
-                      },
-                      {
-                        name:"October",
-                        value:"October"
-                      },
-                      {
-                        name:"November",
-                        value:"November"
-                      },
-                      {
-                        name:"December",
-                        value:"December"
-                      },
-                      ],
-                    tag:"select",
-                    path:"//*[@id="month"]"
-                },
-                surface:{
-                    point:{
-                        absolute_coordinates: {
-                            x: "900",
-                            y: "535"
-                        },
-                        relative_coordinates: {
-                            x: "",
-                            y: ""
-                        }
-                    },
-                    region:{
-                        absolute_coordinates: {
-                            one: {
-                              x: "",
-                              y: ""
-                          },
-                            two: {
-                              x: "",
-                              y: ""
-                          },
-                            three: {
-                              x: "",
-                              y: ""
-                          },
-                            four: {
-                              x: "",
-                              y: ""
-                          },
-                        },
-                        relative_coordinates:{
-                            one: {
-                              x: "",
-                              y: ""
-                          },
-                            two: {
-                              x: "",
-                              y: ""
-                          },
-                            three: {
-                              x: "",
-                              y: ""
-                          },
-                            four: {
-                              x: "",
-                              y: ""
-                          },
-                        }
-                    },
-                    image: ""
-                },
-                other: {
-                    keyboard_shortcut:""
-                }
-            }
-          },
-          {
-            element_id: "salary", 
-            element_name: "salary",
-            current_mode: "id",
-            element_locators:{
-                dom: {
-                    text:"",
-                    attributes:[{
-                        name:"id",
-                        value:""},
-                        {
-                          name:"name",
-                          value:"salary"
-                      },
-                      {
-                          name:"css-selector",
-                          value:"#salary"
-                      },
-                     ],
-                    tag:"input",
-                    path:"//*[@id="salary"]"
-                },
-                surface:{
-                    point:{
-                        absolute_coordinates: {
-                            x: "900",
-                            y: "648"
-                        },
-                        relative_coordinates: {
-                            x: "",
-                            y: ""
-                        }
-                    },
-                    region:{
-                        absolute_coordinates: {
-                            one: {
-                              x: "",
-                              y: ""
-                          },
-                            two: {
-                              x: "",
-                              y: ""
-                          },
-                            three: {
-                              x: "",
-                              y: ""
-                          },
-                            four: {
-                              x: "",
-                              y: ""
-                          },
-                        },
-                        relative_coordinates:{
-                            one: {
-                              x: "",
-                              y: ""
-                          },
-                            two: {
-                              x: "",
-                              y: ""
-                          },
-                            three: {
-                              x: "",
-                              y: ""
-                          },
-                            four: {
-                              x: "",
-                              y: ""
-                          },
-                        }
-                    },
-                    image: ""
-                },
-                other: {
-                    keyboard_shortcut:""
-                }
-            }
-          },
-          {
-            element_id: "date", 
-            element_name: "date",
-            current_mode: "id",
-            element_locators:{
-                dom: {
-                    text:"",
-                    attributes:[{
-                        name:"id",
-                        value:"date"},
-                        {
-                          name:"name",
-                          value:"date"
-                      },
-                      {
-                          name:"css-selector",
-                          value:"#date"
-                      },
-                     ],
-                    tag:"input",
-                    path:"//*[@id="date"]"
-                },
-                surface:{
-                    point:{
-                        absolute_coordinates: {
-                            x: "900",
-                            y: "777"
-                        },
-                        relative_coordinates: {
-                            x: "",
-                            y: ""
-                        }
-                    },
-                    region:{
-                        absolute_coordinates: {
-                            one: {
-                              x: "",
-                              y: ""
-                          },
-                            two: {
-                              x: "",
-                              y: ""
-                          },
-                            three: {
-                              x: "",
-                              y: ""
-                          },
-                            four: {
-                              x: "",
-                              y: ""
-                          },
-                        },
-                        relative_coordinates:{
-                            one: {
-                              x: "",
-                              y: ""
-                          },
-                            two: {
-                              x: "",
-                              y: ""
-                          },
-                            three: {
-                              x: "",
-                              y: ""
-                          },
-                            four: {
-                              x: "",
-                              y: ""
-                          },
-                        }
-                    },
-                    image: ""
-                },
-                other: {
-                    keyboard_shortcut:""
-                }
-            }
-          },
-          {
-            element_id: "terms", 
-            element_name: "terms",
-            current_mode: "id",
-            element_locators:{
-                dom: {
-                    text:"",
-                    attributes:[{
-                        name:"id",
-                        value:"terms"},
-                        {
-                          name:"name",
-                          value:"terms"
-                      },
-                      {
-                          name:"css-selector",
-                          value:"#terms"
-                      },
-                     ],
-                    tag:"checkbox",
-                    path:"//*[@id="terms"]"
-                },
-                surface:{
-                    point:{
-                        absolute_coordinates: {
-                            x: "552",
-                            y: "832"
-                        },
-                        relative_coordinates: {
-                            x: "",
-                            y: ""
-                        }
-                    },
-                    region:{
-                        absolute_coordinates: {
-                            one: {
-                              x: "",
-                              y: ""
-                          },
-                            two: {
-                              x: "",
-                              y: ""
-                          },
-                            three: {
-                              x: "",
-                              y: ""
-                          },
-                            four: {
-                              x: "",
-                              y: ""
-                          },
-                        },
-                        relative_coordinates:{
-                            one: {
-                              x: "",
-                              y: ""
-                          },
-                            two: {
-                              x: "",
-                              y: ""
-                          },
-                            three: {
-                              x: "",
-                              y: ""
-                          },
-                            four: {
-                              x: "",
-                              y: ""
-                          },
-                        }
-                    },
-                    image: ""
-                },
-                other: {
-                    keyboard_shortcut:""
-                }
-            }
-          },
-          {
-            element_id: "addButton", 
-            element_name: "addButton",
-            current_mode: "id",
-            element_locators:{
-                dom: {
-                    text:"Add",
-                    attributes:[{
-                        name:"id",
-                        value:"addButton"},
-                        {
-                          name:"name",
-                          value:"addButton"
-                      },
-                      {
-                          name:"css-selector",
-                          value:"#addButton"
-                      },
-                    ],
-                    tag:"button",
-                    path:"//*[@id="addButton"]"
-                },
-                surface:{
-                    point:{
-                        absolute_coordinates: {
-                            x: "592",
-                            y: "901"
-                        },
-                        relative_coordinates: {
-                            x: "",
-                            y: ""
-                        }
-                    },
-                    region:{
-                        absolute_coordinates: {
-                            one: {
-                              x: "",
-                              y: ""
-                          },
-                            two: {
-                              x: "",
-                              y: ""
-                          },
-                            three: {
-                              x: "",
-                              y: ""
-                          },
-                            four: {
-                              x: "",
-                              y: ""
-                          },
-                        },
-                        relative_coordinates:{
-                            one: {
-                              x: "",
-                              y: ""
-                          },
-                            two: {
-                              x: "",
-                              y: ""
-                          },
-                            three: {
-                              x: "",
-                              y: ""
-                          },
-                            four: {
-                              x: "",
-                              y: ""
-                          },
-                        }
-                    },
-                    image: ""
-                },
-                other: {
-                    keyboard_shortcut:""
-                }
-            }
-          },
-        ]
-        }]
-      }
+        }
+      ]
+    }
+    
+                     
+  

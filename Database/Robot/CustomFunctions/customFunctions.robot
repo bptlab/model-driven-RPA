@@ -19,7 +19,7 @@ ${report}
 
 *** Keywords ***
 
-    #####  Click  Button#'#######'''####''''##Ä Custom Function #####
+    #####  Click  Button Custom Function #####
 
 
 
