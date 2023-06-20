@@ -1,8 +1,7 @@
-
 import path from 'path';
 import fs from 'fs'
 
-export const runRobot  = (req, res) => {
+export const runRobot = (req, res) => {
     const jsonStr = JSON.stringify(req.body);
     fs.writeFile(path.join(__dirname, 'test.json'), jsonStr, (err) => {
         if (err) {
@@ -10,7 +9,7 @@ export const runRobot  = (req, res) => {
             return res.status(500).json({ error: 'Internal server error' });
         }
 
-        const robotFilePath = '/Users/alihussainkazmi/Desktop/my-rsb-robot';
+        const robotFilePath = '../Database/Robot';
 
         exec(`robot ${robotFilePath}`, (error, stdout, stderr) => {
             if (error) {
