@@ -52,9 +52,9 @@ Add payroll entry
     Input Text    //*[@id="email"]    ${EMAIL}
     Select From List By Value    //*[@id="month"]    ${MONTH}
     Input Text    //*[@id="salary"]    ${SALARY}
-    ${DATE}    Get Current Date
-    Log    ${DATE}
-    Execute Javascript    return document.getElementById('date').value = '${DATE}';
+    # ${DATE}    Get Current Date
+    # Log    ${DATE}
+    # Execute Javascript    return document.getElementById('date').value = '${DATE}';
     Select Checkbox    //*[@id="terms"]
     Click Button    //*[@id="addButton"]
     Close Workbook
