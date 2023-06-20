@@ -18,7 +18,6 @@ function List({ employees, handleEdit, handleDelete }) {
             <th>Email</th>
             <th>Month</th>
             <th>Salary</th>
-            <th>Date</th>
             <th colSpan={2} className="text-center">
               Actions
             </th>
@@ -34,7 +33,6 @@ function List({ employees, handleEdit, handleDelete }) {
                 <td>{employee.email}</td>
                 <td>{employee.month}</td>
                 <td>{formatter.format(employee.salary)}</td>
-                <td>{employee.date} </td>
                 <td className="text-right">
                   <button
                     id="editButton"

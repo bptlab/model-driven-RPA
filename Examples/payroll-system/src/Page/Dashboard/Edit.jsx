@@ -9,12 +9,11 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
   const [email, setEmail] = useState(selectedEmployee.email);
   const [month, setMonth] = useState(selectedEmployee.month);
   const [salary, setSalary] = useState(selectedEmployee.salary);
-  const [date, setDate] = useState(selectedEmployee.date);
 
   const handleUpdate = (e) => {
     e.preventDefault();
 
-    if (!firstName || !lastName || !email || !month || !salary || !date) {
+    if (!firstName || !lastName || !email || !month || !salary) {
       return Swal.fire({
         icon: "error",
         title: "Error!",
@@ -30,7 +29,6 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
       email,
       month,
       salary,
-      date,
     };
 
     for (let i = 0; i < employees.length; i++) {
@@ -110,14 +108,6 @@ function Edit({ employees, selectedEmployee, setEmployees, setIsEditing }) {
           name="salary"
           value={salary}
           onChange={(e) => setSalary(e.target.value)}
-        />
-        <label htmlFor="date">Date</label>
-        <input
-          id="date"
-          type="date"
-          name="date"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
         />
         <div style={{ marginTop: "30px" }}>
           <button id="updateButton" type="submit" value="Update">
