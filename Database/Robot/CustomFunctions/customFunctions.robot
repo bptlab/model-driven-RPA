@@ -19,7 +19,7 @@ ${report}
 
 *** Keywords ***
 
-    #####  Input Field Custom Function #####
+    #####  Click  Button#'#######'''####''''##Ä Custom Function #####
 
 
 
@@ -154,7 +154,7 @@ Input Field By Image
 
 
 
-Select Value from Dropdown
+Select Value from Dropdown Model
     [Arguments]    ${element}  ${application_name}  ${page_nam}  ${value}
     Set Suite Variable  ${model_name}    ${application_name} 
     Set Suite Variable  ${page_name}    ${page_nam} 

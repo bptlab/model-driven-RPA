@@ -21,6 +21,9 @@ Get Data from JSON and use that in robot
     #Sleep    3 seconds
     #Click Button Model    ${json_dict["pages"][0]["ui_elements"][0]}    ${json_dict["application_name"]}   ${json_dict["pages"][0]["page_name"]}    
     #Sleep    2 seconds
+    #Input Field  Model    ${json_dict["pages"][0]["ui_elements"][0]}    ${json_dict["application_name"]}   ${json_dict["pages"][0]["page_name"]}   ${value} 
+    #Sleep    2 seconds
+    #Select Value from Dropdown Model   ${json_dict["pages"][0]["ui_elements"][0]}    ${json_dict["application_name"]}   ${json_dict["pages"][0]["page_name"]}   ${value}     
     Send Report to UI Modeler
     
 
