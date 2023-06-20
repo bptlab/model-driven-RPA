@@ -1,18 +1,16 @@
 import path from 'path';
-import fs from 'fs'
-const folderPath = '../Database/UiModel';
+import fs from 'fs';
+let folderPath = '../Database/UiModel';
 
 export const getModels = async (req, res) => {
-    try {
-        const jsonFiles = [];
-
+    try {  
+        let jsonFiles = [];
         fs.readdirSync(folderPath).forEach((file) => {
-            const filePath = path.join(folderPath, file);
-            const fileExtension = path.extname(filePath);
-
+            let filePath = path.join(folderPath, "/", file);
+            let fileExtension = path.extname(filePath);
             if (fileExtension === '.json') {
                 try {
-                    const jsonData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+                    let jsonData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
                     jsonFiles.push(jsonData);
                 } catch (error) {
                     console.error(`Error parsing JSON file: ${file}`);

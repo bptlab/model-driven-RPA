@@ -4,6 +4,7 @@ import axios from 'axios';
 import UiModelSidebar from "./UiModelSidebar";
 import UiModelElement from "./UiModelElement";
 import Popup from "./Popup";
+import { getAllUiModels, setAllUiModels } from "../../api/uiModels.js"
 
 function UiModeler() {
   const [currentUiModelElement, setCurrentUiModelElement] = useState("default");
@@ -29,129 +30,13 @@ function UiModeler() {
   }, [uiModelList])
 
   useEffect(() => {
-    // 15.06.2023 [bagi_sprint6] begin
-    axios.get("http://localhost:8000/Robot/get-models")
+    getAllUiModels()
       .then((res) => {
         setUiModelList(res.data)
       })
       .catch((err) => {
         console.log(err)
       })
-    // 15.06.2023 [bagi_sprint6] end
-
-    setUiModelList([
-      // {
-      //   application_id: "1",
-      //   application_name: "Outlook Web App",
-      //   pages: [{
-      //     page_id: "",
-      //     page_name: "",
-      //     ui_elements:  [{
-      //       element_id: "", 
-      //       element_name: "",
-      //       current_mode: "",
-      //       element_locators:{
-      //           dom: {
-      //               text:"",
-      //               attributes:[{
-      //                   name:"",
-      //                   value:""},
-      //                   {
-      //                     name:"",
-      //                     value:""
-      //                 }],
-      //               tag:"",
-      //               path:""
-      //           },
-      //           surface:{
-      //               point:{
-      //                   absolute_coordinates: {
-      //                       x: "",
-      //                       y: ""
-      //                   },
-      //                   relative_coordinates: {
-      //                       x: "",
-      //                       y: ""
-      //                   }
-      //               },
-      //               region:{
-      //                   absolute_coordinates: {
-      //                       one: "",
-      //                       two: "",
-      //                       three: "",
-      //                       four: "",
-      //                   },
-      //                   relative_coordinates:{
-      //                       one: "",
-      //                       two: "",
-      //                       three: "",
-      //                       four: "",
-      //                   }
-      //               },
-      //               image: ""
-      //           },
-      //           other: {
-      //               keyboard_shortcut:""
-      //           }
-      //       }
-      //     }]
-      //   }]
-      // },
-      // {
-      //   application_id: "2",
-      //   application_name: "Payroll Web App",
-      //   pages: [{
-      //     page_id: "21",
-      //     page_name: "Login Screen",
-      //     ui_elements:  [{
-      //       element_id: "211", 
-      //       element_name: "Email Input",
-      //       current_mode: "",
-      //       element_locators:{
-      //           dom: {
-      //               text:"",
-      //               attributes:[{
-      //                   name:"",
-      //                   value:""
-      //               }],
-      //               tag:"",
-      //               path:""
-      //           },
-      //           surface:{
-      //               point:{
-      //                   absolute_coordinates: {
-      //                       x: "",
-      //                       y: ""
-      //                   },
-      //                   relative_coordinates: {
-      //                       x: "",
-      //                       y: ""
-      //                   }
-      //               },
-      //               region:{
-      //                   absolute_coordinates: {
-      //                       one: "",
-      //                       two: "",
-      //                       three: "",
-      //                       four: "",
-      //                   },
-      //                   relative_coordinates:{
-      //                       one: "",
-      //                       two: "",
-      //                       three: "",
-      //                       four: "",
-      //                   }
-      //               },
-      //               image: ""
-      //           },
-      //           other: {
-      //               keyboard_shortcut:""
-      //           }
-      //       }
-      //     }]
-      //   }]
-      // }
-    ])
   }, [])
 
   const handleModelInterfaceChange = (updatedCurrentUiModel) => {
@@ -309,6 +194,10 @@ function UiModeler() {
     setCurrentPage(pageName)
   }
 
+  const saveCurrentUiModels = () => {
+    setAllUiModels(uiModelList)
+  }
+
   const updateUiModelElement = (uiModelListWithUpdatedElement) => {
     setUiModelList(uiModelListWithUpdatedElement)
   }
@@ -325,8 +214,15 @@ function UiModeler() {
   };
 
   return (
-    <div className="uiModelerWrapper">
-      <UiModelSidebar handleModelInterfaceChange={handleModelInterfaceChange} uiModelList={uiModelList} addToUiModel={addToUiModel} setCurrentUiModel={setCurrentUiModel} setCurrentUiModelPage={setCurrentUiModelPage} />
+    <div className="coreWrapper">
+      <UiModelSidebar 
+        handleModelInterfaceChange={handleModelInterfaceChange} 
+        uiModelList={uiModelList} 
+        addToUiModel={addToUiModel} 
+        setCurrentUiModel={setCurrentUiModel} 
+        setCurrentUiModelPage={setCurrentUiModelPage}
+        saveCurrentUiModels={saveCurrentUiModels}
+      />
       <UiModelElement
         currentUiModelElement={currentUiModelElement}
         uiModelList={uiModelList}

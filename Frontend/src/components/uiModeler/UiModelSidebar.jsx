@@ -5,7 +5,7 @@ import styles from './UiModelSidebar.module.css';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 
 
-function UiModelSidebar({handleModelInterfaceChange, uiModelList, addToUiModel, setCurrentUiModel, setCurrentUiModelPage}) {
+function UiModelSidebar({handleModelInterfaceChange, uiModelList, addToUiModel, setCurrentUiModel, setCurrentUiModelPage, saveCurrentUiModels}) {
 
   return (
     <div className="sidebarWrapper">
@@ -19,9 +19,12 @@ function UiModelSidebar({handleModelInterfaceChange, uiModelList, addToUiModel, 
                 }
                 }}
             >
-                <MenuItem >
+                {/* <MenuItem >
                         <p style={{fontSize: '30px', textAlign: 'center', fontFamily: 'helvetica', margin: '0', fontWeight:'bold'}}>MdRPA</p>
-                </MenuItem>
+                </MenuItem> */}
+                <div style={{padding: "5vh"}}>
+                    <button onClick={() => {saveCurrentUiModels()}} style={{backgroundColor: "#8231ff", borderRadius: "5px", borderColor:"white", borderStyle: "solid", color: "white", width: "100%"}}>SAVE UI MODELS</button>
+                </div>
                 <MenuItem onClick={() => {addToUiModel("model")}}>
                         <h5 className={styles.addButton}>+ Add Model</h5>
                 </MenuItem>

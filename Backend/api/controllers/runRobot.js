@@ -1,15 +1,16 @@
 import path from 'path';
 import fs from 'fs'
+import { exec } from 'child_process';
 
 export const runRobot = (req, res) => {
     const jsonStr = JSON.stringify(req.body);
-    fs.writeFile(path.join(__dirname, 'test.json'), jsonStr, (err) => {
+    fs.writeFile('test.json', jsonStr, (err) => {
         if (err) {
             console.error('Error writing to test.json:', err);
             return res.status(500).json({ error: 'Internal server error' });
         }
 
-        const robotFilePath = '../Database/Robot';
+        const robotFilePath = '../Database/Robot/tasks.robot';
 
         exec(`robot ${robotFilePath}`, (error, stdout, stderr) => {
             if (error) {

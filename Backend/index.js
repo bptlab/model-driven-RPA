@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 
-app.use("/Robot", Routes);
+app.use("", Routes);
 
 
 app.listen(8000, () => {
