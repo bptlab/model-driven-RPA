@@ -2,6 +2,7 @@ import path from 'path';
 import fs from 'fs'
 import { exec } from 'child_process';
 
+// req.body looks like this: {"robotName": "exampleName"}
 export const runRobot = (req, res) => {
     const jsonStr = JSON.stringify(req.body);
     fs.writeFile('test.json', jsonStr, (err) => {
