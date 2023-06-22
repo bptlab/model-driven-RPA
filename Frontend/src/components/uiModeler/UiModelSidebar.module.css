@@ -6,3 +6,10 @@
     margin: 0;
     color:#8230ff
 }
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+    justify-content: space-between;
+}
