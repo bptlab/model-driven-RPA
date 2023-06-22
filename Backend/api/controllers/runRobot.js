@@ -12,7 +12,7 @@ export const runRobot = (req, res) => {
 
         const robotFilePath = '../Database/Robot/tasks.robot';
 
-        exec(`robot ${robotFilePath}`, (error, stdout, stderr) => {
+        exec(`robot --variable YOUR_VALUE:${yourValue} ${robotFilePath}`, (error, stdout, stderr) => {
             if (error) {
                 console.error(`Error executing Robot Framework: ${error.message}`);
                 return res.status(500).json({ error: 'Internal server error' });

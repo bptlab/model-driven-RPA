@@ -17,6 +17,7 @@ Resource   CustomFunctions/customFunctions.robot
 
 
 
+
 *** Variables ***
 ${json_dict}    ${EMPTY}
 ${MONTH}        June
@@ -50,7 +51,7 @@ Put salaries in payroll system
 
 *** Keywords ***
 Load JSON Data
-    ${json_data}=    Get File    test.json
+    ${json_data}=    Get File    ../UiModel/Payroll.json
     ${json_dict}=    Evaluate    ${json_data}    json
     Set Suite Variable    ${json_dict}
     log  ${json_dict} 
