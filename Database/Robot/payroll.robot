@@ -26,30 +26,16 @@ ${USERNAME}     MdRPA
 ${PASSWORD}     wdanyckqieooxell
 
 
-*** Tasks ***
-Get Data from JSON and use that in robot
-Download payrolls
+
+*** Keywords ***
+
+Run Payroll
     Authorize    account=${USERNAME}    password=${PASSWORD}
     ${attachments}    Save Attachments    SUBJECT Payroll_${MONTH}
     ...    target_folder=${CURDIR}${/}Payrolls    overwrite=${True}
-
-Put salaries in payroll system
-    # Open the payroll System
     Iterate through all files
-
-    #Load JSON Data
-    #Open the website
-    #Sleep    3 seconds
-    #Click Button Model    ${json_dict["pages"][0]["ui_elements"][0]}    ${json_dict["application_name"]}   ${json_dict["pages"][0]["page_name"]}    
-    #Sleep    2 seconds
-    #Input Field  Model    ${json_dict["pages"][0]["ui_elements"][0]}    ${json_dict["application_name"]}   ${json_dict["pages"][0]["page_name"]}   ${value} 
-    #Sleep    2 seconds
-    #Select Value from Dropdown Model   ${json_dict["pages"][0]["ui_elements"][0]}    ${json_dict["application_name"]}   ${json_dict["pages"][0]["page_name"]}   ${value}     
     Send Report to UI Modeler
-    
 
-
-*** Keywords ***
 Load JSON Data
     ${json_data}=    Get File    ../UiModel/Payroll.json
     ${json_dict}=    Evaluate    ${json_data}    json
@@ -58,7 +44,7 @@ Load JSON Data
 
 
 Iterate through all files
-    Open Available Browser    http://localhost:3000/
+    Open Available Browser    http://localhost:3001/
     ${files}    List files in directory    ${CURDIR}${/}Payrolls
     FOR    ${file}    IN    @{FILES}
         RPA.Excel.Application.Open Workbook    ${file}
@@ -69,25 +55,18 @@ Iterate through all files
         Add payroll entry    ${FIRSTNAME}    ${LASTNAME}    ${EMAIL}    ${SALARY}
         Sleep    1s
     END
-Open the website
-    ${link}=    Set Variable    ${json_dict["Link"]}
-    Log To Console     ${link} 
-    Log   ${link} 
-    Open Available Browser    ${link}  
+
 
 Add payroll entry
     [Arguments]    ${FIRSTNAME}    ${LASTNAME}    ${EMAIL}    ${SALARY}
-    Click Button    //*[@id="addButton"]
-    Input Text    //*[@id="firstName"]    ${FIRSTNAME}
-    Input Text    //*[@id="lastName"]    ${LASTNAME}
-    Input Text    //*[@id="email"]    ${EMAIL}
-    Select From List By Value    //*[@id="month"]    ${MONTH}
-    Input Text    //*[@id="salary"]    ${SALARY}
-    ${DATE}    Get Current Date
-    Log    ${DATE}
-    Execute Javascript    return document.getElementById('date').value = '${DATE}';
-    Select Checkbox    //*[@id="terms"]
-    Click Button    //*[@id="addButton"]
+    Click Button Model   ${json_dict["pages"][0]["ui_elements"][0]}    ${json_dict["application_name"]}   ${json_dict["pages"][0]["page_name"]}    
+    Input Field Model    ${json_dict["pages"][1]["ui_elements"][0]}    ${json_dict["application_name"]}   ${json_dict["pages"][1]["page_name"]}   ${FIRSTNAME} 
+    Input Field Model    ${json_dict["pages"][1]["ui_elements"][1]}    ${json_dict["application_name"]}   ${json_dict["pages"][1]["page_name"]}    ${LASTNAME} 
+    Input Field Model    ${json_dict["pages"][1]["ui_elements"][2]}    ${json_dict["application_name"]}   ${json_dict["pages"][1]["page_name"]}   ${EMAIL} 
+    Select Value from Dropdown Model   ${json_dict["pages"][1]["ui_elements"][3]}    ${json_dict["application_name"]}   ${json_dict["pages"][1]["page_name"]}    ${MONTH}   
+    Input Field Model    ${json_dict["pages"][1]["ui_elements"][4]}    ${json_dict["application_name"]}   ${json_dict["pages"][1]["page_name"]}   ${SALARY}
+    Select Checkbox Model   ${json_dict["pages"][1]["ui_elements"][6]}    ${json_dict["application_name"]}   ${json_dict["pages"][1]["page_name"]}    
+    Click Button Model   ${json_dict["pages"][1]["ui_elements"][7]}    ${json_dict["application_name"]}   ${json_dict["pages"][0]["page_name"]}    
     Close Workbook
 
 

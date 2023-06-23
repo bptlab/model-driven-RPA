@@ -12,10 +12,14 @@ Library    RPA.Desktop
 Library    RPA.FileSystem
 Library    DateTime
 Library    Collections
+Resource   ../../Database/Robot/Payroll.robot
 
 
 *** Tasks ***
 
+
+Run Payroll Robot
+    Run Payroll
 
 *** Keywords ***
 

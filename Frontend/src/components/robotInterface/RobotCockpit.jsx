@@ -28,18 +28,18 @@ function RobotCockpit() {
   }, [])
 
   const executeRobot = (robotName) => {
-    // runRobot({robotName: robotName})
-    // // api call to run robot
-    // const response = {
-    //   robot: "Payroll",
-    //   error: {
-    //     application_name: "Email App",
-    //     page_name: "Login Page",
-    //     element_name: "Login Button",
+      runRobot({robotName: robotName})
+        
+    //   const response = {
+    //     robot: "Payroll",
+    //     error: {
+    //       application_name: "Email App",
+    //       page_name: "Login Page",
+    //       element_name: "Login Button",
     //     failed_locator: "text",
     //     reasons_for_failure: ["Label of element changed"]
     //   }
-    // }
+    //  }
     
     getCurrentErrors()
       .then((res) => {
