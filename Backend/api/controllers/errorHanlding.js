@@ -2,6 +2,38 @@ import path from 'path';
 import fs from 'fs'
 let folderPath = '../Database/Error';
 
+/**
+ * @swagger
+ * /error-handling:
+ *     parameters:
+ *       - name: locator
+ *         in: path
+ *         description: locator that returns the error
+ *         required: true
+ *         content:
+ *           application/json: 
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *               properties:
+ *                   model_name:
+ *                     type: string
+ *                   page_name:
+ *                     type: string
+ *                   element_name:
+ *                     type: string
+ *                   locator:
+ *                     type: string
+ *     post:
+ *       summary: Get the locator and writes in error.json all the possible reasons of failure.
+ *       operationId: error-handling
+ *       responses:
+ *         200:
+ *           description: error.json file created successfully
+ *         500:
+ *           description: Error writing to error.json
+ */
 const POSSIBLE_REASONS = [
     "Color of element was changed", //0
     "Label of element was changed",//1

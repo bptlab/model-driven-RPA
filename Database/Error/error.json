@@ -1,1 +1,26 @@
-[{"model_name":"ali1","page_name":"ali2","element_name":"ali3","locator":"ali4"},{"model_name":"aqsa1","page_name":"aqsa2","element_name":"aqsa3","locator":"aqsa4"}]
+[
+    {
+        "model_name": "ali1",
+        "page_name": "ali2",
+        "element_name": "ali3",
+        "locator": "text",
+        "reasons_for_failure": [
+            "Label of element was changed",
+            "Font of element was changed",
+            "Content of element was changed",
+            "Styling of element was changed",
+            "Language of element was changed"
+        ]
+    },
+    {
+        "model_name": "aqsa1",
+        "page_name": "aqsa2",
+        "element_name": "aqsa3",
+        "locator": "image",
+        "reasons_for_failure": [
+            "Position of element was changed",
+            "Image was changed",
+            "Layout was changed"
+        ]
+    }
+]
