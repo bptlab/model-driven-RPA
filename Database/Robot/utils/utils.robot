@@ -9,7 +9,7 @@ Library    RPA.Desktop
 Library    Collections
 
 *** Variables ***
-${HTTP_LOCAL_SERVER}   http://localhost:8000/Robot/error-handling
+${HTTP_LOCAL_SERVER}   http://localhost:8000/error-handling
 ${report}     
 @{error_list} 
 

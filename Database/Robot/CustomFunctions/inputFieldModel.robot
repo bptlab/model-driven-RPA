@@ -18,7 +18,7 @@ Input Field Model
     [Arguments]    ${element}  ${application_name}  ${page_nam}  ${value}
     Set Suite Variable  ${model_name}    ${application_name} 
     Set Suite Variable  ${page_name}    ${page_nam} 
-    Set Suite Variable  ${element_name}   ${element[" element_name"]} 
+    Set Suite Variable  ${element_name}   ${element["element_name"]} 
     Set Suite Variable  ${current_mode}   ${element["current_mode"]} 
     Set Suite Variable  ${element_locators}     ${element["element_locators"]} 
     @{keyword_list}=    Create List     Input Field By ID    Input Field By Path    Input Field By Label   Input Field By Image
@@ -32,10 +32,9 @@ Input Field Model
 
 
     
-  ${removed_keyword}=    Run Keyword If    '${element["current_mode"]}' == 'ID'    Remove From List    ${keyword_list}    0
-...    ELSE IF    '${element["current_mode"]}' == 'PATH'    Remove From List    ${keyword_list}    1
-...    ELSE IF    '${element["current_mode"]}' == 'LABEL'    Remove From List    ${keyword_list}    2
-...    ELSE IF    '${element["current_mode"]}' == 'OCR'    Remove From List    ${keyword_list}    3
+    ${removed_keyword}=    Run Keyword If    '${current_mode}' == 'id'    Remove From List    ${keyword_list}    0
+...    ELSE IF    '${current_mode}' == 'path'    Remove From List    ${keyword_list}    1
+...    ELSE IF    '${current_mode}' == 'label'    Remove From List    ${keyword_list}    2
 
 
     Set Suite Variable  ${interaction_status}   ${EMPTY} 

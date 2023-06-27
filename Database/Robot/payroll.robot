@@ -32,11 +32,12 @@ Run Payroll
     Authorize    account=${USERNAME}    password=${PASSWORD}
     ${attachments}    Save Attachments    SUBJECT Payroll_${MONTH}
     ...    target_folder=${CURDIR}${/}Payrolls    overwrite=${True}
+    Load JSON Data
     Iterate through all files
     Send Report to UI Modeler
 
 Load JSON Data
-    ${json_data}=    Get File    ../UiModel/Payroll.json
+    ${json_data}=    Get File    ../Database/UiModel/Payroll.json
     ${json_dict}=    Evaluate    ${json_data}    json
     Set Suite Variable    ${json_dict}
     log  ${json_dict} 

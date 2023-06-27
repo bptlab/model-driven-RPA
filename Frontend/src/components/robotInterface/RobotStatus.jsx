@@ -26,7 +26,7 @@ function RobotStatus({errorList}) {
                     <p className={styles.errorReport}>Page: {error.page_name}</p>
                     <p className={styles.errorReport}>Element: {error.element_name}</p>
                     <p className={styles.errorReport}>Failed Locator: {error.locator}</p>
-                    <p className={styles.errorReport}>Possible Reasons for Failure: </p>
+                    <p className={styles.errorReport}>Possible Reasons for Failure: {error.reasons_for_failure}</p>
                     {/* <>
                     {error.reasons_for_failure.map((reason) => {
                             return (

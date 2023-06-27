@@ -17,5 +17,8 @@
 
         "/Library/Frameworks/Python.framework/Versions/3.11/bin/pytesseract",
     ],
-    "robocorp.language-server.python": "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3"
+    "robocorp.language-server.python": "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
+    "python.analysis.extraPaths": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/pytesseract"
+    ]
 }

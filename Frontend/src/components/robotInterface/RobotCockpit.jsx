@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import RobotOverview from "./RobotOverview";
 import RobotStatus from "./RobotStatus";
-import { runRobot, getAllRobots, getCurrentErrors } from "../../api/robots"
+import { runRobot, getAllRobots } from "../../api/robots"
 
 function RobotCockpit() {
   const [robotList, setRobotList] = useState([]);
@@ -28,21 +28,8 @@ function RobotCockpit() {
   }, [])
 
   const executeRobot = (robotName) => {
-      runRobot({robotName: robotName})
-        
-    //   const response = {
-    //     robot: "Payroll",
-    //     error: {
-    //       application_name: "Email App",
-    //       page_name: "Login Page",
-    //       element_name: "Login Button",
-    //     failed_locator: "text",
-    //     reasons_for_failure: ["Label of element changed"]
-    //   }
-    //  }
-    
-    getCurrentErrors()
-      .then((res) => {
+      runRobot({robotName: robotName}).then((res) => {
+        console.log("update errors")
         let errors = []
         let errorData = res.data
         console.log(errorData)
