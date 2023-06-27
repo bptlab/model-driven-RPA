@@ -20,6 +20,7 @@ const options = {
     openapi: "3.0.0",
     info: {
       title: "MdRPA",
+      description: "MdRPA(model driven RPA) is a tool that allows to design a UI model of applications and run RPA bots, which can use these UI models.",
       version: "1.0.0"
     },
     servers: [
