@@ -1,9 +1,13 @@
 import React from "react";
 import styles from "./Popup.module.css"
 
-function Popup({ createUiModel, createUiModelPage, createUiModelElement, createUiModelElementLocatorAttribute, closePopup, inputValues, setInputValues, popupType }) {
+function Popup({ createUiModel, createUiModelPage, createUiModelElement, createUiModelElementLocatorAttribute, closePopup, inputValues, setInputValues, popupType, updatedName, setUpdatedName, updateModelName, updatePageName }) {
   const handleChange = (e) => {
     setInputValues({ ...inputValues, [e.target.name]: e.target.value });
+  };
+
+  const handleNameChange = (e) => {
+    setUpdatedName(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -16,6 +20,10 @@ function Popup({ createUiModel, createUiModelPage, createUiModelElement, createU
       createUiModelElement(inputValues.elementName);
     } else if (popupType == "attribute") {
       createUiModelElementLocatorAttribute(inputValues.attributeName);
+    } else if (popupType.type == "updateModelName") {
+      updateModelName(updatedName)
+    } else if (popupType.type == "updatePageName") {
+      updatePageName(updatedName)
     }
     
     closePopup();
@@ -24,6 +32,34 @@ function Popup({ createUiModel, createUiModelPage, createUiModelElement, createU
   return (
     <div className={styles.popup}>
       <div className={styles.popupContent}>
+        {popupType.type == "updateModelName" && (
+          <>
+            <h2>Update Model Name</h2>
+            <label className={styles.internalInputWrapper}>
+              Application Name:
+              <input className={styles.input}
+                type="text"
+                name="applicationName"
+                defaultValue={popupType.name}
+                onChange={handleNameChange}
+                />
+            </label>
+          </>
+        )}
+        {popupType.type == "updatePageName" && (
+          <>
+            <h2>Update Page Name</h2>
+            <label className={styles.internalInputWrapper}>
+              Page Name:
+              <input className={styles.input}
+                type="text"
+                name="pageName"
+                defaultValue={popupType.name}
+                onChange={handleNameChange}
+                />
+            </label>
+          </>
+        )}
         {popupType == "model" && (
           <h2>Add New Model</h2>
         )}

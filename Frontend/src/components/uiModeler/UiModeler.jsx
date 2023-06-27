@@ -20,6 +20,7 @@ function UiModeler() {
     pageName: "",
     elementName: ""
   });
+  const [updatedName, setUpdatedName] = useState('')
 
   useEffect(() => {
     setCurrentUiModelElement(currentUiModelElement)
@@ -46,6 +47,68 @@ function UiModeler() {
     setPopupType(type);
     setShowPopup(true);
   };
+
+  const removeFromUiModel = (type, applicationName, pageName) => {
+    if (type == "model") {
+      let newUiModelList = uiModelList.filter((uiModel) => {
+        return uiModel.application_name !== applicationName
+      })
+      setUiModelList(newUiModelList);
+    } else if (type == "page") {
+      let newUiModelList = uiModelList.map((uiModel) => {
+        if (uiModel.application_name == applicationName) {
+          let newPages = uiModel.pages.filter((page) => {
+            return page.page_name !== pageName
+          })
+          uiModel = { ...uiModel, pages: newPages };
+        }
+        return uiModel
+      })
+      setUiModelList(newUiModelList);
+    }
+  };
+
+  const updateName = (type, applicationName, pageName) => {
+    if (type == "model") {
+      console.log("model " + applicationName)
+      setPopupType({type: "updateModelName", name: applicationName});
+      setShowPopup(true);
+      setCurrentApplication(applicationName);
+    } else if (type == "page") {
+      setPopupType({type: "updatePageName", name: pageName});
+      setShowPopup(true);
+      setCurrentApplication(applicationName);
+      setCurrentPage(pageName);
+    }
+  };
+
+  const updateModelName = (newModelName) => {
+    let newUiModelList = uiModelList.map((uiModel) => {
+      if (uiModel.application_name == currentApplication) {
+        uiModel = {...uiModel, application_name: newModelName}
+      }
+      return uiModel
+    })
+    setUiModelList(newUiModelList);
+  };
+
+  const updatePageName = (newPageName) => {
+    let newUiModelList = uiModelList.map((uiModel) => {
+      if (uiModel.application_name == currentApplication) {
+        let newPages = uiModel.pages.map((page) => {
+          if (page.page_name == currentPage) {
+            page = {...page, page_name: newPageName}
+          }
+          return page
+        })
+        uiModel = { ...uiModel, pages: newPages };
+      }
+      return uiModel
+    })
+    setUiModelList(newUiModelList);
+  };
+
+
 
   const createUiModel = (applicationName, pageName) => {
     const newUiModel = {
@@ -222,6 +285,8 @@ function UiModeler() {
         setCurrentUiModel={setCurrentUiModel} 
         setCurrentUiModelPage={setCurrentUiModelPage}
         saveCurrentUiModels={saveCurrentUiModels}
+        removeFromUiModel={removeFromUiModel}
+        updateName={updateName}
       />
       <UiModelElement
         currentUiModelElement={currentUiModelElement}
@@ -242,6 +307,10 @@ function UiModeler() {
           inputValues={inputValues}
           setInputValues={setInputValues}
           popupType={popupType}
+          updatedName={updatedName}
+          setUpdatedName={setUpdatedName}
+          updateModelName={updateModelName}
+          updatePageName={updatePageName}
         />
       )}
     </div>
