@@ -7,7 +7,6 @@ Library    BuiltIn
 Library    RPA.JSON
 Library    RPA.Desktop
 Library    Collections
-Library    ../utils/OCR.py
 Resource   ../utils/utils.robot
 Resource   ClickButtonModel.robot
 Resource   InputFieldModel.robot

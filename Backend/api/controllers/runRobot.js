@@ -6,7 +6,7 @@ import { exec } from 'child_process';
 export const runRobot = (req, res) => {
     const robot_name = req.body;
 
-    const robotFilePath = '/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Backend/Robot';
+    const robotFilePath = './Robot';
     const command = `robot  ${robotFilePath}`;
 
     exec(command, (error, stdout, stderr) => {

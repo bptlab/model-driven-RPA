@@ -7,7 +7,7 @@ Library    BuiltIn
 Library    RPA.JSON
 Library    RPA.Desktop
 Library    Collections
-Library    ../utils/OCR.py
+
 Resource   ../utils/utils.robot
 
 
@@ -63,12 +63,7 @@ Select Checkbox By Label
     ...  ELSE   Run Keywords   Set Suite Variable    ${interaction_status}  Fail  AND  Create Error  ${model_name}  ${page_name}  ${element_name}  'text'
 
 
-Select Checkbox By Image
-    ${text_image}=       Perform OCR      ${image}   ${text} 
-    log    ${text_image}
-    ${element_exists}    Run Keyword And Return Status    Element Should Be Visible    xpath=//a[text()='${text_image}']
-    Run Keyword If    '${element_exists}' == 'True'  Run Keywords    Set Suite Variable    ${interaction_status}  Pass  AND   Select Checkbox   xpath=//a[text()='${text_image}']  
-    ...  ELSE   Run Keywords   Set Suite Variable    ${interaction_status}  Fail  AND  Create Error  ${model_name}  ${page_name}  ${element_name}  'image'
+
 
 
 
