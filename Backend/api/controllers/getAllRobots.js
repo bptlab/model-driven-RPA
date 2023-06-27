@@ -1,24 +1,29 @@
 import path from 'path';
 import fs from 'fs';
-let folderPath = '../Database/UiModel';
+let folderPath = '../Database/Robot';
 
-export const getModels = async (req, res) => {
+export const getAllRobots = async (req, res) => {
     try {  
-        let jsonFiles = [];
+        let robots = [];
         fs.readdirSync(folderPath).forEach((file) => {
             let filePath = path.join(folderPath, "/", file);
             let fileExtension = path.extname(filePath);
-            if (fileExtension === '.json') {
+            if (fileExtension === '.robot') {
                 try {
-                    let jsonData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-                    jsonFiles.push(jsonData);
+                    let robotName = path.parse(filePath).name
+                    let robotObject = {
+                        robotName: robotName
+                    }
+                    let jsonRobot = JSON.stringify(robotObject)
+                    robots.push(jsonRobot);
                 } catch (error) {
                     console.error(`Error parsing JSON file: ${file}`);
                     console.error(error);
                 }
             }
         });
-        res.send(jsonFiles);
+        console.log(robots)
+        res.send(robots);
     } catch (error) {
         console.error(`Error: ${error.message}`)
         return res.status(500).json({ error: 'Error' });
