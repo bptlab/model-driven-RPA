@@ -1,20 +1,18 @@
 {
     "python.terminal.activateEnvironment": false,
     "robot.pythonpath": [
-
         "/Library/Frameworks/Python.framework/Versions/3.11/bin/python3",
         "/Library/Frameworks/Python.framework/Versions/3.11/bin/pytesseract",
-     
-
     ],
     "python.autoComplete.extraPaths": [
-
         "/Library/Frameworks/Python.framework/Versions/3.11/bin/pytesseract",
     ],
     "robot.language-server": {
         "extraPaths": [
             "/Library/Frameworks/Python.framework/Versions/3.11/bin/pytesseract"
         ]
-    }
-    
+    },
+    "python.analysis.extraPaths": [
+        "/Library/Frameworks/Python.framework/Versions/3.11/bin/pytesseract"
+    ]
 }

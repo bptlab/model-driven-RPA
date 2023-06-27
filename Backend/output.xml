@@ -1,33 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.9.7 on win32)" generated="20230620 10:13:28.474" rpa="true" schemaversion="3">
-<suite id="s1" name="Tasks" source="C:\Users\Admin\Desktop\model-driven-RPA\Database\Robot\tasks.robot">
-<test id="s1-t1" name="Get Data from JSON and use that in robot" line="18">
-<kw name="Send Report to UI Modeler" library="customFunctions">
-<kw name="Set Suite Variable" library="BuiltIn">
-<arg>${report}</arg>
-<arg>${error_list}</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230620 10:13:28.549" level="INFO">${report} = []</msg>
-<status status="PASS" starttime="20230620 10:13:28.549" endtime="20230620 10:13:28.550"/>
+<robot generator="Robot 5.0.1 (Python 3.11.4 on win32)" generated="20230627 11:47:04.594" rpa="true" schemaversion="3">
+<suite id="s1" name="Robot" source="C:\Users\sodko\Desktop\Project\model-driven-RPA\Backend\Robot">
+<suite id="s1-s1" name="Tasks" source="C:\Users\sodko\Desktop\Project\model-driven-RPA\Backend\Robot\tasks.robot">
+<test id="s1-s1-t1" name="Run Payroll Robot" line="21">
+<kw name="Run Payroll" library="Payroll">
+<kw name="Authorize" library="RPA.Email.ImapSmtp">
+<arg>account=${USERNAME}</arg>
+<arg>password=${PASSWORD}</arg>
+<doc>Authorize user to SMTP and IMAP servers.</doc>
+<status status="PASS" starttime="20230627 11:47:11.745" endtime="20230627 11:47:13.415"/>
 </kw>
-<kw name="POST">
-<var>${resp}</var>
-<arg>${HTTP_LOCAL_SERVER}</arg>
-<arg>json=${report}</arg>
-<msg timestamp="20230620 10:13:28.552" level="FAIL">No keyword with name 'POST' found.</msg>
-<status status="FAIL" starttime="20230620 10:13:28.552" endtime="20230620 10:13:28.552"/>
+<kw name="Save Attachments" library="RPA.Email.ImapSmtp">
+<var>${attachments}</var>
+<arg>SUBJECT Payroll_${MONTH}</arg>
+<arg>target_folder=C:\\Users\\sodko\\Desktop\\Project\\model-driven-RPA\\Database\\Robot${/}Payrolls</arg>
+<arg>overwrite=${True}</arg>
+<doc>Save mail attachments of emails matching criterion on the local disk.</doc>
+<msg timestamp="20230627 11:47:13.588" level="INFO">IMAP search: 'SUBJECT Payroll_June'</msg>
+<msg timestamp="20230627 11:47:14.340" level="INFO">Attachment filepath: WindowsPath('C:/Users/sodko/Desktop/Project/model-driven-RPA/Database/Robot/Payrolls/xhoel_bano_payroll_june.xlsx')</msg>
+<msg timestamp="20230627 11:47:14.341" level="INFO">Saving attachment: xhoel_bano_payroll_june.xlsx</msg>
+<msg timestamp="20230627 11:47:14.343" level="INFO">Attachment filepath: WindowsPath('C:/Users/sodko/Desktop/Project/model-driven-RPA/Database/Robot/Payrolls/test_tester_payroll_june.xlsx')</msg>
+<msg timestamp="20230627 11:47:14.344" level="INFO">Saving attachment: test_tester_payroll_june.xlsx</msg>
+<msg timestamp="20230627 11:47:14.346" level="INFO">Attachment filepath: WindowsPath('C:/Users/sodko/Desktop/Project/model-driven-RPA/Database/Robot/Payrolls/sebastian_vettel_payroll_june.xlsx')</msg>
+<msg timestamp="20230627 11:47:14.346" level="INFO">Saving attachment: sebastian_vettel_payroll_june.xlsx</msg>
+<msg timestamp="20230627 11:47:14.347" level="INFO">${attachments} = ['C:\\Users\\sodko\\Desktop\\Project\\model-driven-RPA\\Database\\Robot\\Payrolls\\xhoel_bano_payroll_june.xlsx', 'C:\\Users\\sodko\\Desktop\\Project\\model-driven-RPA\\Database\\Robot\\Payrolls\\test...</msg>
+<status status="PASS" starttime="20230627 11:47:13.416" endtime="20230627 11:47:14.347"/>
 </kw>
-<kw name="Status Should Be">
-<arg>OK</arg>
-<arg>${resp}</arg>
-<status status="NOT RUN" starttime="20230620 10:13:28.554" endtime="20230620 10:13:28.554"/>
+<kw name="Iterate through all files" library="Payroll">
+<kw name="Open Available Browser" library="RPA.Browser.Selenium">
+<arg>http://localhost:3001/</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<msg timestamp="20230627 11:47:14.893" level="INFO">====== WebDriver manager ======</msg>
+<msg timestamp="20230627 11:47:15.318" level="INFO">Downloaded webdriver to: C:\Users\sodko\AppData\Local\robocorp\webdrivers\.wdm\drivers\chromedriver\win32\114.0.5735.90\chromedriver.exe</msg>
+<msg timestamp="20230627 11:47:15.318" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230627 11:47:16.868" level="INFO">Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg timestamp="20230627 11:47:16.869" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;Webdriver executable not in PATH (with disabled Selenium manager)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;True&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg timestamp="20230627 11:47:16.869" level="INFO">Opening url 'http://localhost:3001/'</msg>
+<status status="PASS" starttime="20230627 11:47:14.349" endtime="20230627 11:47:17.386"/>
 </kw>
-<status status="FAIL" starttime="20230620 10:13:28.549" endtime="20230620 10:13:28.555"/>
+<kw name="List Files In Directory" library="RPA.FileSystem">
+<var>${files}</var>
+<arg>C:\\Users\\sodko\\Desktop\\Project\\model-driven-RPA\\Database\\Robot${/}Payrolls</arg>
+<doc>Lists all the files in the given directory, relative to it.</doc>
+<msg timestamp="20230627 11:47:17.386" level="WARN">Keyword 'List Files In Directory' found both from a custom library 'RPA.FileSystem' and a standard library 'OperatingSystem'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'RPA.FileSystem.List Files In Directory' or 'OperatingSystem.List Files In Directory'.</msg>
+<msg timestamp="20230627 11:47:17.391" level="INFO">${files} = [File(path='C:\\Users\\sodko\\Desktop\\Project\\model-driven-RPA\\Database\\Robot\\Payrolls\\sebastian_vettel_payroll_june.xlsx', name='sebastian_vettel_payroll_june.xlsx', size=13288, mtime=168785923...</msg>
+<status status="PASS" starttime="20230627 11:47:17.386" endtime="20230627 11:47:17.391"/>
 </kw>
-<status status="FAIL" starttime="20230620 10:13:28.548" endtime="20230620 10:13:28.555">No keyword with name 'POST' found.</status>
+<for flavor="IN">
+<var>${file}</var>
+<value>@{FILES}</value>
+<iter>
+<var name="${file}">C:\Users\sodko\Desktop\Project\model-driven-RPA\Database\Robot\Payrolls\sebastian_vettel_payroll_june.xlsx</var>
+<kw name="Open Workbook" library="RPA.Excel.Application">
+<arg>${file}</arg>
+<doc>Open Excel by filename</doc>
+<msg timestamp="20230627 11:47:18.142" level="INFO">Opening workbook: C:\Users\sodko\Desktop\Project\model-driven-RPA\Database\Robot\Payrolls\sebastian_vettel_payroll_june.xlsx</msg>
+<msg timestamp="20230627 11:47:18.154" level="INFO">Trying to open workbook by another method</msg>
+<status status="PASS" starttime="20230627 11:47:17.392" endtime="20230627 11:47:18.638"/>
+</kw>
+<kw name="Read From Cells" library="RPA.Excel.Application">
+<var>${FIRSTNAME}</var>
+<arg>row=3</arg>
+<arg>column=5</arg>
+<doc>Read value from cell.</doc>
+<msg timestamp="20230627 11:47:18.649" level="INFO">${FIRSTNAME} = Sebastian</msg>
+<status status="PASS" starttime="20230627 11:47:18.638" endtime="20230627 11:47:18.649"/>
+</kw>
+<kw name="Read From Cells" library="RPA.Excel.Application">
+<var>${LASTNAME}</var>
+<arg>row=4</arg>
+<arg>column=5</arg>
+<doc>Read value from cell.</doc>
+<msg timestamp="20230627 11:47:18.650" level="INFO">${LASTNAME} = Vettel</msg>
+<status status="PASS" starttime="20230627 11:47:18.649" endtime="20230627 11:47:18.650"/>
+</kw>
+<kw name="Read From Cells" library="RPA.Excel.Application">
+<var>${EMAIL}</var>
+<arg>row=2</arg>
+<arg>column=5</arg>
+<doc>Read value from cell.</doc>
+<msg timestamp="20230627 11:47:18.651" level="INFO">${EMAIL} = sebastian.vettel@student.hpi.de</msg>
+<status status="PASS" starttime="20230627 11:47:18.650" endtime="20230627 11:47:18.651"/>
+</kw>
+<kw name="Read From Cells" library="RPA.Excel.Application">
+<var>${SALARY}</var>
+<arg>row=42</arg>
+<arg>column=9</arg>
+<doc>Read value from cell.</doc>
+<msg timestamp="20230627 11:47:18.652" level="INFO">${SALARY} = -2146826273</msg>
+<status status="PASS" starttime="20230627 11:47:18.651" endtime="20230627 11:47:18.652"/>
+</kw>
+<kw name="Add payroll entry" library="Payroll">
+<arg>${FIRSTNAME}</arg>
+<arg>${LASTNAME}</arg>
+<arg>${EMAIL}</arg>
+<arg>${SALARY}</arg>
+<kw name="Click Button Model" library="ClickButtonModel">
+<arg>${json_dict["pages"][0]["ui_elements"][0]}</arg>
+<arg>${json_dict["application_name"]}</arg>
+<arg>${json_dict["pages"][0]["page_name"]}</arg>
+<msg timestamp="20230627 11:47:18.653" level="FAIL">Resolving variable '${json_dict["pages"][0]["ui_elements"][0]}' failed: TypeError: string indices must be integers, not 'str'</msg>
+<status status="FAIL" starttime="20230627 11:47:18.653" endtime="20230627 11:47:18.653"/>
+</kw>
+<kw name="Input Field Model" library="InputFieldModel">
+<arg>${json_dict["pages"][1]["ui_elements"][0]}</arg>
+<arg>${json_dict["application_name"]}</arg>
+<arg>${json_dict["pages"][1]["page_name"]}</arg>
+<arg>${FIRSTNAME}</arg>
+<status status="NOT RUN" starttime="20230627 11:47:18.653" endtime="20230627 11:47:18.653"/>
+</kw>
+<kw name="Input Field Model" library="InputFieldModel">
+<arg>${json_dict["pages"][1]["ui_elements"][1]}</arg>
+<arg>${json_dict["application_name"]}</arg>
+<arg>${json_dict["pages"][1]["page_name"]}</arg>
+<arg>${LASTNAME}</arg>
+<status status="NOT RUN" starttime="20230627 11:47:18.653" endtime="20230627 11:47:18.654"/>
+</kw>
+<kw name="Input Field Model" library="InputFieldModel">
+<arg>${json_dict["pages"][1]["ui_elements"][2]}</arg>
+<arg>${json_dict["application_name"]}</arg>
+<arg>${json_dict["pages"][1]["page_name"]}</arg>
+<arg>${EMAIL}</arg>
+<status status="NOT RUN" starttime="20230627 11:47:18.654" endtime="20230627 11:47:18.654"/>
+</kw>
+<kw name="Select Value from Dropdown Model" library="SelectFromDropdownModel">
+<arg>${json_dict["pages"][1]["ui_elements"][3]}</arg>
+<arg>${json_dict["application_name"]}</arg>
+<arg>${json_dict["pages"][1]["page_name"]}</arg>
+<arg>${MONTH}</arg>
+<status status="NOT RUN" starttime="20230627 11:47:18.654" endtime="20230627 11:47:18.654"/>
+</kw>
+<kw name="Input Field Model" library="InputFieldModel">
+<arg>${json_dict["pages"][1]["ui_elements"][4]}</arg>
+<arg>${json_dict["application_name"]}</arg>
+<arg>${json_dict["pages"][1]["page_name"]}</arg>
+<arg>${SALARY}</arg>
+<status status="NOT RUN" starttime="20230627 11:47:18.654" endtime="20230627 11:47:18.654"/>
+</kw>
+<kw name="Select Checkbox Model" library="SelectCheckboxModel">
+<arg>${json_dict["pages"][1]["ui_elements"][6]}</arg>
+<arg>${json_dict["application_name"]}</arg>
+<arg>${json_dict["pages"][1]["page_name"]}</arg>
+<status status="NOT RUN" starttime="20230627 11:47:18.654" endtime="20230627 11:47:18.654"/>
+</kw>
+<kw name="Click Button Model" library="ClickButtonModel">
+<arg>${json_dict["pages"][1]["ui_elements"][7]}</arg>
+<arg>${json_dict["application_name"]}</arg>
+<arg>${json_dict["pages"][0]["page_name"]}</arg>
+<status status="NOT RUN" starttime="20230627 11:47:18.654" endtime="20230627 11:47:18.654"/>
+</kw>
+<kw name="Close Workbook" library="RPA.Excel.Files">
+<doc>Close the active workbook.</doc>
+<status status="NOT RUN" starttime="20230627 11:47:18.654" endtime="20230627 11:47:18.654"/>
+</kw>
+<status status="FAIL" starttime="20230627 11:47:18.652" endtime="20230627 11:47:18.655"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230627 11:47:18.655" endtime="20230627 11:47:18.655"/>
+</kw>
+<status status="FAIL" starttime="20230627 11:47:17.391" endtime="20230627 11:47:18.655"/>
+</iter>
+<status status="FAIL" starttime="20230627 11:47:17.391" endtime="20230627 11:47:18.655"/>
+</for>
+<status status="FAIL" starttime="20230627 11:47:14.347" endtime="20230627 11:47:18.656"/>
+</kw>
+<kw name="Send Report to UI Modeler" library="utils">
+<status status="NOT RUN" starttime="20230627 11:47:18.656" endtime="20230627 11:47:18.656"/>
+</kw>
+<status status="FAIL" starttime="20230627 11:47:11.745" endtime="20230627 11:47:18.656"/>
+</kw>
+<status status="FAIL" starttime="20230627 11:47:11.745" endtime="20230627 11:47:18.656">Resolving variable '${json_dict["pages"][0]["ui_elements"][0]}' failed: TypeError: string indices must be integers, not 'str'</status>
 </test>
-<doc>Get Data from JSON and use that in robot.</doc>
-<status status="FAIL" starttime="20230620 10:13:28.475" endtime="20230620 10:13:28.555"/>
+<doc>Payroll Automation using RPA</doc>
+<status status="FAIL" starttime="20230627 11:47:04.672" endtime="20230627 11:47:18.658"/>
+</suite>
+<status status="FAIL" starttime="20230627 11:47:04.598" endtime="20230627 11:47:18.658"/>
 </suite>
 <statistics>
 <total>
@@ -36,146 +187,11 @@
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Tasks">Tasks</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Robot">Robot</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Tasks">Robot.Tasks</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20230620 10:13:28.496" level="ERROR">Error in file 'C:\Users\Admin\Desktop\model-driven-RPA\Database\Robot\tasks.robot' on line 3: Importing library 'RPA.Browser.Selenium' failed: ModuleNotFoundError: No module named 'RPA'
-Traceback (most recent call last):
-  None
-PYTHONPATH:
-  C:\ProgramData\Anaconda3\Scripts\robot.exe
-  C:\ProgramData\Anaconda3\python39.zip
-  C:\ProgramData\Anaconda3\DLLs
-  C:\ProgramData\Anaconda3\lib
-  C:\ProgramData\Anaconda3
-  C:\Users\Admin\AppData\Roaming\Python\Python39\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages\locket-0.2.1-py3.9.egg
-  C:\ProgramData\Anaconda3\lib\site-packages\win32
-  C:\ProgramData\Anaconda3\lib\site-packages\win32\lib
-  C:\ProgramData\Anaconda3\lib\site-packages\Pythonwin</msg>
-<msg timestamp="20230620 10:13:28.499" level="ERROR">Error in file 'C:\Users\Admin\Desktop\model-driven-RPA\Database\Robot\tasks.robot' on line 4: Importing library 'RPA.HTTP' failed: ModuleNotFoundError: No module named 'RPA'
-Traceback (most recent call last):
-  None
-PYTHONPATH:
-  C:\ProgramData\Anaconda3\Scripts\robot.exe
-  C:\ProgramData\Anaconda3\python39.zip
-  C:\ProgramData\Anaconda3\DLLs
-  C:\ProgramData\Anaconda3\lib
-  C:\ProgramData\Anaconda3
-  C:\Users\Admin\AppData\Roaming\Python\Python39\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages\locket-0.2.1-py3.9.egg
-  C:\ProgramData\Anaconda3\lib\site-packages\win32
-  C:\ProgramData\Anaconda3\lib\site-packages\win32\lib
-  C:\ProgramData\Anaconda3\lib\site-packages\Pythonwin</msg>
-<msg timestamp="20230620 10:13:28.508" level="ERROR">Error in file 'C:\Users\Admin\Desktop\model-driven-RPA\Database\Robot\tasks.robot' on line 7: Importing library 'RPA.JSON' failed: ModuleNotFoundError: No module named 'RPA'
-Traceback (most recent call last):
-  None
-PYTHONPATH:
-  C:\ProgramData\Anaconda3\Scripts\robot.exe
-  C:\ProgramData\Anaconda3\python39.zip
-  C:\ProgramData\Anaconda3\DLLs
-  C:\ProgramData\Anaconda3\lib
-  C:\ProgramData\Anaconda3
-  C:\Users\Admin\AppData\Roaming\Python\Python39\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages\locket-0.2.1-py3.9.egg
-  C:\ProgramData\Anaconda3\lib\site-packages\win32
-  C:\ProgramData\Anaconda3\lib\site-packages\win32\lib
-  C:\ProgramData\Anaconda3\lib\site-packages\Pythonwin</msg>
-<msg timestamp="20230620 10:13:28.512" level="ERROR">Error in file 'C:\Users\Admin\Desktop\model-driven-RPA\Database\Robot\tasks.robot' on line 8: Importing library 'RPA.Desktop' failed: ModuleNotFoundError: No module named 'RPA'
-Traceback (most recent call last):
-  None
-PYTHONPATH:
-  C:\ProgramData\Anaconda3\Scripts\robot.exe
-  C:\ProgramData\Anaconda3\python39.zip
-  C:\ProgramData\Anaconda3\DLLs
-  C:\ProgramData\Anaconda3\lib
-  C:\ProgramData\Anaconda3
-  C:\Users\Admin\AppData\Roaming\Python\Python39\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages\locket-0.2.1-py3.9.egg
-  C:\ProgramData\Anaconda3\lib\site-packages\win32
-  C:\ProgramData\Anaconda3\lib\site-packages\win32\lib
-  C:\ProgramData\Anaconda3\lib\site-packages\Pythonwin</msg>
-<msg timestamp="20230620 10:13:28.523" level="ERROR">Error in file 'C:\Users\Admin\Desktop\model-driven-RPA\Database\Robot\CustomFunctions\customFunctions.robot' on line 3: Importing library 'RPA.Browser.Selenium' failed: ModuleNotFoundError: No module named 'RPA'
-Traceback (most recent call last):
-  None
-PYTHONPATH:
-  C:\ProgramData\Anaconda3\Scripts\robot.exe
-  C:\ProgramData\Anaconda3\python39.zip
-  C:\ProgramData\Anaconda3\DLLs
-  C:\ProgramData\Anaconda3\lib
-  C:\ProgramData\Anaconda3
-  C:\Users\Admin\AppData\Roaming\Python\Python39\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages\locket-0.2.1-py3.9.egg
-  C:\ProgramData\Anaconda3\lib\site-packages\win32
-  C:\ProgramData\Anaconda3\lib\site-packages\win32\lib
-  C:\ProgramData\Anaconda3\lib\site-packages\Pythonwin</msg>
-<msg timestamp="20230620 10:13:28.526" level="ERROR">Error in file 'C:\Users\Admin\Desktop\model-driven-RPA\Database\Robot\CustomFunctions\customFunctions.robot' on line 4: Importing library 'RPA.HTTP' failed: ModuleNotFoundError: No module named 'RPA'
-Traceback (most recent call last):
-  None
-PYTHONPATH:
-  C:\ProgramData\Anaconda3\Scripts\robot.exe
-  C:\ProgramData\Anaconda3\python39.zip
-  C:\ProgramData\Anaconda3\DLLs
-  C:\ProgramData\Anaconda3\lib
-  C:\ProgramData\Anaconda3
-  C:\Users\Admin\AppData\Roaming\Python\Python39\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages\locket-0.2.1-py3.9.egg
-  C:\ProgramData\Anaconda3\lib\site-packages\win32
-  C:\ProgramData\Anaconda3\lib\site-packages\win32\lib
-  C:\ProgramData\Anaconda3\lib\site-packages\Pythonwin</msg>
-<msg timestamp="20230620 10:13:28.532" level="ERROR">Error in file 'C:\Users\Admin\Desktop\model-driven-RPA\Database\Robot\CustomFunctions\customFunctions.robot' on line 7: Importing library 'RPA.JSON' failed: ModuleNotFoundError: No module named 'RPA'
-Traceback (most recent call last):
-  None
-PYTHONPATH:
-  C:\ProgramData\Anaconda3\Scripts\robot.exe
-  C:\ProgramData\Anaconda3\python39.zip
-  C:\ProgramData\Anaconda3\DLLs
-  C:\ProgramData\Anaconda3\lib
-  C:\ProgramData\Anaconda3
-  C:\Users\Admin\AppData\Roaming\Python\Python39\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages\locket-0.2.1-py3.9.egg
-  C:\ProgramData\Anaconda3\lib\site-packages\win32
-  C:\ProgramData\Anaconda3\lib\site-packages\win32\lib
-  C:\ProgramData\Anaconda3\lib\site-packages\Pythonwin</msg>
-<msg timestamp="20230620 10:13:28.535" level="ERROR">Error in file 'C:\Users\Admin\Desktop\model-driven-RPA\Database\Robot\CustomFunctions\customFunctions.robot' on line 8: Importing library 'RPA.Desktop' failed: ModuleNotFoundError: No module named 'RPA'
-Traceback (most recent call last):
-  None
-PYTHONPATH:
-  C:\ProgramData\Anaconda3\Scripts\robot.exe
-  C:\ProgramData\Anaconda3\python39.zip
-  C:\ProgramData\Anaconda3\DLLs
-  C:\ProgramData\Anaconda3\lib
-  C:\ProgramData\Anaconda3
-  C:\Users\Admin\AppData\Roaming\Python\Python39\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages\locket-0.2.1-py3.9.egg
-  C:\ProgramData\Anaconda3\lib\site-packages\win32
-  C:\ProgramData\Anaconda3\lib\site-packages\win32\lib
-  C:\ProgramData\Anaconda3\lib\site-packages\Pythonwin</msg>
-<msg timestamp="20230620 10:13:28.546" level="ERROR">Error in file 'C:\Users\Admin\Desktop\model-driven-RPA\Database\Robot\CustomFunctions\customFunctions.robot' on line 10: Importing library 'C:\Users\Admin\Desktop\model-driven-RPA\Database\Robot\CustomFunctions\OCR.py' failed: ModuleNotFoundError: No module named 'pytesseract'
-Traceback (most recent call last):
-  File "C:\Users\Admin\Desktop\model-driven-RPA\Database\Robot\CustomFunctions\OCR.py", line 1, in &lt;module&gt;
-    import pytesseract
-PYTHONPATH:
-  C:\Users\Admin\Desktop\model-driven-RPA\Database\Robot\CustomFunctions
-  C:\ProgramData\Anaconda3\Scripts\robot.exe
-  C:\ProgramData\Anaconda3\python39.zip
-  C:\ProgramData\Anaconda3\DLLs
-  C:\ProgramData\Anaconda3\lib
-  C:\ProgramData\Anaconda3
-  C:\Users\Admin\AppData\Roaming\Python\Python39\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages
-  C:\ProgramData\Anaconda3\lib\site-packages\locket-0.2.1-py3.9.egg
-  C:\ProgramData\Anaconda3\lib\site-packages\win32
-  C:\ProgramData\Anaconda3\lib\site-packages\win32\lib
-  C:\ProgramData\Anaconda3\lib\site-packages\Pythonwin</msg>
+<msg timestamp="20230627 11:47:17.386" level="WARN">Keyword 'List Files In Directory' found both from a custom library 'RPA.FileSystem' and a standard library 'OperatingSystem'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'RPA.FileSystem.List Files In Directory' or 'OperatingSystem.List Files In Directory'.</msg>
 </errors>
 </robot>

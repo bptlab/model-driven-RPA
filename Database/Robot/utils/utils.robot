@@ -7,7 +7,6 @@ Library    BuiltIn
 Library    RPA.JSON
 Library    RPA.Desktop
 Library    Collections
-Library    OCR.py
 
 *** Variables ***
 ${HTTP_LOCAL_SERVER}   http://localhost:8000/Robot/error-handling
