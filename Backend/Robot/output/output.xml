@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.11.4 on darwin)" generated="20230627 09:35:34.145" rpa="true" schemaversion="3">
+<suite id="s1" name="Tasks" source="/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Backend/Robot/tasks.robot">
+<test id="s1-t1" name="Run Payroll Robot" line="21">
+<kw name="Run Payroll" library="Payroll">
+<kw name="Authorize" library="RPA.Email.ImapSmtp">
+<arg>account=${USERNAME}</arg>
+<arg>password=${PASSWORD}</arg>
+<doc>Authorize user to SMTP and IMAP servers.</doc>
+<status status="PASS" starttime="20230627 09:35:36.878" endtime="20230627 09:35:38.363"/>
+</kw>
+<kw name="Save Attachments" library="RPA.Email.ImapSmtp">
+<var>${attachments}</var>
+<arg>SUBJECT Payroll_${MONTH}</arg>
+<arg>target_folder=/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Database/Robot${/}Payrolls</arg>
+<arg>overwrite=${True}</arg>
+<doc>Save mail attachments of emails matching criterion on the local disk.</doc>
+<msg timestamp="20230627 09:35:38.522" level="INFO">IMAP search: 'SUBJECT Payroll_June'</msg>
+<msg timestamp="20230627 09:35:39.301" level="INFO">Attachment filepath: PosixPath('/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Database/Robot/Payrolls/xhoel_bano_payroll_june.xlsx')</msg>
+<msg timestamp="20230627 09:35:39.302" level="INFO">Saving attachment: xhoel_bano_payroll_june.xlsx</msg>
+<msg timestamp="20230627 09:35:39.303" level="INFO">Attachment filepath: PosixPath('/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Database/Robot/Payrolls/test_tester_payroll_june.xlsx')</msg>
+<msg timestamp="20230627 09:35:39.303" level="INFO">Saving attachment: test_tester_payroll_june.xlsx</msg>
+<msg timestamp="20230627 09:35:39.303" level="INFO">Attachment filepath: PosixPath('/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Database/Robot/Payrolls/sebastian_vettel_payroll_june.xlsx')</msg>
+<msg timestamp="20230627 09:35:39.303" level="INFO">Saving attachment: sebastian_vettel_payroll_june.xlsx</msg>
+<msg timestamp="20230627 09:35:39.304" level="INFO">${attachments} = ['/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Database/Robot/Payrolls/xhoel_bano_payroll_june.xlsx', '/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Database/Robot/Payrolls/test_tester_payroll_ju...</msg>
+<status status="PASS" starttime="20230627 09:35:38.364" endtime="20230627 09:35:39.304"/>
+</kw>
+<kw name="Iterate through all files" library="Payroll">
+<kw name="Open Available Browser" library="RPA.Browser.Selenium">
+<arg>http://localhost:3000/</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<msg timestamp="20230627 09:35:39.305" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg timestamp="20230627 09:35:39.305" level="INFO">Applicable driver not found; attempting to install with Selenium Manager (Beta)</msg>
+<msg timestamp="20230627 09:35:40.748" level="INFO">Created Chrome browser with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg timestamp="20230627 09:35:40.749" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg timestamp="20230627 09:35:40.749" level="INFO">Opening url 'http://localhost:3000/'</msg>
+<status status="PASS" starttime="20230627 09:35:39.304" endtime="20230627 09:35:41.119"/>
+</kw>
+<kw name="List Files In Directory" library="RPA.FileSystem">
+<var>${files}</var>
+<arg>/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Database/Robot${/}Payrolls</arg>
+<doc>Lists all the files in the given directory, relative to it.</doc>
+<msg timestamp="20230627 09:35:41.119" level="WARN">Keyword 'List Files In Directory' found both from a custom library 'RPA.FileSystem' and a standard library 'OperatingSystem'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'RPA.FileSystem.List Files In Directory' or 'OperatingSystem.List Files In Directory'.</msg>
+<msg timestamp="20230627 09:35:41.121" level="INFO">${files} = [File(path='/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Database/Robot/Payrolls/sebastian_vettel_payroll_june.xlsx', name='sebastian_vettel_payroll_june.xlsx', size=13288, mtime=1687851339.303492)...</msg>
+<status status="PASS" starttime="20230627 09:35:41.120" endtime="20230627 09:35:41.121"/>
+</kw>
+<for flavor="IN">
+<var>${file}</var>
+<value>@{FILES}</value>
+<iter>
+<var name="${file}">/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Database/Robot/Payrolls/sebastian_vettel_payroll_june.xlsx</var>
+<kw name="Open Workbook" library="RPA.Excel.Application">
+<arg>${file}</arg>
+<doc>Open Excel by filename</doc>
+<msg timestamp="20230627 09:35:41.122" level="FAIL">NameError: name 'pywintypes' is not defined</msg>
+<status status="FAIL" starttime="20230627 09:35:41.122" endtime="20230627 09:35:41.123"/>
+</kw>
+<kw name="Read From Cells" library="RPA.Excel.Application">
+<var>${FIRSTNAME}</var>
+<arg>row=3</arg>
+<arg>column=5</arg>
+<doc>Read value from cell.</doc>
+<status status="NOT RUN" starttime="20230627 09:35:41.123" endtime="20230627 09:35:41.123"/>
+</kw>
+<kw name="Read From Cells" library="RPA.Excel.Application">
+<var>${LASTNAME}</var>
+<arg>row=4</arg>
+<arg>column=5</arg>
+<doc>Read value from cell.</doc>
+<status status="NOT RUN" starttime="20230627 09:35:41.123" endtime="20230627 09:35:41.123"/>
+</kw>
+<kw name="Read From Cells" library="RPA.Excel.Application">
+<var>${EMAIL}</var>
+<arg>row=2</arg>
+<arg>column=5</arg>
+<doc>Read value from cell.</doc>
+<status status="NOT RUN" starttime="20230627 09:35:41.123" endtime="20230627 09:35:41.124"/>
+</kw>
+<kw name="Read From Cells" library="RPA.Excel.Application">
+<var>${SALARY}</var>
+<arg>row=42</arg>
+<arg>column=9</arg>
+<doc>Read value from cell.</doc>
+<status status="NOT RUN" starttime="20230627 09:35:41.124" endtime="20230627 09:35:41.124"/>
+</kw>
+<kw name="Add payroll entry" library="Payroll">
+<arg>${FIRSTNAME}</arg>
+<arg>${LASTNAME}</arg>
+<arg>${EMAIL}</arg>
+<arg>${SALARY}</arg>
+<status status="NOT RUN" starttime="20230627 09:35:41.124" endtime="20230627 09:35:41.124"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230627 09:35:41.124" endtime="20230627 09:35:41.124"/>
+</kw>
+<status status="FAIL" starttime="20230627 09:35:41.121" endtime="20230627 09:35:41.124"/>
+</iter>
+<status status="FAIL" starttime="20230627 09:35:41.121" endtime="20230627 09:35:41.124"/>
+</for>
+<status status="FAIL" starttime="20230627 09:35:39.304" endtime="20230627 09:35:41.125"/>
+</kw>
+<kw name="Send Report to UI Modeler" library="utils">
+<status status="NOT RUN" starttime="20230627 09:35:41.125" endtime="20230627 09:35:41.125"/>
+</kw>
+<status status="FAIL" starttime="20230627 09:35:36.878" endtime="20230627 09:35:41.125"/>
+</kw>
+<status status="FAIL" starttime="20230627 09:35:36.878" endtime="20230627 09:35:41.125">NameError: name 'pywintypes' is not defined</status>
+</test>
+<doc>Payroll Automation using RPA</doc>
+<status status="FAIL" starttime="20230627 09:35:34.146" endtime="20230627 09:35:41.126"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tasks">Tasks</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230627 09:35:36.375" level="WARN">RPA.Excel.Application library works only on Windows platform</msg>
+<msg timestamp="20230627 09:35:36.375" level="WARN">Excel application library requires Windows dependencies to work.</msg>
+<msg timestamp="20230627 09:35:41.119" level="WARN">Keyword 'List Files In Directory' found both from a custom library 'RPA.FileSystem' and a standard library 'OperatingSystem'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'RPA.FileSystem.List Files In Directory' or 'OperatingSystem.List Files In Directory'.</msg>
+</errors>
+</robot>
