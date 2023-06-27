@@ -12,7 +12,7 @@ export const runRobot = (req, res) => {
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`Error executing Robot Framework: ${error.message}`);
-            return res.statuss(500).json({ error: 'Internal server error' });
+            return res.status(500).json({ error: 'Internal server error' });
         }
         if (stderr) {
             console.error(`Robot Framework execution error: ${stderr}`);

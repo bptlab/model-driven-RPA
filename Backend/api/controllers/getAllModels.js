@@ -32,7 +32,7 @@ let folderPath = '../Database/UiModel';
  *           description: Error
  */
 
-export const getModels = async (req, res) => {
+export const getAllModels = async (req, res) => {
     try {
         let jsonFiles = [];
         fs.readdirSync(folderPath).forEach((file) => {
