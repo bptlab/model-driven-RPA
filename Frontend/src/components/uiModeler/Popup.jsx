@@ -21,7 +21,6 @@ function Popup({ createUiModel, createUiModelPage, createUiModelElement, createU
     } else if (popupType == "attribute") {
       createUiModelElementLocatorAttribute(inputValues.attributeName);
     } else if (popupType.type == "updateModelName") {
-      console.log(updatedName)
       updateModelName(updatedName)
     } else if (popupType.type == "updatePageName") {
       updatePageName(updatedName)
