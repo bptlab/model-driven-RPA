@@ -2,6 +2,40 @@ import path from 'path';
 import fs from 'fs'
 const folderPath = '../Database/UiModel';
 
+/**
+ * @swagger
+ * /update-model:
+ *     parameters:
+ *       - name: locator
+ *         in: path
+ *         description: element with the updated current mode
+ *         required: true
+ *         content:
+ *           application/json: 
+ *             schema:
+ *                 type: object
+ *                 properties:
+ *                   application_id:
+ *                     type: string
+ *                     example: Email
+ *                   page_id:
+ *                     type: string
+ *                     example: 123
+ *                   element_id:
+ *                     type: string
+ *                     example: Send
+ *                   current_mode:
+ *                     type: string
+ *                     example: path
+ *     patch:
+ *       summary: updates the current mode of element in model
+ *       operationId: update-model
+ *       responses:
+ *         200:
+ *           description: OK
+ *         500:
+ *           description: Error
+ */
 export const updateModel = (req, res) => {
     try {
         const jsonUpdate = req.body;
@@ -10,13 +44,15 @@ export const updateModel = (req, res) => {
         jsonFile.pages.map((page) => {
             if (page.page_id == jsonUpdate.page_id) {
                 page.ui_elements.map((el) => {
-                    el.current_mode = jsonUpdate.current_mode
-                    fs.writeFile(path.join(folderPath, jsonFile.application_name + ".json"), JSON.stringify(jsonFile), (err) => {
-                        if (err) {
-                            console.error('Error writing to model:', err);
-                            return res.status(500).json({ error: 'Internal server error' });
-                        }
-                    })
+                    if (el.element_id == jsonUpdate.element_id) {
+                        el.current_mode = jsonUpdate.current_mode
+                        fs.writeFile(path.join(folderPath, jsonFile.application_name + ".json"), JSON.stringify(jsonFile), (err) => {
+                            if (err) {
+                                console.error('Error writing to model:', err);
+                                return res.status(500).json({ error: 'Internal server error' });
+                            }
+                        })
+                    }
                 })
             }
         })

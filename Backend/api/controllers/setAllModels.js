@@ -2,6 +2,41 @@ import path from 'path';
 import fs from 'fs'
 const folderPath = '../Database/UiModel';
 
+
+/**
+ * @swagger
+ * /set-all-models:
+ *     parameters:
+ *       - name: locator
+ *         in: path
+ *         description: models that we need to save in array of object
+ *         required: true
+ *         content:
+ *           application/json: 
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                       application_id:
+ *                         type: string
+ *                         example: 1
+ *                       application_name:
+ *                         type: string
+ *                         example: Outlook
+ *                       pages:
+ *                         type: array
+ *                         items:
+ *                           type: object 
+ *     post:
+ *       summary: Gets all models from frontend and saves them to database
+ *       operationId: set-all-models
+ *       responses:
+ *         200:
+ *           description: OK
+ *         500:
+ *           description: Error
+ */
 export const setAllModels = (req, res) => {
     try {
         const jsonArray = req.body;
