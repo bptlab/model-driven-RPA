@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.11.4 on darwin)" generated="20230622 14:53:18.279" rpa="true" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.11.4 on darwin)" generated="20230627 09:26:12.138" rpa="true" schemaversion="3">
 <suite id="s1" name="Robot" source="/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Backend/Robot">
 <suite id="s1-s1" name="Tasks" source="/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Backend/Robot/tasks.robot">
-<test id="s1-s1-t1" name="Run Payroll" line="21">
-<status status="FAIL" starttime="20230622 14:53:19.661" endtime="20230622 14:53:19.662">Task contains no keywords.</status>
+<test id="s1-s1-t1" name="Run Payroll Robot" line="21">
+<kw name="Run Payroll" library="Payroll">
+<kw name="Authorize" library="RPA.Email.ImapSmtp">
+<arg>account=${USERNAME}</arg>
+<arg>password=${PASSWORD}</arg>
+<doc>Authorize user to SMTP and IMAP servers.</doc>
+<msg timestamp="20230627 09:26:13.602" level="FAIL">SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials d11-20020a1c730b000000b003fb416d732csm2213367wmb.6 - gsmtp')</msg>
+<status status="FAIL" starttime="20230627 09:26:13.276" endtime="20230627 09:26:13.605"/>
+</kw>
+<kw name="Save Attachments" library="RPA.Email.ImapSmtp">
+<var>${attachments}</var>
+<arg>SUBJECT Payroll_${MONTH}</arg>
+<arg>target_folder=/Users/alihussainkazmi/Desktop/Model_Driven_RPA/Database/Robot${/}Payrolls</arg>
+<arg>overwrite=${True}</arg>
+<doc>Save mail attachments of emails matching criterion on the local disk.</doc>
+<status status="NOT RUN" starttime="20230627 09:26:13.605" endtime="20230627 09:26:13.605"/>
+</kw>
+<kw name="Iterate through all files" library="Payroll">
+<status status="NOT RUN" starttime="20230627 09:26:13.606" endtime="20230627 09:26:13.606"/>
+</kw>
+<kw name="Send Report to UI Modeler" library="utils">
+<status status="NOT RUN" starttime="20230627 09:26:13.606" endtime="20230627 09:26:13.606"/>
+</kw>
+<status status="FAIL" starttime="20230627 09:26:13.276" endtime="20230627 09:26:13.606"/>
+</kw>
+<status status="FAIL" starttime="20230627 09:26:13.275" endtime="20230627 09:26:13.606">SMTPAuthenticationError: (535, b'5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials d11-20020a1c730b000000b003fb416d732csm2213367wmb.6 - gsmtp')</status>
 </test>
 <doc>Payroll Automation using RPA</doc>
-<status status="FAIL" starttime="20230622 14:53:18.290" endtime="20230622 14:53:19.662"/>
+<status status="FAIL" starttime="20230627 09:26:12.145" endtime="20230627 09:26:13.607"/>
 </suite>
-<status status="FAIL" starttime="20230622 14:53:18.279" endtime="20230622 14:53:19.663"/>
+<status status="FAIL" starttime="20230627 09:26:12.139" endtime="20230627 09:26:13.607"/>
 </suite>
 <statistics>
 <total>
@@ -22,7 +46,7 @@
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20230622 14:53:19.348" level="WARN">RPA.Excel.Application library works only on Windows platform</msg>
-<msg timestamp="20230622 14:53:19.348" level="WARN">Excel application library requires Windows dependencies to work.</msg>
+<msg timestamp="20230627 09:26:12.930" level="WARN">RPA.Excel.Application library works only on Windows platform</msg>
+<msg timestamp="20230627 09:26:12.930" level="WARN">Excel application library requires Windows dependencies to work.</msg>
 </errors>
 </robot>

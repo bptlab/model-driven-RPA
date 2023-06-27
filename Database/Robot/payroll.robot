@@ -22,9 +22,8 @@ Resource   CustomFunctions/customFunctions.robot
 ${json_dict}    ${EMPTY}
 ${MONTH}        June
 ${RECIPIENT}    bptlab.mdrpa@gmail.com
-${USERNAME}     MdRPA
-${PASSWORD}     wdanyckqieooxell
-
+${USERNAME}     bptlab.mdrpa
+${PASSWORD}     yeuionpvtsxnxyfq
 
 
 *** Keywords ***
@@ -44,7 +43,7 @@ Load JSON Data
 
 
 Iterate through all files
-    Open Available Browser    http://localhost:3001/
+    Open Available Browser    http://localhost:3000/
     ${files}    List files in directory    ${CURDIR}${/}Payrolls
     FOR    ${file}    IN    @{FILES}
         RPA.Excel.Application.Open Workbook    ${file}
