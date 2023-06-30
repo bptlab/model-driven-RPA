@@ -54,6 +54,7 @@ Iterate through all files
         ${SALARY}    Read From Cells    row=42    column=9
         Add payroll entry    ${FIRSTNAME}    ${LASTNAME}    ${EMAIL}    ${SALARY}
         Sleep    1s
+        Close Document
     END
 
 
