@@ -5,9 +5,11 @@ let folderPath = '../Database/Error';
 
 // req.body looks like this: {"robotName": "exampleName"}
 export const runRobot = (req, res) => {
-    const robot_name = req.body;
+    const robot = req.body;
 
-    const robotFilePath = './Robot';
+    const robotFilePath = `../Database/Robot/${robot.robotName}.robot`;
+
+    console.log(robotFilePath)
     
     const command = `robot  ${robotFilePath}`;
 

@@ -25,6 +25,10 @@ ${RECIPIENT}    bptlab.mdrpa@gmail.com
 ${USERNAME}     bptlab.mdrpa
 ${PASSWORD}     yeuionpvtsxnxyfq
 
+*** Tasks ***
+
+Run Payroll Robot
+    Run Payroll
 
 *** Keywords ***
 
@@ -37,7 +41,7 @@ Run Payroll
     Send Report to UI Modeler
 
 Load JSON Data
-    ${json_data}=    Get File    ../Database/UiModel/Payroll.json
+    ${json_data}=    Get File    ${CURDIR}${/}../UiModel/Payroll.json
     ${json_dict}=    Evaluate    ${json_data}    json
     Set Suite Variable    ${json_dict}
     log  ${json_dict} 
