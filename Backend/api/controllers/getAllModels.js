@@ -6,8 +6,8 @@ let folderPath = '../Database/UiModel';
  * @swagger
  * /all-models:
  *     get:
- *       summary: Retreives from the database all the models to show them on the frontend
- *       operationId: all-models
+ *       summary: Retreives from the database all models to show them on the frontend
+ *       operationId: get-all-models
  *       responses:
  *         200:
  *           description: OK

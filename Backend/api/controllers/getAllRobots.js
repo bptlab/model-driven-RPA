@@ -2,8 +2,32 @@ import path from 'path';
 import fs from 'fs';
 let folderPath = '../Database/Robot';
 
+
+/**
+ * @swagger
+ * /all-robots:
+ *     get:
+ *       summary: Retreives from the database all robots to show them on the frontend
+ *       operationId: get-all-robots
+ *       responses:
+ *         200:
+ *           description: OK
+ *           content:
+ *             application/json: 
+ *               schema:
+ *                 type: array
+ *                 items:
+ *                   type: object
+ *                   properties:
+ *                       robotName:
+ *                         type: string
+ *                         example: payroll
+ *         500:
+ *           description: Error
+ */
+
 export const getAllRobots = async (req, res) => {
-    try {  
+    try {
         let robots = [];
         fs.readdirSync(folderPath).forEach((file) => {
             let filePath = path.join(folderPath, "/", file);
