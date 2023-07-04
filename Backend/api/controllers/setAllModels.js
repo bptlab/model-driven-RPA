@@ -5,7 +5,7 @@ const folderPath = '../Database/UiModel';
 
 /**
  * @swagger
- * /set-all-models:
+ * /all-models:
  *     parameters:
  *       - name: locator
  *         in: path

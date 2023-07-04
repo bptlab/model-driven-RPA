@@ -3,15 +3,40 @@ import path from 'path';
 import fs from 'fs';
 let folderPath = '../Database/Error';
 
+/**
+ * @swagger
+ * /run-robot:
+ *     parameters:
+ *       - name: robot name
+ *         in: path
+ *         description: name of the robot
+ *         required: true
+ *         content:
+ *           application/json: 
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 robotName:
+ *                   type: string
+ *                   example: exampleName
+ *     post:
+ *       summary: Runs the robot from the list of the robots in database
+ *       operationId: run-robot
+ *       responses:
+ *         200:
+ *           description: OK
+ *         500:
+ *           description: Internal server error
+ */
 // req.body looks like this: {"robotName": "exampleName"}
 export const runRobot = (req, res) => {
     const robot_name = req.body;
 
     const robotFilePath = './Robot';
-    
+
     const command = `robot  ${robotFilePath}`;
 
-    try{
+    try {
         const childProcess = exec(command, (error, stdout, stderr) => {
             if (error) {
                 console.error(`Error executing Robot Framework: ${error.message}`);
@@ -21,7 +46,7 @@ export const runRobot = (req, res) => {
             //     console.error(`Robot Framework execution error: ${stderr}`);
             //     return res.status(400).json({ error: 'Bad request' });
             // }
-           
+
         });
         childProcess.on('exit', (code) => {
             let currentErrors;
@@ -40,11 +65,11 @@ export const runRobot = (req, res) => {
             });
             return res.status(200).json(currentErrors);
         });
-        
 
-    }catch(error){
+
+    } catch (error) {
         return res.status(500).json({ error: 'Internal server error' });
     }
 
-   
+
 };
