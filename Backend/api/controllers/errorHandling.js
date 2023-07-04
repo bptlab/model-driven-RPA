@@ -2,6 +2,27 @@ import path from 'path';
 import fs from 'fs'
 let folderPath = '../Database/Error';
 
+
+const POSSIBLE_REASONS = [
+    "Color of element was changed", //0
+    "Label of element was changed",//1
+    "Position of element was changed",//2
+    "Font of element was changed",//3
+    "Image was changed",//4
+    "Layout was changed",//5
+    "Content of element was changed",//6
+    "Styling of element was changed",//7
+    "Language of element was changed",//8
+    "Visibility of element was changed",//9
+    "Type of element was changed",//10
+    "Navigation was changed",//11
+    "Input validation of element was changed",//12
+    "Data format was changed",//13
+    "New fields or elements were added",//14
+    "Some fields or elements were removed",//15
+    "Browser compatibility was changed",//16
+    "Responsive design was changed"//17
+]
 /**
  * @swagger
  * /error-handling:
@@ -34,32 +55,12 @@ let folderPath = '../Database/Error';
  *         500:
  *           description: Error writing to error.json
  */
-const POSSIBLE_REASONS = [
-    "Color of element was changed", //0
-    "Label of element was changed",//1
-    "Position of element was changed",//2
-    "Font of element was changed",//3
-    "Image was changed",//4
-    "Layout was changed",//5
-    "Content of element was changed",//6
-    "Styling of element was changed",//7
-    "Language of element was changed",//8
-    "Visibility of element was changed",//9
-    "Type of element was changed",//10
-    "Navigation was changed",//11
-    "Input validation of element was changed",//12
-    "Data format was changed",//13
-    "New fields or elements were added",//14
-    "Some fields or elements were removed",//15
-    "Browser compatibility was changed",//16
-    "Responsive design was changed"//17
-]
-
 export const errorHandling = (req, res) => {
-    const jsonArray = req.body;
-    jsonArray.map((locator) => {
+    const errors = req.body;
+    const filePath = path.join(folderPath, "/", "error.json");
+    errors.map((error) => {
         let reasons = [];
-        switch (locator.locator) {
+        switch (error.locator) {
             case "text": reasons = [1, 3, 6, 7, 8].map(index => POSSIBLE_REASONS[index]); break;
             case "tag": reasons = [10, 14, 15].map(index => POSSIBLE_REASONS[index]); break;
             case "path": reasons = [0, 1, 2, 3, 6, 7, 8, 9, 10, 12, 13, 14, 15, 17].map(index => POSSIBLE_REASONS[index]); break;
@@ -69,16 +70,70 @@ export const errorHandling = (req, res) => {
             case "keyboard_shortcut": reasons = [11].map(index => POSSIBLE_REASONS[index]); break;
             default: reasons = [0, 1, 2, 3, 6, 7, 8, 9, 10, 12, 13, 14, 15, 17].map(index => POSSIBLE_REASONS[index]); break;
         }
-        locator.reasons_for_failure = reasons;
+        error.reasons_for_failure = reasons;
     })
-    const filePath = path.join(folderPath, "/", "error.json")
-    fs.writeFile(filePath, JSON.stringify(jsonArray), (err) => {
-        if (err) {
-            console.error('Error writing to error.json:', err);
-            return res.status(500).json({ error: 'Internal server error' });
-        }
 
-        console.log('error.json file created successfully');
-        return res.status(200).json({ message: 'error.json file created successfully' });
+    let uniqueErrors = [];
+    // Remove duplicates from the errors array
+    errors.forEach((error) => {
+    const isDuplicate = uniqueErrors.some((err) => {
+        return (
+        err.model_name === error.model_name &&
+        err.page_name === error.page_name &&
+        err.element_name === error.element_name &&
+        err.locator === error.locator
+        );
+    });
+
+    if (!isDuplicate) {
+        uniqueErrors.push(error);
+    }
+    });
+
+    fs.readFile(filePath, "utf8", (err, data) => {
+      if (err) {
+        console.error("Error reading error.json:", err);
+        return res.status(500).json({ error: "Internal server error" });
+      }
+  
+      let existingErrors = [];
+      try {
+        existingErrors = JSON.parse(data);
+      } catch (parseErr) {
+        console.error("Error parsing error.json:", parseErr);
+        return res.status(500).json({ error: "Internal server error" });
+      }
+  
+      const newErrors = uniqueErrors.filter((error) => {
+        return !existingErrors.some((existingError) => {
+          return (
+            existingError.model_name === error.model_name &&
+            existingError.page_name === error.page_name &&
+            existingError.element_name === error.element_name &&
+            existingError.locator === error.locator
+          );
+        });
+      });
+  
+      if (newErrors.length === 0) {
+        console.log("No new errors to add to error.json");
+        return res
+          .status(200)
+          .json({ message: "No new errors to add to error.json" });
+      }
+  
+      existingErrors.push(...newErrors);
+  
+      fs.writeFile(filePath, JSON.stringify(existingErrors), (writeErr) => {
+        if (writeErr) {
+          console.error("Error writing to error.json:", writeErr);
+          return res.status(500).json({ error: "Internal server error" });
+        }
+        
+        console.log("error.json file updated successfully");
+        return res
+          .status(200)
+          .json({ message: "error.json file updated successfully" });
+      });
     });
 };
