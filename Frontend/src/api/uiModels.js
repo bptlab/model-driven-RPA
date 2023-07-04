@@ -14,7 +14,14 @@ const setAllUiModels = async (currentUiModelList) => {
     return response;
 };
 
+const getAllErrors = async () => {
+  const response = axios.get("http://localhost:8000/all-errors")
+  return response;
+};
+
+
 export {
     getAllUiModels,
-    setAllUiModels
+    setAllUiModels,
+    getAllErrors
 };

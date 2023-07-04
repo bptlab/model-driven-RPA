@@ -4,10 +4,10 @@ import axios from 'axios';
 import styles from './UiModelSidebar.module.css';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faEdit, faTrash, faWarning } from '@fortawesome/free-solid-svg-icons'
 
 
-function UiModelSidebar({handleModelInterfaceChange, uiModelList, addToUiModel, setCurrentUiModel, setCurrentUiModelPage, saveCurrentUiModels, removeFromUiModel, updateName}) {
+function UiModelSidebar({handleModelInterfaceChange, uiModelList, addToUiModel, setCurrentUiModel, setCurrentUiModelPage, saveCurrentUiModels, removeFromUiModel, updateName, currentErrors}) {
 
   return (
     <div className="sidebarWrapper">
@@ -31,9 +31,18 @@ function UiModelSidebar({handleModelInterfaceChange, uiModelList, addToUiModel, 
                         <h5 className={styles.addButton}>+ Add Model</h5>
                 </MenuItem>
                 <>
-                    {uiModelList.map((uiModel) => {                    
+                    {uiModelList.map((uiModel) => {
+                    let modelWarningSet                      
                     return (
                     <div className={styles.wrapper}>
+                        {currentErrors.map((error) => {
+                                        if(error.model_name === uiModel.application_name && !modelWarningSet) {
+                                            modelWarningSet = true;
+                                            return (
+                                                <FontAwesomeIcon icon={faWarning} style={{color: "red", marginLeft: '20px', marginTop: "18px"}}></FontAwesomeIcon>
+                                            )
+                                        }
+                        })}
                         <FontAwesomeIcon icon={faTrash} style={{color: "#8231ff", marginLeft: "20px", marginTop: "18px"}} onClick={() => {removeFromUiModel("model", uiModel.application_name, "")}} />
                         <FontAwesomeIcon icon={faEdit} style={{color: "#8231ff", marginLeft: "10px", marginTop: "18px"}} onClick={() => {updateName("model", uiModel.application_name, "")}}/>
                         <SubMenu label={uiModel.application_name} onClick={() => {setCurrentUiModel(uiModel.application_name)}}>
@@ -41,9 +50,18 @@ function UiModelSidebar({handleModelInterfaceChange, uiModelList, addToUiModel, 
                                 <h5 className={styles.addButton} >+ Add Page</h5>
                             </MenuItem>
                             <>
-                            {uiModel.pages.map((page) => {                    
+                            {uiModel.pages.map((page) => {   
+                                let pageWarningSet                
                                 return (
                                     <div className={styles.wrapper} style={{backgroundColor: "#f5f7f7"}}>
+                                        {currentErrors.map((error) => {
+                                                        if(error.page_name === page.page_name && error.model_name === uiModel.application_name && !pageWarningSet) {
+                                                            pageWarningSet = true;
+                                                            return (
+                                                                <FontAwesomeIcon icon={faWarning} style={{color: "red", marginTop: "18px"}}></FontAwesomeIcon>
+                                                            )
+                                                        }
+                                        })}
                                         <FontAwesomeIcon icon={faTrash} style={{color: "#8231ff", marginLeft: "20px", marginTop: "18px"}} onClick={() => {removeFromUiModel("page", uiModel.application_name, page.page_name)}} />
                                         <FontAwesomeIcon icon={faEdit} style={{color: "#8231ff", marginLeft: "10px", marginTop: "18px"}} onClick={() => {updateName("page", uiModel.application_name, page.page_name)}}/>
                                         <SubMenu label={page.page_name} onClick={() => {
@@ -55,12 +73,20 @@ function UiModelSidebar({handleModelInterfaceChange, uiModelList, addToUiModel, 
                                         <> {page.ui_elements.map((uiElement) => {
                                             return(
                                                 <div className={styles.wrapper} style={{backgroundColor: "#f5f7f7"}}>
+                                                    {currentErrors.map((error) => {
+                                                        if(error.element_name === uiElement.element_name && error.page_name === page.page_name && error.model_name === uiModel.application_name) {
+                                                            return (
+                                                                <FontAwesomeIcon icon={faWarning} style={{color: "red", marginLeft: "20px", marginTop: "18px"}}></FontAwesomeIcon>
+                                                            )
+                                                        }
+                                                    })}
                                                     <FontAwesomeIcon icon={faTrash} style={{color: "#8231ff", marginLeft: "20px", marginTop: "18px"}} onClick={() => {removeFromUiModel("element", uiModel.application_name, page.page_name, uiElement.element_name)}} />
                                                     <MenuItem onClick={() => {
                                                         setCurrentUiModel(uiModel.application_name)
                                                         setCurrentUiModelPage(page.page_name)
-                                                        handleModelInterfaceChange(uiElement)}}>{uiElement.element_name}</MenuItem>
-                                                    </div>
+                                                        handleModelInterfaceChange(uiElement)}}>{uiElement.element_name}
+                                                    </MenuItem>
+                                                </div>
                                                     )
                                                 })}
                                         </>
