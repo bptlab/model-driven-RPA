@@ -15,10 +15,14 @@ Resource   ../utils/utils.robot
 
 
 Select Value from Dropdown Model
-    [Arguments]    ${element}  ${application_name}  ${page_nam}  ${value}
-    Set Suite Variable  ${model_name}    ${application_name} 
-    Set Suite Variable  ${page_name}    ${page_nam} 
-    Set Suite Variable  ${element_name}   ${element["element_name"]} 
+    [Arguments]   ${application}  ${page}   ${ui_element}    ${model}    ${value}
+    Set Suite Variable  ${model_name}    ${application} 
+    Set Suite Variable  ${page_name}    ${page} 
+    Set Suite Variable  ${element_name}   ${ui_element}
+    Set Suite Variable  ${models}    ${model} 
+    Set Suite Variable  ${element}  ${EMPTY}
+    ${response}=  Set UI Element  ${model_name}   ${page_name}  ${element_name}   ${model} 
+    Set Suite Variable  ${element}   ${response} 
     Set Suite Variable  ${current_mode}   ${element["current_mode"]} 
     Set Suite Variable  ${element_locators}     ${element["element_locators"]} 
     @{keyword_list}=    Create List     Select Value By ID     Select Value By Path     Select Value By Label    Select Value By Image
@@ -32,7 +36,7 @@ Select Value from Dropdown Model
     
     ${removed_keyword}=    Run Keyword If    '${current_mode}' == 'id'    Remove From List    ${keyword_list}    0
 ...    ELSE IF    '${current_mode}' == 'path'    Remove From List    ${keyword_list}    1
-...    ELSE IF    '${current_mode}' == 'label'    Remove From List    ${keyword_list}    
+...    ELSE IF    '${current_mode}' == 'label'    Remove From List    ${keyword_list}   2 
 
 
     Set Suite Variable  ${interaction_status}   ${EMPTY} 
@@ -67,7 +71,7 @@ Select Value By Label
    
 
 
-
+ 
 
 
 

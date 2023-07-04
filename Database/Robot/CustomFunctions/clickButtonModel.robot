@@ -18,10 +18,13 @@ Resource   ../utils/utils.robot
     
 
 Click Button Model
-    [Arguments]    ${element}  ${application_name}  ${page_nam}      
-    Set Suite Variable  ${model_name}    ${application_name} 
-    Set Suite Variable  ${page_name}    ${page_nam} 
-    Set Suite Variable  ${element_name}   ${element["element_name"]} 
+    [Arguments]     ${application}  ${page}   ${ui_element}    ${models}    
+    Set Suite Variable  ${model_name}    ${application} 
+    Set Suite Variable  ${page_name}    ${page} 
+    Set Suite Variable  ${element_name}   ${ui_element}
+    Set Suite Variable  ${element}  ${EMPTY}
+    ${response}=  Set UI Element  ${model_name}   ${page_name}  ${element_name}   ${models}   
+    Set Suite Variable  ${element}   ${response} 
     Set Suite Variable  ${current_mode}   ${element["current_mode"]} 
     Set Suite Variable  ${element_locators}     ${element["element_locators"]} 
     @{keyword_list}=    Create List    Click Button By ID    Click Button By Path    Click Button By Label   Click Button By Image
@@ -67,8 +70,10 @@ Click Button By Label
 
 
 
+# The below keywords are to get a specific UI Element from the model
 
-    
+ 
+
 
 
 

@@ -41,16 +41,15 @@ Run Payroll
     Send Report to UI Modeler
 
 Load JSON Data
-    ${json_data}=    Get File    ${CURDIR}${/}../UiModel/Payroll.json
-    ${json_dict}=    Evaluate    ${json_data}    json
-    Set Suite Variable    ${json_dict}
-    log  ${json_dict} 
+    ${uiModels} =   Get UiModels
+    Set Suite Variable     ${uiModels}
+    log  ${uiModels}
 
 
 Iterate through all files
     Open Available Browser    http://localhost:3001/
     ${files}    List files in directory    ${CURDIR}${/}Payrolls
-    FOR    ${file}    IN    @{FILES}
+    FOR    ${file}    IN    @{files}
         RPA.Excel.Application.Open Workbook    ${file}
         ${FIRSTNAME}    Read From Cells    row=3    column=5
         ${LASTNAME}    Read From Cells    row=4    column=5
@@ -64,14 +63,14 @@ Iterate through all files
 
 Add payroll entry
     [Arguments]    ${FIRSTNAME}    ${LASTNAME}    ${EMAIL}    ${SALARY}
-    Click Button Model   ${json_dict["pages"][0]["ui_elements"][0]}    ${json_dict["application_name"]}   ${json_dict["pages"][0]["page_name"]}    
-    Input Field Model    ${json_dict["pages"][1]["ui_elements"][0]}    ${json_dict["application_name"]}   ${json_dict["pages"][1]["page_name"]}   ${FIRSTNAME} 
-    Input Field Model    ${json_dict["pages"][1]["ui_elements"][1]}    ${json_dict["application_name"]}   ${json_dict["pages"][1]["page_name"]}    ${LASTNAME} 
-    Input Field Model    ${json_dict["pages"][1]["ui_elements"][2]}    ${json_dict["application_name"]}   ${json_dict["pages"][1]["page_name"]}   ${EMAIL} 
-    Select Value from Dropdown Model   ${json_dict["pages"][1]["ui_elements"][3]}    ${json_dict["application_name"]}   ${json_dict["pages"][1]["page_name"]}    ${MONTH}   
-    Input Field Model    ${json_dict["pages"][1]["ui_elements"][4]}    ${json_dict["application_name"]}   ${json_dict["pages"][1]["page_name"]}   ${SALARY}
-    Select Checkbox Model   ${json_dict["pages"][1]["ui_elements"][6]}    ${json_dict["application_name"]}   ${json_dict["pages"][1]["page_name"]}    
-    Click Button Model   ${json_dict["pages"][1]["ui_elements"][7]}    ${json_dict["application_name"]}   ${json_dict["pages"][0]["page_name"]}    
+    Click Button Model   Payroll    payroll_homepage    addButton    ${uiModels} 
+    Input Field Model    Payroll    add_payroll    firstName    ${uiModels}    ${FIRSTNAME}
+    Input Field Model    Payroll    add_payroll    lastName    ${uiModels}    ${LASTNAME} 
+    Input Field Model    Payroll    add_payroll    email    ${uiModels}    ${EMAIL}  
+    Select Value from Dropdown Model   Payroll    add_payroll    month    ${uiModels}    ${MONTH}   
+    Input Field Model    Payroll    add_payroll    salary    ${uiModels}    ${SALARY}
+    Select Checkbox Model    Payroll    add_payroll    terms    ${uiModels}  
+    Click Button Model   Payroll    add_payroll    addButton    ${uiModels}
     Close Workbook
 
 
