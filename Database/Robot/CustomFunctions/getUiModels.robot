@@ -8,23 +8,19 @@ Library    RPA.JSON
 Library    RPA.Desktop
 Library    Collections
 Resource   ../utils/utils.robot
-Resource   ClickButtonModel.robot
-Resource   InputFieldModel.robot
-Resource   SelectCheckboxModel.robot
-Resource   SelectFromDropdownModel.robot
-Resource   GetUiModels.robot
+
+
+*** Variables ***
+${API_ALL_MODELS}   http://localhost:8000/all-models
 
 
 
+*** Keywords *** 
+
+Get UiModels
+    ${response} =    GET    ${API_ALL_MODELS} 
+    [Return]    ${response.json()}
 
 
-
-
-
-
-
-
-
-
-
+    
 

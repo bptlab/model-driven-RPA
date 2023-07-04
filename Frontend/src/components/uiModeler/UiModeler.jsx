@@ -48,7 +48,7 @@ function UiModeler() {
     setShowPopup(true);
   };
 
-  const removeFromUiModel = (type, applicationName, pageName) => {
+  const removeFromUiModel = (type, applicationName, pageName, elementName) => {
     if (type == "model") {
       let newUiModelList = uiModelList.filter((uiModel) => {
         return uiModel.application_name !== applicationName
@@ -59,6 +59,23 @@ function UiModeler() {
         if (uiModel.application_name == applicationName) {
           let newPages = uiModel.pages.filter((page) => {
             return page.page_name !== pageName
+          })
+          uiModel = { ...uiModel, pages: newPages };
+        }
+        return uiModel
+      })
+      setUiModelList(newUiModelList);
+    } else if (type == "element") {
+      let newUiModelList = uiModelList.map((uiModel) => {
+        if (uiModel.application_name == applicationName) {
+          let newPages = uiModel.pages.map((page) => {
+            if (page.page_name == pageName) {
+              let newElements = page.ui_elements.filter((element) => {
+                return element.element_name !== elementName
+              })
+              page = { ...page, ui_elements: newElements}
+            }
+            return page
           })
           uiModel = { ...uiModel, pages: newPages };
         }

@@ -20,20 +20,19 @@ function RobotStatus({errorList}) {
             {errorList.map((error) => {
                 return (
                     <>
-                    {/* <h5 className={styles.errorReport}> Running Bot:  {error.failed_bot}</h5> */}
-                    <hr style={{width: "100%", margin: "10px"}}/>
+                    <hr style={{width: "100%", margin: "10px", backgroundColor: "black", borderWidth: "1px"}}/>
                     <p className={styles.errorReport}>Affected Model: {error.model_name}</p>
                     <p className={styles.errorReport}>Page: {error.page_name}</p>
                     <p className={styles.errorReport}>Element: {error.element_name}</p>
                     <p className={styles.errorReport}>Failed Locator: {error.locator}</p>
-                    <p className={styles.errorReport}>Possible Reasons for Failure: {error.reasons_for_failure}</p>
-                    {/* <>
-                    {error.reasons_for_failure.map((reason) => {
+                    <p className={styles.errorReport}>Possible Reasons for Failure:</p>
+                    <ul style={{width: "100%"}}>
+                        {error.reasons_for_failure.map((reason) => {
                             return (
-                                    <p className={styles.errorReport}>> {reason} </p>
-                                )
-                            })}
-                    </> */}
+                                <li style={{width: "100%"}}>{reason}</li>
+                            )
+                        })}
+                    </ul>
                     </>
                 )})}
             </>

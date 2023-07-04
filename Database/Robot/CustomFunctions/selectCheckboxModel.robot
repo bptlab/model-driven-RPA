@@ -15,10 +15,14 @@ Resource   ../utils/utils.robot
 
 
 Select Checkbox Model
-    [Arguments]    ${element}  ${application_name}  ${page_nam} 
-    Set Suite Variable  ${model_name}    ${application_name} 
-    Set Suite Variable  ${page_name}    ${page_nam} 
-    Set Suite Variable  ${element_name}   ${element["element_name"]} 
+    [Arguments]    ${application}  ${page}   ${ui_element}    ${model}    
+    Set Suite Variable  ${model_name}    ${application} 
+    Set Suite Variable  ${page_name}    ${page} 
+    Set Suite Variable  ${element_name}    ${ui_element} 
+    Set Suite Variable  ${models}    ${model} 
+    Set Suite Variable  ${element}  ${EMPTY}
+    ${response}=  Set UI Element  ${model_name}   ${page_name}  ${element_name}   ${model}   
+    Set Suite Variable  ${element}   ${response} 
     Set Suite Variable  ${current_mode}   ${element["current_mode"]} 
     Set Suite Variable  ${element_locators}     ${element["element_locators"]} 
     @{keyword_list}=    Create List     Select Checkbox By ID     Select Checkbox By Path     Select Checkbox By Label    Select Checkbox By Image
@@ -60,7 +64,6 @@ Select Checkbox By Label
     ${element_exists}    Run Keyword And Return Status    Element Should Be Visible    xpath=//a[text()='${text}']
     Run Keyword If    '${element_exists}' == 'True'  Run Keywords    Set Suite Variable    ${interaction_status}  Pass  AND   Select Checkbox   xpath=//a[text()='${text}']  
     ...  ELSE   Run Keywords   Set Suite Variable    ${interaction_status}  Fail  AND  Create Error  ${model_name}  ${page_name}  ${element_name}  'text'
-
 
 
 

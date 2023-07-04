@@ -53,11 +53,14 @@ function UiModelSidebar({handleModelInterfaceChange, uiModelList, addToUiModel, 
                                             <h5 className={styles.addButton}>+ Add Element</h5>
                                         </MenuItem>
                                         <> {page.ui_elements.map((uiElement) => {
-                                            return(  
-                                                <MenuItem onClick={() => {
-                                                    setCurrentUiModel(uiModel.application_name)
-                                                    setCurrentUiModelPage(page.page_name)
-                                                    handleModelInterfaceChange(uiElement)}}>{uiElement.element_name}</MenuItem>
+                                            return(
+                                                <div className={styles.wrapper} style={{backgroundColor: "#f5f7f7"}}>
+                                                    <FontAwesomeIcon icon={faTrash} style={{color: "#8231ff", marginLeft: "20px", marginTop: "18px"}} onClick={() => {removeFromUiModel("element", uiModel.application_name, page.page_name, uiElement.element_name)}} />
+                                                    <MenuItem onClick={() => {
+                                                        setCurrentUiModel(uiModel.application_name)
+                                                        setCurrentUiModelPage(page.page_name)
+                                                        handleModelInterfaceChange(uiElement)}}>{uiElement.element_name}</MenuItem>
+                                                    </div>
                                                     )
                                                 })}
                                         </>
