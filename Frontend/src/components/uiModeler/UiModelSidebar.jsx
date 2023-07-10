@@ -91,8 +91,7 @@ function UiModelSidebar({handleModelInterfaceChange, uiModelList, addToUiModel, 
                                                 })}
                                         </>
                                         </SubMenu>
-                                    </div>
-                                
+                                    </div>                              
                             )})}
                             </>
                         </SubMenu>

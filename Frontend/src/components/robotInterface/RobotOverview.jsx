@@ -19,7 +19,7 @@ function RobotOverview({ robotList, executeRobot}) {
                 }
                 }}
             >
-                <h4 style={{ padding: "5vh", width: "50vw", textAlign: "center"}}>Your Robots</h4>
+                <h4 style={{ padding: "5vh", width: "100%", textAlign: "center"}}>Your Robots</h4>
                 <>
                     {robotList.map((robot) => {                  
                     return (

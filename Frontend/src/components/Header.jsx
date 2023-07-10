@@ -20,6 +20,7 @@ function Header() {
                   <ul className="nav navbar-nav mr-auto">
                     <li className="nav-item" ><a className="nav-link" href="/">UI Modeler</a></li>
                     <li className="nav-item" ><a className="nav-link" href="/robot">Robot Interface</a></li>
+                    <li className="nav-item" ><a className="nav-link" href="/error">Error Overview</a></li>
                   </ul>
                 </div>
                 {/* <button onClick={() => {saveCurrentUiModels()}} style={{backgroundColor: "#8231ff", borderRadius: "5px", borderColor:"white", borderStyle: "solid", color: "white"}}>SAVE UI MODELS</button> */}
