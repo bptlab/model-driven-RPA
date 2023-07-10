@@ -31,8 +31,11 @@ let folderPath = '../Database/Error';
 // req.body looks like this: {"robotName": "exampleName"}
 export const runRobot = (req, res) => {
     const robot = req.body;
+    let rawdata = fs.readFileSync('../Database/Robot/robotLocation.json');
+    let robotLocation = JSON.parse(rawdata);
+    let folderPath = robotLocation.robotsPath
 
-    const robotFilePath = `../Database/Robot/${robot.robotName}.robot`;
+    const robotFilePath = `"${folderPath}/${robot.robotName}.robot"`;
 
     console.log(robotFilePath)
     

@@ -15,7 +15,17 @@ const getAllRobots = async () => {
     const response = axios.get("http://localhost:8000/all-robots")
     return response;
 };
+
+const setRobotsPath = async (path) => {
+  const response = await axios.post("http://localhost:8000/robots-path", JSON.stringify(path), {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+  return response;
+};
 export {
     runRobot,
-    getAllRobots
+    getAllRobots,
+    setRobotsPath
 };

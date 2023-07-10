@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import RobotOverview from "./RobotOverview";
 import RobotStatus from "../errorOverview/ErrorOverview";
-import { runRobot, getAllRobots } from "../../api/robots";
+import { runRobot, getAllRobots, setRobotsPath } from "../../api/robots";
 
 
 function RobotCockpit() {
@@ -31,9 +31,13 @@ function RobotCockpit() {
       runRobot({robotName: robotName})
   };
 
+  const setPath = (path) => {
+    setRobotsPath({robotsPath: path})
+};
+
   return (
     <div className="coreWrapper">
-      <RobotOverview robotList={robotList} executeRobot={executeRobot} />
+      <RobotOverview robotList={robotList} executeRobot={executeRobot} setPath={setPath} />
     </div>
   )
 }
