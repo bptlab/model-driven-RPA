@@ -4,7 +4,7 @@ import axios from 'axios';
 import UiModelSidebar from "./UiModelSidebar";
 import UiModelElement from "./UiModelElement";
 import Popup from "./Popup";
-import { getAllUiModels, setAllUiModels } from "../../api/uiModels.js"
+import { getAllUiModels, setAllUiModels, getAllErrors } from "../../api/uiModels.js"
 
 function UiModeler() {
   const [currentUiModelElement, setCurrentUiModelElement] = useState("default");
@@ -13,6 +13,7 @@ function UiModeler() {
   const [currentPage, setCurrentPage] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [popupType, setPopupType] = useState();
+  const [currentErrors, setCurrentErrors] = useState();
   const [inputValues, setInputValues] = useState({
     applicationId: "",
     applicationName: "",
@@ -38,6 +39,13 @@ function UiModeler() {
       .catch((err) => {
         console.log(err)
       })
+    getAllErrors()
+    .then((res) => {
+      setCurrentErrors(res.data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }, [])
 
   const handleModelInterfaceChange = (updatedCurrentUiModel) => {
@@ -304,6 +312,7 @@ function UiModeler() {
         saveCurrentUiModels={saveCurrentUiModels}
         removeFromUiModel={removeFromUiModel}
         updateName={updateName}
+        currentErrors={currentErrors}
       />
       <UiModelElement
         currentUiModelElement={currentUiModelElement}

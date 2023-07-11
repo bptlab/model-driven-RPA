@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 import RobotOverview from "./RobotOverview";
-import RobotStatus from "./RobotStatus";
-import { runRobot, getAllRobots } from "../../api/robots"
+import RobotStatus from "../errorOverview/ErrorOverview";
+import { runRobot, getAllRobots, setRobotsPath } from "../../api/robots";
+
 
 function RobotCockpit() {
   const [robotList, setRobotList] = useState([]);
-  const [errorList, setErrorList] = useState("default");
 
   useEffect(() => {
     // get robots api call
@@ -28,28 +28,16 @@ function RobotCockpit() {
   }, [])
 
   const executeRobot = (robotName) => {
-      runRobot({robotName: robotName}).then((res) => {
-        console.log("update errors")
-        let errors = []
-        let errorData = res.data
-        console.log(errorData)
-        errorData.forEach(
-          error => {
-            errors.push(error)
-          }
-        )
-        console.log("errors " + errors)
-        setErrorList(errors)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+      runRobot({robotName: robotName})
   };
+
+  const setPath = (path) => {
+    setRobotsPath({robotsPath: path})
+};
 
   return (
     <div className="coreWrapper">
-      <RobotOverview robotList={robotList} executeRobot={executeRobot} />
-      <RobotStatus errorList={errorList}></RobotStatus>
+      <RobotOverview robotList={robotList} executeRobot={executeRobot} setPath={setPath} />
     </div>
   )
 }

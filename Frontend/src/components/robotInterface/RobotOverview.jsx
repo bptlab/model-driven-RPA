@@ -5,7 +5,12 @@ import styles from './RobotOverview.module.css';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 
 
-function RobotOverview({ robotList, executeRobot}) {
+function RobotOverview({ robotList, executeRobot, setPath}) {
+    const [robotsPath, setRobotsPath] = useState('');
+
+    const handleChange = (event) => {
+        setRobotsPath(event.target.value);
+    };
 
   return (
     <div className="robotOverviewWrapper">
@@ -19,7 +24,12 @@ function RobotOverview({ robotList, executeRobot}) {
                 }
                 }}
             >
-                <h4 style={{ padding: "5vh", width: "50vw", textAlign: "center"}}>Your Robots</h4>
+                <h4 style={{ padding: "5vh", width: "100%", textAlign: "center"}}>First: Specify the location of your local robots folder</h4>
+                <div className={styles.formWrapper} style={{margin: "20px", alignContent: "center"}}>
+                    <input placeholder="C:/Users/exampleUser/OneDrive/XYZ/ProjectX/RobotsFolder" onChange={handleChange} style={{borderRadius: "5px", borderColor:"#8231ff", borderWidth: "1px", borderStyle: "solid", width: "100%", marginRight: "20px"}}></input>
+                    <button onClick={() => {setPath(robotsPath)}} style={{color: "white", backgroundColor: '#8231ff', borderColor: '#8231ff', borderRadius: "5px"}}>Save</button>
+                </div>
+                <h4 style={{ padding: "5vh", width: "100%", textAlign: "center"}}>Your Robots</h4>
                 <>
                     {robotList.map((robot) => {                  
                     return (

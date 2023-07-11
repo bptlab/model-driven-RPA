@@ -83,13 +83,14 @@ h5 {
 
 .robotOverviewWrapper {
   height: 100%;
-  width: 50vw;
+  width: 100vw;
   min-width: 250px;
   background-color: white;
 }
 
 .coreWrapper {
   height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: row;
 }
