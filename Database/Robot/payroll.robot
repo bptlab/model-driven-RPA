@@ -12,8 +12,7 @@ Library    RPA.Desktop
 Library    RPA.FileSystem
 Library    DateTime
 Library    Collections
-Resource   CustomFunctions/customFunctions.robot
-
+Library    mdrpaLibrary.modelDrivenRpa.ModelDrivenRpa
 
 
 
@@ -41,7 +40,7 @@ Run Payroll
     Send Report to UI Modeler
 
 Load JSON Data
-    ${uiModels} =   Get UiModels
+    ${uiModels}=    Get Ui Models    http://localhost:8000/all-models
     Set Suite Variable     ${uiModels}
     log  ${uiModels}
 
@@ -63,14 +62,13 @@ Iterate through all files
 
 Add payroll entry
     [Arguments]    ${FIRSTNAME}    ${LASTNAME}    ${EMAIL}    ${SALARY}
-    Click Button Model   Payroll    payroll_homepage    addButton    ${uiModels} 
-    Input Field Model    Payroll    add_payroll    firstName    ${uiModels}    ${FIRSTNAME}
+    Click Button Model    Payroll    payroll_homepage    addButton    ${uiModels} 
+    Input Field Model     Payroll    add_payroll    firstName    ${uiModels}    ${FIRSTNAME}
     Input Field Model    Payroll    add_payroll    lastName    ${uiModels}    ${LASTNAME} 
     Input Field Model    Payroll    add_payroll    email    ${uiModels}    ${EMAIL}  
-    Select Value from Dropdown Model   Payroll    add_payroll    month    ${uiModels}    ${MONTH}   
+    Select From Dropdown Model    Payroll    add_payroll    month    ${uiModels}    ${MONTH}   
     Input Field Model    Payroll    add_payroll    salary    ${uiModels}    ${SALARY}
     Select Checkbox Model    Payroll    add_payroll    terms    ${uiModels}  
-    Click Button Model   Payroll    add_payroll    addButton    ${uiModels}
+    Click Button Model    Payroll    add_payroll    addButton    ${uiModels}
     Close Workbook
-
 
