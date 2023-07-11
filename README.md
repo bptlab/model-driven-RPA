@@ -22,7 +22,7 @@ To build, test, and run your robot, we recommend using Visual Studio Code with t
 - Python: make sure you have [python](https://www.python.org/downloads/) installed 
 - Robot Framework: make sure you have [robot framework](https://robotframework.org/?tab=1#getting-started) installed
 - RPA Framework: make sure you have [rpa framework](https://rpaframework.org/#installation) installed
-- [MdRPA Library](https://github.com/AliKazmi123/MdRPA-Library): in order to execute robot framework bots using the UI Models please execute the following command in you cmd "pip install mdrpaLibrary" 
+- [MdRPA Library](https://github.com/bptlab/MdRPA_Library): in order to execute robot framework bots using the UI Models please execute the following command in you cmd "pip install mdrpaLibrary" 
  
 
 #### Installation Steps

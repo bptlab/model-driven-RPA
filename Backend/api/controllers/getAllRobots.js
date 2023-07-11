@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-let folderPath = '../Database/Robot';
+let robotsPath = '../Database/Robot/robotLocation.json'
 
 
 /**
@@ -26,8 +26,11 @@ let folderPath = '../Database/Robot';
  *           description: Error
  */
 
-export const getAllRobots = async (req, res) => {
+export const getAllRobots = async (req, res) => {    
     try {
+        let rawdata = fs.readFileSync('../Database/Robot/robotLocation.json');
+        let robotLocation = JSON.parse(rawdata);
+        let folderPath = robotLocation.robotsPath
         let robots = [];
         fs.readdirSync(folderPath).forEach((file) => {
             let filePath = path.join(folderPath, "/", file);
@@ -46,7 +49,6 @@ export const getAllRobots = async (req, res) => {
                 }
             }
         });
-        console.log(robots)
         res.send(robots);
     } catch (error) {
         console.error(`Error: ${error.message}`)

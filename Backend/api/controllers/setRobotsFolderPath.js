@@ -6,7 +6,6 @@ export const setRobotsFolderPath = (req, res) => {
     try {
         const pathJSON = req.body;
         const pathObject = JSON.stringify(pathJSON)
-        console.log("Huhu")
         fs.writeFile('../Database/Robot/robotLocation.json', pathObject, (err) => {
             if (err) {
                 console.error('Error writing to model:', err);

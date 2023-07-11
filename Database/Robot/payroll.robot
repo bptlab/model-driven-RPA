@@ -37,7 +37,6 @@ Run Payroll
     ...    target_folder=${CURDIR}${/}Payrolls    overwrite=${True}
     Load JSON Data
     Iterate through all files
-    Send Report to UI Modeler
 
 Load JSON Data
     ${uiModels}=    Get Ui Models    http://localhost:8000/all-models
