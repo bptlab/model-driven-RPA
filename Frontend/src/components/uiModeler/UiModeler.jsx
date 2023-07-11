@@ -4,7 +4,7 @@ import axios from 'axios';
 import UiModelSidebar from "./UiModelSidebar";
 import UiModelElement from "./UiModelElement";
 import Popup from "./Popup";
-import { getAllUiModels, setAllUiModels, getAllErrors } from "../../api/uiModels.js"
+import { getAllUiModels, setAllUiModels, getAllErrors, setAllErrors } from "../../api/uiModels.js"
 
 function UiModeler() {
   const [currentUiModelElement, setCurrentUiModelElement] = useState("default");
@@ -95,7 +95,6 @@ function UiModeler() {
 
   const updateName = (type, applicationName, pageName) => {
     if (type == "model") {
-      console.log("model " + applicationName)
       setPopupType({type: "updateModelName", name: applicationName});
       setShowPopup(true);
       setCurrentApplication(applicationName);
@@ -274,7 +273,6 @@ function UiModeler() {
   }
 
   const setCurrentUiModel = (applicationName) => {
-    console.log("updated application " + applicationName)
     setCurrentApplication(applicationName)
   }
 
@@ -282,8 +280,58 @@ function UiModeler() {
     setCurrentPage(pageName)
   }
 
+  const findErrorElement = (modelList, error) => {
+    
+    for (const uiModel of modelList) {      
+      if (uiModel.application_name == error.model_name) {
+        for (const page of uiModel.pages) {         
+          if (page.page_name == error.page_name) {
+            for (const element of page.ui_elements) {
+              if (element.element_name == error.element_name) {
+                return element;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    // Return a default value if the element is not found
+    return null;
+  };
+  
+
   const saveCurrentUiModels = () => {
-    setAllUiModels(uiModelList)
+    let oldUiModelList;
+    getAllUiModels()
+      .then((res) => {
+        oldUiModelList = res.data;
+        getAllErrors()
+        .then((res) => {
+          setCurrentErrors(res.data)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+        // for each error check if a locator of the element was updated and if so delete it
+        const newErrorList = currentErrors.filter((error) => {
+          let oldElement = findErrorElement(oldUiModelList, error)
+          let newElement = findErrorElement(uiModelList, error)
+          if (JSON.stringify(oldElement) === JSON.stringify(newElement)) {
+            return true;
+          } else {
+            return false;
+          }
+        })
+        setAllErrors(newErrorList)
+        setAllUiModels(uiModelList)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    
+    
+
   }
 
   const updateUiModelElement = (uiModelListWithUpdatedElement) => {

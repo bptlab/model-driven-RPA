@@ -24,7 +24,6 @@ function RobotCockpit() {
       .catch((err) => {
         console.log(err)
       })
-      console.log("hallo??")
       getRobotsPath()
       .then((res) => {
         setCurrentPath(res.data.robotsPath)

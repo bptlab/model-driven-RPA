@@ -19,9 +19,19 @@ const getAllErrors = async () => {
   return response;
 };
 
+const setAllErrors = async (currentErrors) => {
+  const response = axios.post("http://localhost:8000/all-errors", JSON.stringify(currentErrors), {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+  return response;
+};
+
 
 export {
     getAllUiModels,
     setAllUiModels,
-    getAllErrors
+    getAllErrors,
+    setAllErrors
 };

@@ -7,7 +7,6 @@ const runRobot = async (robot) => {
           'Content-Type': 'application/json',
         },
       })
-      console.log('Gett Responsee Runn ===>>>', response)
     return response;
 };
 

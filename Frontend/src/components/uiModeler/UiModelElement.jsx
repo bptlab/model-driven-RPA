@@ -9,7 +9,6 @@ function UiModelElement({currentUiModelElement, uiModelList, currentApplication,
     const [currentAttribute, setCurrentAttribute] = useState("");
     const handleInputChange = (event) => {
         var { name, value } = event.target;
-        console.log(name + value)
         const newUiModelList = uiModelList.map((uiModel) => {
             if(uiModel.application_name == currentApplication) {
                 uiModel.pages.map((page) => {

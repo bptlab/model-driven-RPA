@@ -35,10 +35,7 @@ export const runRobot = (req, res) => {
     let robotLocation = JSON.parse(rawdata);
     let folderPath = robotLocation.robotsPath
 
-    const robotFilePath = `"${folderPath}/${robot.robotName}.robot"`;
-
-    console.log(robotFilePath)
-    
+    const robotFilePath = `"${folderPath}/${robot.robotName}.robot"`;    
     const command = `robot  ${robotFilePath}`;
 
     try {

@@ -4,7 +4,6 @@ let folderPath = '../Database/Error';
 
 export const getAllErrors = async (req, res) => {
     try {  
-        console.log("I am executing the error api function")
         let currentErrors;
         fs.readdirSync(folderPath).forEach((file) => {
             let filePath = path.join(folderPath, "/", file);
