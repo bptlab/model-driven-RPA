@@ -3,15 +3,14 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import RobotOverview from "./RobotOverview";
 import RobotStatus from "../errorOverview/ErrorOverview";
-import { runRobot, getAllRobots, setRobotsPath } from "../../api/robots";
+import { runRobot, getAllRobots, setRobotsPath, getRobotsPath } from "../../api/robots";
 
 
 function RobotCockpit() {
   const [robotList, setRobotList] = useState([]);
+  const [currentPath, setCurrentPath] = useState("C:/Users/exampleUser/OneDrive/XYZ/ProjectX/RobotsFolder");
 
   useEffect(() => {
-    // get robots api call
-    console.log("get robots useEffect")
     getAllRobots()
       .then((res) => {
         let robots = []
@@ -21,6 +20,14 @@ function RobotCockpit() {
           }
         )
         setRobotList(robots)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+      console.log("hallo??")
+      getRobotsPath()
+      .then((res) => {
+        setCurrentPath(res.data.robotsPath)
       })
       .catch((err) => {
         console.log(err)
@@ -37,7 +44,7 @@ function RobotCockpit() {
 
   return (
     <div className="coreWrapper">
-      <RobotOverview robotList={robotList} executeRobot={executeRobot} setPath={setPath} />
+      <RobotOverview currentPath={currentPath} robotList={robotList} executeRobot={executeRobot} setPath={setPath} />
     </div>
   )
 }

@@ -24,8 +24,15 @@ const setRobotsPath = async (path) => {
     })
   return response;
 };
+
+const getRobotsPath = async () => {
+  const response = axios.get("http://localhost:8000/robots-path")
+  return response;
+};
+
 export {
     runRobot,
     getAllRobots,
-    setRobotsPath
+    setRobotsPath,
+    getRobotsPath
 };
