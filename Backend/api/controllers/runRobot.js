@@ -1,7 +1,7 @@
 import { exec } from 'child_process';
 import path from 'path';
 import fs from 'fs';
-let folderPath = '../database/Error';
+let folderPath = '../database/error';
 
 /**
  * @swagger
