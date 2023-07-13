@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-let filePath = '../Database/Error/error.json';
+let filePath = '../database/error/error.json';
 
 export const setAllErrors = async (req, res) => {
     try {

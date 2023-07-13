@@ -1,7 +1,7 @@
 import { exec } from 'child_process';
 import path from 'path';
 import fs from 'fs';
-let folderPath = '../Database/Error';
+let folderPath = '../database/Error';
 
 /**
  * @swagger
@@ -31,7 +31,7 @@ let folderPath = '../Database/Error';
 // req.body looks like this: {"robotName": "exampleName"}
 export const runRobot = (req, res) => {
     const robot = req.body;
-    let rawdata = fs.readFileSync('../Database/Robot/robotLocation.json');
+    let rawdata = fs.readFileSync('../database/robot/robotLocation.json');
     let robotLocation = JSON.parse(rawdata);
     let folderPath = robotLocation.robotsPath
 

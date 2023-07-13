@@ -29,13 +29,13 @@ To build, test, and run your robot, we recommend using Visual Studio Code with t
 - In the backend folder run the command "npm i"
 - In the frontend folder run the command "npm i"
 
-Addition: If you want to try out our given example (payroll robot) please also navigate to the folder "Examples/payroll-system" and run the command "npm i"
+Addition: If you want to try out our given example (payroll robot) please also navigate to the folder "examples/payrollSystem" and run the command "npm i"
 
 ## Usage
 - To start the frontend navigate to the "Frontend" folder and execute the command "npm start"
 - To start the backend navigate to the "Backend" folder and execute the command "npm run start"
 
-Addition: If you want to try out our given example (payroll robot) please also navigate to the folder "Examples/payroll-system" and run the command "npm start"
+Addition: If you want to try out our given example (payroll robot) please also navigate to the folder "examples/payrollSystem" and run the command "npm start"
 
 ## Contributing
 

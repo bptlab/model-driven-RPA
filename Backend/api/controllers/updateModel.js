@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs'
-const folderPath = '../Database/UiModel';
+const folderPath = '../database/uiModel';
 
 /**
  * @swagger

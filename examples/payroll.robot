@@ -34,7 +34,7 @@ Run Payroll Robot
 Run Payroll
     Authorize    account=${USERNAME}    password=${PASSWORD}
     ${attachments}    Save Attachments    SUBJECT Payroll_${MONTH}
-    ...    target_folder=${CURDIR}${/}Payrolls    overwrite=${True}
+    ...    target_folder=${CURDIR}${/}payrolls    overwrite=${True}
     Load JSON Data
     Iterate through all files
 
@@ -46,7 +46,7 @@ Load JSON Data
 
 Iterate through all files
     Open Available Browser    http://localhost:3001/
-    ${files}    List files in directory    ${CURDIR}${/}Payrolls
+    ${files}    List files in directory    ${CURDIR}${/}payrolls
     FOR    ${file}    IN    @{files}
         RPA.Excel.Application.Open Workbook    ${file}
         ${FIRSTNAME}    Read From Cells    row=3    column=5

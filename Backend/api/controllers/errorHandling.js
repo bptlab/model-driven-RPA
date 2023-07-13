@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs'
-let folderPath = '../Database/Error';
+let folderPath = '../database/error';
 
 
 const POSSIBLE_REASONS = [
