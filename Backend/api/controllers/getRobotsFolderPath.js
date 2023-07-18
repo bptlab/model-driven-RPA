@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs'
-let robotsPath = '../Database/Robot/robotLocation.json'
+let robotsPath = '../database/robot/robotLocation.json'
 
 export const getRobotsFolderPath = (req, res) => {
     try {  

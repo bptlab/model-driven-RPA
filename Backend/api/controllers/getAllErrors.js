@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-let folderPath = '../Database/Error';
+let folderPath = '../database/error';
 
 export const getAllErrors = async (req, res) => {
     try {  

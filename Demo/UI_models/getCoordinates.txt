@@ -1,3 +1,0 @@
-"("+x+", "+y+")"
-
-var x, y; document.onmousemove=(e)=>{x=e.pageX;y=e.pageY;}

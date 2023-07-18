@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-let folderPath = '../Database/UiModel';
+let folderPath = '../database/uiModel';
 
 /**
  * @swagger

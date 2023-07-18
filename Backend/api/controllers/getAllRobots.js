@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-let robotsPath = '../Database/Robot/robotLocation.json'
+let robotsPath = '../database/robot/robotLocation.json'
 
 
 /**
@@ -28,7 +28,7 @@ let robotsPath = '../Database/Robot/robotLocation.json'
 
 export const getAllRobots = async (req, res) => {    
     try {
-        let rawdata = fs.readFileSync('../Database/Robot/robotLocation.json');
+        let rawdata = fs.readFileSync('../database/robot/robotLocation.json');
         let robotLocation = JSON.parse(rawdata);
         let folderPath = robotLocation.robotsPath
         let robots = [];
