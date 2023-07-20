@@ -13,7 +13,7 @@ function UiModeler() {
   const [currentPage, setCurrentPage] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [popupType, setPopupType] = useState();
-  const [currentErrors, setCurrentErrors] = useState();
+  const [currentErrors, setCurrentErrors] = useState([]);
   const [inputValues, setInputValues] = useState({
     applicationId: "",
     applicationName: "",
