@@ -24,6 +24,7 @@ To build, test, and run your robot, we recommend using Visual Studio Code with t
 - RPA Framework: make sure you have [rpa framework](https://rpaframework.org/#installation) installed
 - [MdRPA Library](https://github.com/bptlab/MdRPA_Library): in order to execute robot framework bots using the UI Models please execute the following command in you cmd "pip install mdrpaLibrary" 
  
+**_NOTE:_** To ensure the best experience we recommend using Firefox as your browser while testing or working with this project.
 
 #### Installation Steps
 - In the backend folder run the command "npm i"
@@ -49,3 +50,4 @@ Just follow the following recommended process:
 - Create new Pull Request
 
 ## License
+Licensed under the [MIT license](https://github.com/bptlab/model-driven-RPA/blob/main/LICENSE).
