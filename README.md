@@ -1,7 +1,6 @@
 # MdRPA
 
 Introduce a UI model as an abstraction layer between the UI and the RPA bots.
-For detailed documentation, please refer to [Wiki]().
 
 ## Installation
 
